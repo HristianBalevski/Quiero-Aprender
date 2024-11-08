@@ -1,8 +1,16 @@
 from django.shortcuts import render
 
 
-def index(request):
-    return render(request, 'home.html')
+def home(request):
+    return render(request, 'common/home.html')
+
+
+def about(request):
+    return render(request, 'common/about.html')
+
+
+def university(request):
+    return render(request, 'common/university.html')
 
 
 def country_details(request, country_name):
@@ -118,7 +126,7 @@ def country_details(request, country_name):
         "spain": {
             "name": "Spain",
             "description": "Spain, located on the Iberian Peninsula in southwestern Europe, is known for its rich history, diverse landscapes, and vibrant culture. It shares borders with Portugal, France, and Andorra, and is bordered by both the Atlantic Ocean and the Mediterranean Sea. Spain is a mix of bustling cities, historic villages, Mediterranean beaches, and mountain ranges, with regions that offer unique cultural identities and traditions. Madrid, the capital, is a lively city with world-famous art museums, like the Prado and the Reina Sofia, as well as grand architecture and vibrant plazas. Barcelona, in Catalonia, is equally famous, known for its unique blend of modernist architecture, including Antoni Gaudí’s Sagrada Familia, and its bustling beach culture. Other notable cities include Seville, known for flamenco and Moorish influences; Granada, with the Alhambra palace; and Valencia, home to futuristic architecture and the famous paella dish. Spain's cultural landscape reflects a blend of Roman, Moorish, and European influences. Each region has its own traditions, languages (such as Catalan, Basque, and Galician), and cuisine. Spanish food is globally celebrated, with dishes like tapas, gazpacho, jamón ibérico, and tortilla española. Spain is also known for its wines, particularly from regions like Rioja and Ribera del Duero, and for sangria, a popular summer drink. Festivals play a major role in Spanish life, with events like La Tomatina (a massive tomato fight), the Running of the Bulls in Pamplona, and Semana Santa (Holy Week) processions attracting visitors from around the world. Flamenco, a traditional art form involving dance, guitar, and passionate singing, is a celebrated part of Spanish culture, especially in the Andalusian region. With its warm climate, rich history, diverse traditions, and stunning landscapes, Spain offers a unique blend of modern and historic experiences, making it a top destination for travelers seeking art, adventure, relaxation, and a taste of Mediterranean life.",
-            "image":  "images/countries/Spain.jpg",
+            "image": "images/countries/Spain.jpg",
         },
 
         "uruguay": {
@@ -139,4 +147,4 @@ def country_details(request, country_name):
     if not country_data:
         return render(request, '404.html')
 
-    return render(request, 'country_detail.html', {"country": country_data})
+    return render(request, 'common/country_detail.html', {"country": country_data})

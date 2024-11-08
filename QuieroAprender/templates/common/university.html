@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container">
+    <h1>Our History</h1>
+    <div class="history-section">
+      <div class="history-image">
+        <img src="{% static 'images/gallery/Founders.jpg' %}" alt="Founders Javier and Esmeralda Gonzalez">
+      </div>
+      <div class="history-text">
+        <p>Our university was founded by Javier and Esmeralda Gonzalez, two visionary educators who shared a passion for language and culture. Driven by a commitment to accessible education, they envisioned a place where students from all backgrounds could come together to learn and grow. In 2020, they established the university with a focus on innovative teaching methods, language immersion, and a supportive learning environment.</p>
+        <p>Since then, our university has grown into a vibrant community, inspiring students to reach their fullest potential and fostering a deep appreciation for Spanish language and culture. Today, we continue their mission of making high-quality education accessible to all, honoring Javier and Esmeralda's legacy with every new learner who joins us.</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

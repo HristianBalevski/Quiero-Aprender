@@ -1,6 +1,6 @@
 .countries {
     background-color: #f9f9f9;
-    padding: 20px;
+    padding-left: 50px;
     margin: 0 auto;
     max-width: 1200px;
     border-radius: 8px;
@@ -14,12 +14,14 @@
     list-style-position: outside;
     padding: 0;
     margin: 0;
+
 }
 
 .countries ol li {
     flex: 0 0 calc(25% - 20px);
     margin: 10px;
     padding: 10px;
+    font-size: 1.1em;
     box-sizing: border-box;
     transition: transform 0.2s;
 }
@@ -31,7 +33,7 @@
 .countries ol li a {
     color: black;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.1em;
     display: block;
     padding: 5px;
 }

@@ -19,10 +19,10 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <ul class="nav-list">
-                    <li><a href="home"><i class="fa fa-home"></i>Home</a></li>
-                    <li><a href="about-us"><i class="fa fa-info-circle"></i>About Us</a></li>
+                    <li><a href="{% url 'home' %}"><i class="fa fa-home"></i>Home</a></li>
+                    <li><a href="{% url 'about' %}"><i class="fa fa-info-circle"></i>About Us</a></li>
                     <li><a href="education"><i class="fa fa-graduation-cap"></i>Education</a></li>
-                    <li class="university"><a href="school"><i class="fa fa-university"></i>University</a></li>
+                    <li class="university"><a href="{% url 'university' %}"><i class="fa fa-university"></i>University</a></li>
                     <li class="contact-info mail"><a href="contact"><i class="fa fa-envelope"></i>info@escuela.es</a></li>
                     <li><a href="profile"><i class="fa fa-user"></i>Profile</a></li>
                 </ul>
