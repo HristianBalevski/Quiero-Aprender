@@ -134,6 +134,19 @@
     .countries ol li a {
         font-size: 1em;
     }
+
+    .country-template p {
+        font-size: 0.9em;
+        padding: 0 40px;
+    }
+
+    .country-template h1 {
+        font-size: 1.8em;
+    }
+
+    .country-template img {
+        width: 90%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -143,6 +156,19 @@
     }
     .countries ol li a {
         font-size: 1em;
+    }
+
+    .country-template p {
+        font-size: 0.7em;
+
+    }
+
+    .country-template h1 {
+        font-size: 1.4em;
+    }
+
+    .country-template img {
+        width: 80%;
     }
 }
 

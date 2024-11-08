@@ -51,34 +51,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.country-template h1 {
-    color: #333;
-    margin-bottom: 30px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.country-template img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.country-template p {
-    line-height: 1.5;
-    color: #555;
-    text-align: justify;
-    margin: 15px 5px;
-    font-size: 1em;
-}
-
-
 .country-template {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -90,7 +65,7 @@
     margin: 0 0 25px 0;
     text-align: center;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 2em;
     padding: 10px;
     border-bottom: 2px solid #ddd;
 }
@@ -106,11 +81,11 @@
 }
 
 .country-template p {
-    line-height: 1.6;
+    line-height: 1.5;
     color: #444;
     text-align: justify;
     margin: 20px 0;
-    font-size: 1rem;
+    font-size: 1.0em;
     padding: 0 15px;
 }
 
