@@ -1,6 +1,6 @@
 .site-footer {
-    background-color: var(--primary-color);
-    color: var(--text-light);
+    background-color: var(--background-color);
+    color: var(--text-dark);
     padding: var(--spacing-lg);
     margin-top: auto;
 }
@@ -14,7 +14,7 @@
 }
 
 .social-icons a {
-    color: var(--text-light);
+    color: var(--text-dark);
     font-size: 1.5rem;
     margin: 0 var(--spacing-sm);
     transition: opacity 0.3s ease;
@@ -22,4 +22,9 @@
 
 .social-icons a:hover {
     opacity: 0.8;
+}
+
+.rights {
+    text-align: center;
+    margin-top: 10px;
 }

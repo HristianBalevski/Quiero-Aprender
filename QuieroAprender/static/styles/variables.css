@@ -1,5 +1,7 @@
 :root {
     --primary-color: #B71C1C;
+    --background-color: #f5f5f5;
+    --text-dark: #4a5568;
     --text-light: #ffffff;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;

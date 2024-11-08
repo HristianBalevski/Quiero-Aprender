@@ -2,10 +2,12 @@
     position: sticky;
     top: 0;
     z-index: 1000;
+
 }
 
 .main-nav {
     background-color: var(--primary-color);
+
 }
 
 .nav-list {
