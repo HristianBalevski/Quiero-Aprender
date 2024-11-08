@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<img src="{% static 'images/Cover Photo.jpg' %}" alt="">
+    <h1>SPANISH IS THE OFFICIAL LANGUAGE IN 21 COUNTRIES AROUND THE WORLD</h1>
+   <article class="countries">
+    
+    <br>
+    <ol>
+        <li><a href={% url 'country_details' country_name='argentina' %}>Argentina</a></li>
+        <li><a href={% url 'country_details' country_name='bolivia' %}>Bolivia</a></li>
+        <li><a href={% url 'country_details' country_name='chile' %}>Chile</a></li>
+        <li><a href={% url 'country_details' country_name='colombia' %}>Colombia</a></li>
+        <li><a href={% url 'country_details' country_name='costa-rica' %}>Costa Rica</a></li>
+        <li><a href={% url 'country_details' country_name='cuba' %}>Cuba</a></li>
+        <li><a href={% url 'country_details' country_name='dominican-republic' %}>Dominican Republic</a></li>
+        <li><a href={% url 'country_details' country_name='ecuador' %}>Ecuador</a></li>
+        <li><a href={% url 'country_details' country_name='el-salvador' %}>El Salvador</a></li>
+        <li><a href={% url 'country_details' country_name='equatorial-guinea' %}>Equatorial Guinea</a></li>
+        <li><a href={% url 'country_details' country_name='guatemala' %}>Guatemala</a></li>
+        <li><a href={% url 'country_details' country_name='honduras' %}>Honduras</a></li>
+        <li><a href={% url 'country_details' country_name='mexico' %}>Mexico</a></li>
+        <li><a href={% url 'country_details' country_name='nicaragua' %}>Nicaragua</a></li>
+        <li><a href={% url 'country_details' country_name='panama' %}>Panama</a></li>
+        <li><a href={% url 'country_details' country_name='paraguay' %}>Paraguay</a></li>
+        <li><a href={% url 'country_details' country_name='peru' %}>Peru</a></li>
+        <li><a href={% url 'country_details' country_name='puerto rico' %}>Puerto Rico</a></li>
+        <li><a href={% url 'country_details' country_name='spain' %}>Spain</a></li>
+        <li><a href={% url 'country_details' country_name='uruguay' %}>Uruguay</a></li>
+        <li><a href={% url 'country_details' country_name='venezuela' %}>Venezuela</a></li>
+    </ol>
+</article>
+<h1>WHAT OUR STUDENTS SAY</h1>
+<section class="testimonials">
+    <div class="testimonial">
+        <img src="{% static 'images/testimonial/Maria.png' %}" alt="Maria Ivanova" class="testimonial-image">
+        <p class="testimonial-text">"The Spanish lessons are amazing! They’re easy to follow, and the teachers are very motivating."</p>
+        <p class="testimonial-author">- Maria Ivanova</p>
+    </div>
+    <div class="testimonial">
+        <img src="{% static 'images/testimonial/Peter.png' %}" alt="Peter Petrov" class="testimonial-image">
+        <p class="testimonial-text">"Thanks to these lessons, I can now speak Spanish fluently. I recommend it to everyone!"</p>
+        <p class="testimonial-author">- Peter Petrov</p>
+    </div>
+    <div class="testimonial">
+        <img src="{% static 'images/testimonial/Alexandra.png' %}" alt="Alexandra Georgieva" class="testimonial-image">
+        <p class="testimonial-text">"The learning materials are excellent, and the instructors explain everything clearly and accessibly."</p>
+        <p class="testimonial-author">- Alexandra Georgieva</p>
+    </div>
+</section>
+
+
+
+{% endblock %}

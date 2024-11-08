@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanish For Beginners</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="navigation-container">
+            <nav class="main-nav">
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="home"><i class="fa fa-home"></i>Home</a></li>
+                    <li><a href="about-us"><i class="fa fa-info-circle"></i>About Us</a></li>
+                    <li><a href="education"><i class="fa fa-graduation-cap"></i>Education</a></li>
+                    <li class="university"><a href="school"><i class="fa fa-university"></i>University</a></li>
+                    <li class="contact-info mail"><a href="contact"><i class="fa fa-envelope"></i>info@escuela.es</a></li>
+                    <li><a href="profile"><i class="fa fa-user"></i>Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="unit-links">
+            <nav class="units-nav">
+                <h2 class="units-title">Course Units</h2>
+                <ul class="units-list">
+                    <li><a href="#1">Unit 1</a></li>
+                    <li><a href="#2">Unit 2</a></li>
+                    <li><a href="#3">Unit 3</a></li>
+                    <li><a href="#4">Unit 4</a></li>
+                    <li><a href="#5">Unit 5</a></li>
+                    <li><a href="#6">Unit 6</a></li>
+                    <li><a href="#7">Unit 7</a></li>
+                    <li><a href="#8">Unit 8</a></li>
+                    <li><a href="#9">Unit 9</a></li>
+                    <li><a href="#10">Unit 10</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="social-container">
+            <h3 class="find-us">FOLLOW US:</h3>
+            <div class="social-icons">
+                <a href="fb" aria-label="Facebook"><i class="fa fa-facebook"></i></a> 
+                <a href="ig" aria-label="Instagram"><i class="fa fa-instagram"></i></a> 
+                <a href="tw" aria-label="Twitter"><i class="fa fa-twitter"></i></a> 
+                <a href="in" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                <a href="yt" aria-label="YouTube"><i class="fa fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-list').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
