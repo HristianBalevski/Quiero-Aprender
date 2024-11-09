@@ -65,6 +65,27 @@
 }
 
 
+
+/*Logo*/
+
+@media (max-width: 768px) {
+.logo img {
+    width: 80px;
+    height: 80px;
+
+   }
+}
+
+
+@media (max-width: 480px) {
+.logo img {
+    width: 50px;
+    height: 50px;
+
+   }
+}
+
+
 /*Gallery Section*/
 
 @media (max-width: 768px) {

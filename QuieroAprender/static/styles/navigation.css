@@ -49,3 +49,14 @@
     padding: var(--spacing-md);
     cursor: pointer;
 }
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img {
+    width: 100px;
+    height: 100px;
+
+}
