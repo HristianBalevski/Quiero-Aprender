@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found! - 404</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #FF0000 0%, #FFFF00 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .spanish-word {
+            font-size: 2.5rem;
+            color: #FFFF00;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .lesson {
+            background: rgba(255, 255, 0, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .home-button {
+            background: #FFFF00;
+            color: #FF0000;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        .home-button:hover {
+            transform: scale(1.05);
+        }
+
+        .spanish-flag {
+            display: flex;
+            margin: 2rem 0;
+        }
+
+        .flag-stripe {
+            width: 100px;
+            height: 20px;
+        }
+
+        .red {
+            background: #FF0000;
+        }
+
+        .yellow {
+            background: #FFFF00;
+            height: 40px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .error-number {
+            animation: bounce 2s infinite;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="spanish-flag">
+            <div class="flag-stripe red"></div>
+            <div class="flag-stripe yellow"></div>
+            <div class="flag-stripe red"></div>
+        </div>
+        
+        <h1><span class="error-number">4</span><span class="error-number" style="animation-delay: 0.2s">0</span><span class="error-number" style="animation-delay: 0.4s">4</span></h1>
+        
+        <div class="spanish-word">¡Ay, caramba!</div>
+        
+        <div class="lesson">
+            <p>While you're here, learn something new in Spanish:</p>
+            <p><strong>perdido/a</strong> = lost</p>
+            <p><strong>No te preocupes</strong> = Don't worry</p>
+        </div>
+
+        <p>Looks like this page is lost, but you're not!</p>
+        <p>The page you're looking for doesn't exist, but you can keep learning Spanish.</p>
+        <br>
+        <a href="{% url 'home' %}" class="home-button">Back to Homepage!</a>
+    </div>
+</body>
+</html>
