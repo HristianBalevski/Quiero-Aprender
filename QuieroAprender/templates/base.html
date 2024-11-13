@@ -5,10 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spanish For Beginners</title>
+    <title>{% block title %}{% endblock %} | Quiero Aprender</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-
+    <link rel="icon" href="{% static 'images/logo-favicon/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
 </head>
 <body>
@@ -24,11 +24,13 @@
                     <li><a href="education"><i class="fa fa-graduation-cap"></i>Education</a></li>
                     <li class="university"><a href="{% url 'university' %}"><i class="fa fa-university"></i>University</a></li>
                     <li class="contact-info mail"><a href="contact"><i class="fa fa-envelope"></i>info@escuela.es</a></li>
-                    <li><a href="profile"><i class="fa fa-user"></i>Profile</a></li>
+{#                    <li><a href="profile"><i class="fa fa-user"></i>Profile</a></li>#}
+                    <li><a href="sign-up"><i class="fa fa-user-plus"></i> Sign Up</a></li>
+                    <li><a href="log-in"><i class="fa fa-sign-in"></i> Log In</a></li>
                 </ul>
             </nav>
             <a class="logo" href="{% url 'home' %}">
-                <img src="{% static 'images/Logo.png' %}" alt="Logo">
+                <img src="{% static 'images/logo-favicon/Logo.png' %}" alt="Logo">
             </a>
         </div>
     </header>

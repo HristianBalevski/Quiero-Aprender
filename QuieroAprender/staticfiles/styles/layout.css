@@ -1,0 +1,11 @@
+img {
+    margin-top: 2em;
+    width: 100%;
+    height: auto;
+}
+
+.divider {
+  height: 2px;
+  background-color: #ccc;
+  margin: 40px 0;
+}
