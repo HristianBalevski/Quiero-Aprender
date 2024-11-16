@@ -5,11 +5,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %} | Quiero Aprender</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="icon" href="{% static 'images/logo-favicon/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+    
+    <title>{% block title %}{% endblock %} | Quiero Aprender</title>
 </head>
 <body>
     <header>
@@ -19,20 +24,41 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <ul class="nav-list">
-                    <li><a href="{% url 'home' %}"><i class="fa fa-home"></i>Home</a></li>
-                    <li><a href="{% url 'about' %}"><i class="fa fa-info-circle"></i>About Us</a></li>
-                    <li><a href="education"><i class="fa fa-graduation-cap"></i>Education</a></li>
-                    <li class="university"><a href="{% url 'university' %}"><i class="fa fa-university"></i>University</a></li>
-                    <li class="contact-info mail"><a href="contact"><i class="fa fa-envelope"></i>info@escuela.es</a></li>
-{#                    <li><a href="profile"><i class="fa fa-user"></i>Profile</a></li>#}
-                    <li><a href="sign-up"><i class="fa fa-user-plus"></i> Sign Up</a></li>
-                    <li><a href="log-in"><i class="fa fa-sign-in"></i> Log In</a></li>
+                    {% if user.is_authenticated %}
+
+                        <li><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="{% url 'about' %}"><i class="fa fa-info-circle"></i> About Us</a></li>
+                        <li><a href="#"><i class="fa fa-graduation-cap"></i> Education</a></li>
+                        <li><a href="{% url 'university' %}"><i class="fa fa-university"></i> University</a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i> info@escuela.es</a></li>
+                        <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
+                        <li>
+                            <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" style="all: unset; cursor: pointer; color: white; font: inherit; transition: opacity 0.3s ease; opacity: 1;"
+                                    onmouseover="this.style.opacity=0.8;" 
+                                    onmouseout="this.style.opacity=1;">
+                                    <i class="fa fa-sign-out"></i> Logout
+                                </button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li><a href="{% url 'about' %}"><i class="fa fa-info-circle"></i> About Us</a></li>
+                        <li><a href="#"><i class="fa fa-graduation-cap"></i> Education</a></li>
+                        <li><a href="{% url 'university' %}"><i class="fa fa-university"></i> University</a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i> info@escuela.es</a></li>
+                        <li><a href="{% url 'register' %}"><i class="fa fa-user-plus"></i> Sign Up</a></li>
+                        <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log In</a></li>
+                    {% endif %}
+                
                 </ul>
             </nav>
+        
             <a class="logo" href="{% url 'home' %}">
                 <img src="{% static 'images/logo-favicon/Logo.png' %}" alt="Logo">
             </a>
         </div>
+    
     </header>
 
     <main>
