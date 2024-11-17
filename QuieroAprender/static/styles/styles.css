@@ -1,27 +1,27 @@
-
-
-@import url('variables.css');
-
 @import url('reset.css');
 
-@import url('typography.css');
+@import url('common/variables.css');
 
-@import url('layout.css');
+@import url('common/typography.css');
 
-@import url('navigation.css');
+@import url('common/layout.css');
 
-@import url('units.css');
+@import url('common/navigation.css');
 
-@import url('countries.css');
+@import url('common/units.css');
 
-@import url('testimonial.css');
+@import url('sections/countries.css');
 
-@import url('partners.css');
+@import url('sections/testimonial.css');
 
-@import url('about.css');
+@import url('sections/partners.css');
 
-@import url('university.css');
+@import url('sections/about-us.css');
 
-@import url('footer.css');
+@import url('sections/university.css');
+
+@import url('sections/photo-gallery.css');
+
+@import url('sections/footer.css');
 
 @import url('responsive.css');

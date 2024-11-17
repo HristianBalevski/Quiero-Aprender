@@ -1,0 +1,22 @@
+.photo-gallery {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px;
+}
+
+.photo-section {
+  flex: 1;
+  text-align: center;
+  margin: 20px 20px;
+}
+
+.photo-section p {
+    text-align: justify;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}

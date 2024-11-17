@@ -8,6 +8,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Quiero Aprender - Your platform for quality education.">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
@@ -24,16 +25,18 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <ul class="nav-list">
+
+                    <li><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="{% url 'about' %}"><i class="fa fa-info-circle"></i> About Us</a></li>
+                    <li><a href="#"><i class="fa fa-graduation-cap"></i> Education</a></li>
+                    <li><a href="{% url 'university' %}"><i class="fa fa-university"></i> University</a></li>
+                    <li><a href="#"><i class="fa fa-envelope"></i> info@escuela.es</a></li>
+
                     {% if user.is_authenticated %}
 
-                        <li><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
-                        <li><a href="{% url 'about' %}"><i class="fa fa-info-circle"></i> About Us</a></li>
-                        <li><a href="#"><i class="fa fa-graduation-cap"></i> Education</a></li>
-                        <li><a href="{% url 'university' %}"><i class="fa fa-university"></i> University</a></li>
-                        <li><a href="#"><i class="fa fa-envelope"></i> info@escuela.es</a></li>
                         <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
                         <li>
-                            <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                            <form method="post" action="{% url 'logout' %}">
                                 {% csrf_token %}
                                 <button type="submit" style="all: unset; cursor: pointer; color: white; font: inherit; transition: opacity 0.3s ease; opacity: 1;"
                                     onmouseover="this.style.opacity=0.8;" 
@@ -43,10 +46,6 @@
                             </form>
                         </li>
                     {% else %}
-                        <li><a href="{% url 'about' %}"><i class="fa fa-info-circle"></i> About Us</a></li>
-                        <li><a href="#"><i class="fa fa-graduation-cap"></i> Education</a></li>
-                        <li><a href="{% url 'university' %}"><i class="fa fa-university"></i> University</a></li>
-                        <li><a href="#"><i class="fa fa-envelope"></i> info@escuela.es</a></li>
                         <li><a href="{% url 'register' %}"><i class="fa fa-user-plus"></i> Sign Up</a></li>
                         <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log In</a></li>
                     {% endif %}
@@ -70,11 +69,11 @@
         <div class="social-container">
             <h3 class="find-us">FOLLOW US:</h3>
             <div class="social-icons">
-                <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
-                <a href="https://x.com/" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-                <a href="https://www.youtube.com/" aria-label="YouTube"><i class="fa fa-youtube"></i></a>
+                <a href="https://www.facebook.com/" aria-label="Facebook" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/" aria-label="Instagram" title="Instagram"><i class="fa fa-instagram"></i></a>
+                <a href="https://x.com/" aria-label="Twitter" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/" aria-label="LinkedIn" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/" aria-label="YouTube" title="YouTube"><i class="fa fa-youtube"></i></a>
             </div>
         </div>
         <div class="divider"></div>

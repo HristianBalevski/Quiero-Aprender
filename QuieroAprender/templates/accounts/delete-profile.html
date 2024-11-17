@@ -27,8 +27,9 @@
 </div>
 
     <style>
+    
     .page-container {
-        min-height: 100vh;
+        min-height: 70vh;
     }
 
     .form-container {
@@ -63,12 +64,12 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         background-color: #f9f9f9;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+    }
 
-.personal-info li:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
+    .personal-info li:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
 
     .buttons {
         margin-top: 50px;
@@ -76,40 +77,35 @@
         justify-content: space-around;
     }
 
+    .confirm-delete,
     .cancel {
-        background-color: #fdd561;
-        width: 150px;
-        border-radius: 1em;
-        padding: 10px;
-    }
-
-    .cancel a {
-        color: white;
+        display: inline-block;
+        width: 200px;
+        font-size: 24px;
+        color: #fff;
+        text-align: center;
         text-decoration: none;
+        border: none;
+        border-radius: 1em;
         cursor: pointer;
-        transition: opacity 0.3s ease;
-        padding-top: 10px;
-    }
-
-    .cancel a:hover {
-        opacity: 0.9;
-        color: #333333;
     }
 
     .confirm-delete {
         background-color: var(--primary-color);
-        color: white;
-        width: 150px;
-        border-radius: 1em;
-        padding: 15px;
-        font-size: 18px;
-        cursor: pointer;
-        transition: opacity 0.3s ease;
+        padding: 14px 40px;
     }
 
-    .confirm-delete:hover {
-        opacity: 0.9;
-        color: #333333;
+    .cancel {
+        background-color: #f9c639;
+        padding: 10px 40px;
     }
+
+    .cancel a {
+        text-decoration: none;
+        color: white;
+    }
+
+
 </style>
+
 {% endblock %}
