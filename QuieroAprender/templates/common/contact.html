@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+
+{% block content %}
+<h1>Contact Us</h1>
+<div class="page-container">
+    <div class="form-container">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit-button">Send</button>
+        </form>
+        {% for message in messages %}
+            <p class="form-message">{{ message }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    
+    .page-container {
+        min-height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff; 
+        padding: 20px;
+    }
+
+    
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 500px;
+        width: 100%;
+        padding: 30px;
+        background-color: #f7f7f7;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    h1 {
+        font-size: 2rem;
+        color: black;
+        margin: 0 auto;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        width: 500px;
+    }
+    
+    .submit-button {
+        background-color: var(--primary-color);
+        width: 100%;
+        max-width: 300px;
+        padding: 12px 20px;
+        font-size: 18px;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .submit-button:hover {
+        background-color: #f9c639;
+        transform: translateY(-2px);
+    }
+    
+    .form-container input, .form-container textarea, .form-container select {
+        width: 100%;
+        padding: 12px 15px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container input:focus, .form-container textarea:focus, .form-container select:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+    
+    .form-message {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #007bff;
+        background-color: rgba(0, 123, 255, 0.1);
+        border-radius: 8px;
+        color: #333;
+        font-size: 14px;
+    }
+</style>
+
+
+{% endblock %}

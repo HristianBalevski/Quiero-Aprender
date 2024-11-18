@@ -1,5 +1,7 @@
 from django.shortcuts import render
-
+from django.core.mail import send_mail
+from django.contrib import messages
+from .forms import ContactForm
 
 def home(request):
     return render(request, 'common/home.html')
@@ -11,6 +13,34 @@ def about(request):
 
 def university(request):
     return render(request, 'common/university.html')
+
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+
+            full_message = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+
+            try:
+                send_mail(
+                    subject='Contact Form - Quiero Aprender',
+                    message=full_message,
+                    from_email=email,
+                    recipient_list=['hb.hris.bal@gmail.com'],
+                )
+                messages.success(request, 'Your message was sent successfully!')
+            except Exception as e:
+                messages.error(request, f'There was a problem sending the message. Try again. {e}')
+
+            return render(request, 'common/contact.html', {'form': ContactForm()})
+    else:
+        form = ContactForm()
+
+    return render(request, 'common/contact.html', {'form': form})
 
 
 def country_details(request, country_name):

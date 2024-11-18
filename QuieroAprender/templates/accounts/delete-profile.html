@@ -36,7 +36,7 @@
         max-width: 500px;
         margin: 40px auto 40px;
         padding: 30px;
-        background-color: #f5f5f5;
+        background-color: var(--background-color);
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         text-align: center;
@@ -47,10 +47,10 @@
         color: black;
         margin: 0 auto;
         padding: 15px;
-        border: 1px solid #ddd;
+        border: 1px solid var(--border-color);
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        background-color: #f9f9f9;
+        background-color: var(--background-color);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
         width: 500px;
     }
@@ -59,10 +59,10 @@
         list-style: none;
         margin: 20px 0;
         padding: 10px;
-        border: 1px solid #ddd;
+        border: 1px solid var(--border-color);
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        background-color: #f9f9f9;
+        background-color: var(--background-color);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -82,7 +82,7 @@
         display: inline-block;
         width: 200px;
         font-size: 24px;
-        color: #fff;
+        color: var(--text-light);
         text-align: center;
         text-decoration: none;
         border: none;
@@ -96,16 +96,14 @@
     }
 
     .cancel {
-        background-color: #f9c639;
+        background-color: var(--secondary-color);
         padding: 10px 40px;
     }
 
     .cancel a {
         text-decoration: none;
-        color: white;
+        color: var(--text-light);
     }
-
-
 </style>
 
 {% endblock %}
