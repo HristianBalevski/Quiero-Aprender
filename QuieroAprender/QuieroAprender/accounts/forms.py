@@ -35,8 +35,9 @@ class CustomUserUpdateForm(forms.ModelForm):
                 'placeholder': 'Update Email Address',
             }),
             'bio': forms.Textarea(attrs={
-                'rows': 3,
+                'rows': 5,
                 'placeholder': 'Update Biography',
+                'class': 'bio-textarea',
             }),
             'birth_date': forms.DateInput(attrs={
                 'type': 'date',

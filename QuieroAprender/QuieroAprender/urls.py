@@ -7,6 +7,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('QuieroAprender.common.urls')),
     path('accounts/', include('QuieroAprender.accounts.urls')),
+    path('lessons/', include('QuieroAprender.lessons.urls')),
+
 ]
 
 if settings.DEBUG:

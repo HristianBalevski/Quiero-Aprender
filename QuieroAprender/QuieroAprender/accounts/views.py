@@ -64,8 +64,7 @@ class UserDeleteView(LoginRequiredMixin, DeleteView):
 
 @login_required
 def profile_view(request):
-    print(request.user.username)
-    return render(request, 'accounts/user_profile.html', {'user': request.user})
+    return render(request, 'accounts/user-profile.html', {'user': request.user})
 
 
 

@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 from decouple import config
-
+from dotenv import load_dotenv
 
 
 
@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
     "QuieroAprender.common",
     'QuieroAprender.accounts',
+    'QuieroAprender.lessons'
 ]
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
@@ -144,5 +145,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
 
 
