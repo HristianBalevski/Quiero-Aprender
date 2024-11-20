@@ -11,15 +11,15 @@
         <div class="form-container">
 
             <form method="get">
-                <label for="text">Enter text to translate:</label><br>
-                <textarea id="text" name="text" rows="4" cols="50" placeholder="Type something here...">{{ text }}</textarea><br>
+                <label for="text"></label><br>
+                <textarea id="text" name="text" rows="4" cols="50" placeholder="Enter text to translate">{{ text }}</textarea><br>
                 <button type="submit" class="translate">Translate</button>
             </form>
 
 
             {% if translation %}
                 <h4>Translation:</h4>
-                <div class="translated">
+                <div class="translated-context">
                     <p>{{ translation }}</p>
                 </div>
             {% endif %}
@@ -83,7 +83,7 @@
         width: 500px;
     }
 
-    .translated {
+    .translated-context {
         width: 100%;
         max-width: 300px;
         padding: 12px 20px;
@@ -95,7 +95,7 @@
     }
 
     .translate {
-        background-color: var(--secondary-color);
+        background-color: var(--primary-color);
         width: 100%;
         max-width: 300px;
         padding: 12px 20px;
@@ -122,5 +122,6 @@
         font-size: 16px;
         box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+
     </style>
 {% endblock %}

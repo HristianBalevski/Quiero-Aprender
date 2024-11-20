@@ -1,9 +1,11 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser
+from .validators import validate_image_size
+
 
 class CustomUserCreationForm(UserCreationForm):
-    profile_photo = forms.ImageField(required=False)
+    profile_photo = forms.ImageField(required=False, validators=[validate_image_size])
     bio = forms.CharField(required=False)
     birth_date = forms.DateField(required=False)
 
@@ -43,12 +45,23 @@ class CustomUserUpdateForm(forms.ModelForm):
                 'type': 'date',
                 'placeholder': 'Update Birth Date',
             }),
-            'profile_photo': forms.ClearableFileInput(attrs={
-            }),
+            'profile_photo': forms.ClearableFileInput(attrs={}),
         }
+
+    def clean_profile_photo(self):
+        profile_photo = self.cleaned_data.get('profile_photo')
+
+        if profile_photo:
+            validate_image_size(profile_photo)
+        return profile_photo
 
 
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = ('profile_photo', 'username', 'first_name', 'last_name', 'bio')
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': 'Username'}), required=True)
+    password = forms.CharField(widget=forms.PasswordInput, required=True)

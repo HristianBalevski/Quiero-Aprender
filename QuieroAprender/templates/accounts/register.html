@@ -4,15 +4,36 @@
 
   <div class="page-container">
       <div class="form-container">
-        <h2>Registration</h2>
+        <h2>REGISTRATION</h2>
         <form method="post" enctype="multipart/form-data" class="register-form">
           {% csrf_token %}
+        
           {{ form.username }}
+            {% if form.username.errors %}
+                <div class="error">
+                    <p>{{ form.username.errors.0 }}</p>
+                </div>
+            {% endif %}
+        
           {{ form.email }}
+            {% if form.email.errors %}
+                <div class="error">
+                    <p>{{ form.email.errors.0 }}</p>
+                </div>
+            {% endif %}
+        
           {{ form.password1 }}
             {{ form.password2 }}
+        
           {{ form.profile_photo }}
+            {% if form.profile_photo.errors %}
+                    <div class="error">
+                        <p>{{ form.profile_photo.errors.0 }}</p>
+                    </div>
+            {% endif %}
+        
           <button type="submit" class="btn-submit">Sign Up</button>
+            
         </form>
       </div>
   </div>
@@ -36,8 +57,8 @@
         
         
         h2 {
-            font-size: 2rem;
-            color: var(--primary-color); 
+            font-size: 1.5rem;
+            color: var(--text-dark);
             margin-bottom: 20px;
         }
         
@@ -53,13 +74,13 @@
         .register-form textarea {
             padding: 12px;
             font-size: 1rem;
-            border: 2px solid var(--border-color); 
-            border-radius: 5px; 
-            background-color: var(--text-light); 
-            color: var(--text-dark); 
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--text-light);
+            color: var(--text-dark);
             transition: border-color 0.3s ease;
         }
-        
+
         .register-form input[type="file"] {
             padding: 12px;
             font-size: 1rem;
@@ -95,18 +116,51 @@
         .btn-submit:hover {
             opacity: 0.9;
         }
+        
+        .error {
+        background-color: #ffe4e1; 
+        color: var(--text-dark); 
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+        text-align: center;
+    }
 
   </style>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
+        
         const password1 = document.querySelector('input[name="password1"]');
         const password2 = document.querySelector('input[name="password2"]');
 
         if (password1) password1.setAttribute('placeholder', 'Password');
         if (password2) password2.setAttribute('placeholder', 'Confirm password');
+        
+        const fields = document.querySelectorAll('input[name="username"], input[name="email"], input[name="profile_photo"], input[name="password1"], input[name="password2"]');
+
+        fields.forEach(field => {
+            field.addEventListener('input', function () {
+                const errorDiv = this.closest('div').querySelector('.error');
+                if (errorDiv) {
+                    errorDiv.style.display = 'none';
+                }
+            });
+            
+            if (field.type === 'file') {
+                field.addEventListener('change', function () {
+                    const errorDiv = this.closest('div').querySelector('.error');
+                    if (errorDiv) {
+                        errorDiv.style.display = 'none';
+                    }
+                });
+            }
+        });
     });
-  </script>
+</script>
+
     
 {% endblock %}
 

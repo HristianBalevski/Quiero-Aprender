@@ -1,35 +1,45 @@
 {% extends 'base.html' %}
 
-{% block title %}Contact{% endblock %}
-
+{% block title %}
+	Create Flashcard
+{% endblock %}
 
 {% block content %}
-<h1>Contact Us</h1>
-<div class="page-container">
-    <div class="form-container">
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="submit-button">Send</button>
-        </form>
-        {% for message in messages %}
-            <p class="form-message">{{ message }}</p>
-        {% endfor %}
-    </div>
-</div>
+	<h1>QUICK FLASHCARDS</h1>
+    <div class="page-container">
+        <div class="form-container">
+            <!-- Форма за въвеждане -->
+            <form method="get">
+                <label for="text"></label><br>
+                <textarea id="text" name="text" rows="4" cols="50" placeholder="Enter text to create a flashcard">{{ text }}</textarea><br>
+                <button type="submit" class="create-card-btn">Create Flashcard</button>
+            </form>
 
-<style>
-    
+            <!-- Показване на флаш картата -->
+            {% if flashcard %}
+                <h2>Flashcard Created:</h2>
+                <p><strong>Front:</strong> {{ flashcard.Front }}</p>
+                <p><strong>Back:</strong> {{ flashcard.Back }}</p>
+            {% endif %}
+
+
+            {% if error_message %}
+                <p style="color: red;">{{ error_message }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <style>
     .page-container {
-        min-height: 60vh;
+        min-height: 50vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #fff; 
+        background-color: var(--text-light);
         padding: 20px;
     }
 
-    
+
     .form-container {
         display: flex;
         flex-direction: column;
@@ -38,13 +48,13 @@
         max-width: 500px;
         width: 100%;
         padding: 30px;
-        background-color: #f7f7f7;
+        background-color: var(--background-color);
         border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px var(--shadow-color);
         text-align: center;
         animation: fadeIn 0.5s ease;
     }
-    
+
     @keyframes fadeIn {
         from {
             opacity: 0;
@@ -55,40 +65,36 @@
             transform: translateY(0);
         }
     }
-    
+
     h1 {
         font-size: 2rem;
-        color: black;
+        color: var(--text-dark);
         margin: 0 auto;
         padding: 15px;
-        border: 1px solid #ddd;
+        border: 1px solid var(--border-color);
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        background-color: #f9f9f9;
+        background-color: var(--background-color);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
         width: 500px;
     }
-    
-    .submit-button {
-        background-color: var(--primary-color);
+
+    .create-card-btn {
         width: 100%;
-        max-width: 300px;
+        max-width: 200px;
         padding: 12px 20px;
         font-size: 18px;
+        background-color: var(--primary-color);
         color: var(--text-light);
-        text-align: center;
-        text-decoration: none;
         border: none;
         border-radius: 8px;
         cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    .submit-button:hover {
-        background-color: #f9c639;
+    .create-card-btn:hover {
         transform: translateY(-2px);
     }
-    
+
     .form-container input, .form-container textarea, .form-container select {
         width: 100%;
         padding: 12px 15px;
@@ -98,23 +104,6 @@
         font-size: 16px;
         box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-
-    .form-container input:focus, .form-container textarea:focus, .form-container select:focus {
-        outline: none;
-        border-color: #007bff;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    }
-    
-    .form-message {
-        margin-top: 20px;
-        padding: 10px;
-        border: 1px solid #007bff;
-        background-color: rgba(0, 123, 255, 0.1);
-        border-radius: 8px;
-        color: #333;
-        font-size: 14px;
-    }
-</style>
-
+    </style>
 
 {% endblock %}

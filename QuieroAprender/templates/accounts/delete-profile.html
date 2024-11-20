@@ -14,13 +14,14 @@
             <li><strong>Date Of Birth:</strong> {{ user.birth_date }}</li>
             
         </ul>
+        <p><strong>Are you sure, you want to delete?</strong></p>
         <div class="buttons">
-            <form method="post" action="{% url 'delete' %}">
+            <form method="post" action="{% url 'delete' user.username %}">
                 {% csrf_token %}
                 <button type="submit" class="confirm-delete">Delete</button>
             </form>
             <div class="cancel">
-                <a href="{% url 'profile' %}">Cancel</a>
+                <a href="{% url 'profile' user.username %}">Cancel</a>
             </div>
         </div>
     </div>
@@ -72,7 +73,7 @@
     }
 
     .buttons {
-        margin-top: 50px;
+        margin-top: 30px;
         display: flex;
         justify-content: space-around;
     }

@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
-from django.shortcuts import redirect, render
-from django.urls import reverse_lazy
+from django.shortcuts import redirect, render, get_object_or_404
+from django.urls import reverse_lazy, reverse
 from django.views.generic import UpdateView
 from django.views.generic.edit import CreateView, DeleteView
 from django.contrib.auth import login
@@ -51,6 +51,9 @@ class UpdateProfileView(UpdateView):
     template_name = 'accounts/update-user.html'
     success_url = reverse_lazy('profile')
 
+    def get_success_url(self):
+        return reverse('profile', kwargs={'username': self.request.user.username})
+
     def get_object(self, queryset=None):
         return self.request.user
 
@@ -63,8 +66,9 @@ class UserDeleteView(LoginRequiredMixin, DeleteView):
         return self.request.user
 
 @login_required
-def profile_view(request):
-    return render(request, 'accounts/user-profile.html', {'user': request.user})
+def profile_view(request, username):
+    user = get_object_or_404(CustomUser, username=username)
+    return render(request, 'accounts/user-profile.html', {'user': user})
 
 
 

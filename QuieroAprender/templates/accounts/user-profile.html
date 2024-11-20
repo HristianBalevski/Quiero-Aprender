@@ -26,10 +26,10 @@
         </ul>
         <div class="buttons">
             <div class="edit">
-                <a href="{% url 'update' %}">Edit</a>
+                <a href="{% url 'update' user.username %}">Edit</a>
             </div>
             <div class="delete">
-                <a href="{% url 'delete' %}">Delete</a>
+                <a href="{% url 'delete' user.username %}">Delete</a>
             </div>
         </div>
     </div>

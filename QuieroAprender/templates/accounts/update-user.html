@@ -8,24 +8,36 @@
         <div class="form-container">
             <form method="post" enctype="multipart/form-data" class="update-form">
                 {% csrf_token %}
-                
+
                 <label for="{{ form.first_name.id_for_label }}">First Name</label>
                 {{ form.first_name }}
-            
+
                 <label for="{{ form.last_name.id_for_label }}">Last Name</label>
                 {{ form.last_name }}
-            
+
                 <label for="{{ form.email.id_for_label }}">Email</label>
                 {{ form.email }}
-            
+
+                {% if form.email.errors %}
+                    <div class="error">
+                        <p>{{ form.email.errors.0 }}</p>
+                    </div>
+                {% endif %}
+
                 <label for="{{ form.bio.id_for_label }}">Biography</label>
                 {{ form.bio }}
-            
+
                 <label for="{{ form.birth_date.id_for_label }}">Birth Date</label>
                 {{ form.birth_date }}
-            
+
                 <label for="{{ form.profile_photo.id_for_label }}">Profile Photo</label>
                 {{ form.profile_photo }}
+
+                {% if form.profile_photo.errors %}
+                    <div class="error">
+                        <p>{{ form.profile_photo.errors.0 }}</p>
+                    </div>
+                {% endif %}
             
                 <button type="submit" class="btn-submit">Save Changes</button>
             </form>
@@ -106,5 +118,45 @@
         .btn-submit:hover {
             opacity: 0.9;
         }
+
+        .error {
+        background-color: #ffe4e1;
+        color: var(--text-dark);
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+        text-align: center;
+        }
     </style>
+
+    <script>
+            document.addEventListener("DOMContentLoaded", function() {
+
+            const form = document.querySelector('.update-form');
+            const fields = form.querySelectorAll('input, textarea');
+
+            fields.forEach(field => {
+
+                field.addEventListener('input', function () {
+                    const errorDiv = this.parentNode.querySelector('.error');
+                    if (errorDiv) {
+                        errorDiv.style.display = 'none';
+                    }
+                });
+
+
+                if (field.type === 'file') {
+                    field.addEventListener('change', function () {
+                        const errorDiv = this.parentNode.querySelector('.error');
+                        if (errorDiv) {
+                            errorDiv.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+
+    </script>
 {% endblock %}

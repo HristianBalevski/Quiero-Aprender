@@ -1,4 +1,4 @@
-/*Navigation*/
+
 
 @media (max-width: 1200px) {
     h1 {
@@ -58,6 +58,7 @@
    }
 }
 
+/*Navigation*/
 
 @media screen and (max-width: 768px) {
     .mobile-menu-btn {
