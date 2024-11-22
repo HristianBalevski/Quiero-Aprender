@@ -1,9 +1,13 @@
+from .models import Lesson
 from .services import translate_with_mymemory
 import json
 
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from .services import delete_flashcard, create_flashcard, save_flashcard
 from django.shortcuts import render
+
+from ..courses.models import Course
+
 
 def translate_view(request):
     text = request.GET.get('text', '')
@@ -63,7 +67,22 @@ def delete_flashcard_view(request, index):
         return redirect('view_flashcards')
 
 
+def lessons_by_course(request, course_id):
+    course = get_object_or_404(Course, id=course_id)
+    lessons = Lesson.objects.filter(course=course).select_related('course').order_by('created_at')
+    context = {
+        'course': course,
+        'lessons': lessons
+    }
 
+    return render(request, 'lessons/lessons-by-course.html', context)
+
+
+def lesson_detail(request, lesson_id):
+    lesson = get_object_or_404(Lesson, id=lesson_id)
+    context = {'lesson': lesson}
+
+    return render(request, 'lessons/lesson-detail.html', context)
 
 
 

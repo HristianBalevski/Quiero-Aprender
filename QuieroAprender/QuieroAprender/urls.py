@@ -8,8 +8,9 @@ urlpatterns = [
     path('', include('QuieroAprender.common.urls')),
     path('accounts/', include('QuieroAprender.accounts.urls')),
     path('lessons/', include('QuieroAprender.lessons.urls')),
-
     path('forum/', include('QuieroAprender.forum.urls')),
+    path('courses/', include('QuieroAprender.courses.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 
 ]
 

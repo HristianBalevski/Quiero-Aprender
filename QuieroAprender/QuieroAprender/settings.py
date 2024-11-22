@@ -34,10 +34,26 @@ INSTALLED_APPS = [
     "QuieroAprender.common",
     'QuieroAprender.accounts',
     'QuieroAprender.lessons',
-    'QuieroAprender.forum'
+    'QuieroAprender.forum',
+    'QuieroAprender.courses',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',  # Включва всички инструменти
+        'extraPlugins': ','.join(['image2']),  # Разширен плъгин за изображения
+        'allowedContent': True,  # Позволява всякакъв HTML
+        'height': 1000,
+        'width': '100%',
+        'filebrowserUploadUrl': '/ckeditor/upload/',
+        'filebrowserUploadMethod': 'form',
+    },
+}
+
 
 
 MIDDLEWARE = [
@@ -126,6 +142,7 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CKEDITOR_UPLOAD_PATH = "images/lessons"
 
 
 # Default primary key field type

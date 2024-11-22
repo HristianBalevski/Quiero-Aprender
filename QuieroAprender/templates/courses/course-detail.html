@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Course Details
+{% endblock %}
+
+{% block content %}
+	<div class="course-detail-container">
+        <h1 class="course-title">{{ course.title }}</h1>
+        <p class="course-description">{{ course.description }}</p>
+        <p class="course-detail-level">
+            <strong>Level:</strong> {{ course.get_level_display }}
+        </p>
+        <a class="course-detail-link" href="{% url 'lessons-by-course' course.id %}">View Lessons</a>
+    </div>
+{% endblock %}
