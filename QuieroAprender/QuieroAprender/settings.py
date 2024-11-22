@@ -33,7 +33,8 @@ INSTALLED_APPS = [
 
     "QuieroAprender.common",
     'QuieroAprender.accounts',
-    'QuieroAprender.lessons'
+    'QuieroAprender.lessons',
+    'QuieroAprender.forum'
 ]
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'

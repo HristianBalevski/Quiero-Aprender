@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-   <div class="page-container">
-    <h1>{{ user.username }}'s Flashcards</h1>
+   <div class="main-container">
+    <h2 class="forms-h2">{{ user.username }}'s Flashcards</h2>
 
     {% if flashcards %}
         <div class="cards-container">
@@ -16,7 +16,7 @@
                     <strong>Spanish:</strong> {{ card.Back }}<br><br>
                     <form action="{% url 'delete_flashcard' forloop.counter0 %}" method="post" style="display:inline;">
                         {% csrf_token %}
-                        <button type="submit">Delete</button>
+                        <button type="submit" class="delete-flashcard">Delete</button>
                     </form>
                 </div>
             {% endfor %}
@@ -25,73 +25,4 @@
         <p>No flashcards found.</p>
     {% endif %}
 </div>
-
-<style>
-    .page-container {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: var(--text-light);
-        padding: 20px;
-    }
-
-    .cards-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        max-width: 1200px;
-    }
-
-    .card {
-        list-style-type: none;
-        background-color: var(--background-color);
-        margin: 10px;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px var(--shadow-color);
-        width: 300px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    h1 {
-        font-size: 2rem;
-        color: var(--text-dark);
-        margin: 0 auto 50px;
-        padding: 15px;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        background-color: var(--background-color);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        width: 500px;
-        
-    }
-
-    button {
-        background-color: var(--primary-color);
-        width: 100%;
-        max-width: 100px;
-        padding: 10px;
-        font-size: 14px;
-        color: var(--text-light);
-        text-align: center;
-        text-decoration: none;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    button:hover {
-        background-color: var(--secondary-color);
-        transform: translateY(-2px);
-    }
-
-</style>
-
-
 {% endblock %}

@@ -1,0 +1,45 @@
+.personal-info li {
+        list-style: none;
+        margin: 20px 0;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        background-color: var(--gray-color);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.personal-info li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px var(--shadow-color);
+}
+
+    .edit {
+        background-color: var(--secondary-color);
+        width: 200px;
+        border-radius: 1.5em;
+        padding: 10px;
+    }
+
+    .delete {
+        background-color: var(--primary-color);
+        width: 200px;
+        border-radius: 1.5em;
+        padding: 10px;
+    }
+
+    .edit a{
+        text-decoration: none;
+        color: var(--white-color);
+        font-size: 24px;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+    }
+
+    .delete a {
+        text-decoration: none;
+        color: var(--white-color);
+        font-size: 24px;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+    }

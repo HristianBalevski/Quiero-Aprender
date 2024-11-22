@@ -27,5 +27,27 @@
 
 .units-list a:hover {
     background-color: var(--primary-color);
-    color: var(--text-light);
+    color: var(--white-color);
+}
+
+
+@media screen and (max-width: 768px) {
+    .units-title {
+        display: block;
+    }
+
+    .units-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .units-list li {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .units-list a {
+        display: block;
+        text-align: center;
+    }
 }

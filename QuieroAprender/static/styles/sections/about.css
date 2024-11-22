@@ -1,0 +1,64 @@
+.about-us {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+
+}
+
+.about-us h1,
+.about-us h2 {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.about-us li {
+    list-style-type: none;
+}
+
+.last-p {
+    margin-bottom: 3em;
+}
+
+
+@media (max-width: 768px) {
+    .about-us {
+        min-height: 70vh;
+    }
+  .about-us h1 {
+    font-size: 1.2em;
+  }
+
+  .about-us h2 {
+    font-size: 0.9em;
+  }
+
+  .about-us ul  {
+      list-style: none;
+  }
+  .about-us p,
+  .about-us ul li {
+    font-size: 0.7em;
+      padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-us {
+    padding: 1rem;
+      min-height: 80vh;
+  }
+
+  .about-us h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-us h2 {
+    font-size: 0.9rem;
+  }
+
+  .about-us p,
+  .about-us ul li {
+    font-size: 1rem;
+      padding-bottom: 1rem;
+  }
+}

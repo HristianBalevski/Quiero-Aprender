@@ -1,14 +1,12 @@
-@import url('reset.css');
-
 @import url('common/variables.css');
 
 @import url('common/typography.css');
 
 @import url('common/layout.css');
 
-@import url('common/navigation.css');
+@import url('sections/navigation.css');
 
-@import url('common/units.css');
+@import url('sections/units.css');
 
 @import url('sections/countries.css');
 
@@ -16,7 +14,7 @@
 
 @import url('sections/partners.css');
 
-@import url('sections/about-us.css');
+@import url('sections/about.css');
 
 @import url('sections/university.css');
 
@@ -24,4 +22,18 @@
 
 @import url('sections/footer.css');
 
-@import url('responsive.css');
+@import url('forms/register-profile-form.css');
+
+@import url('forms/user-profile-form.css');
+
+@import url('forms/update-profile-form.css');
+
+@import url('forms/delete-profile-form.css');
+
+@import url('forms/login-profile-form.css');
+
+@import url('lessons/api-translator.css');
+
+@import url('lessons/view-flashcards.css');
+
+@import url('global.css');

@@ -11,7 +11,7 @@ def profile_photo_upload_to(instance, filename):
 
 
 class CustomUser(AbstractUser):
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=True, null=False, blank=False)
     profile_photo = ImageField(upload_to=profile_photo_upload_to, null=True, blank=True)
     bio = models.TextField(null=True, blank=True, max_length=250)
     birth_date = models.DateField(null=True, blank=True)

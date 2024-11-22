@@ -1,10 +1,10 @@
 .countries {
-    background-color: #f9f9f9;
+    background-color: var(--gray-color);
     padding-left: 50px;
     margin: 0 auto;
     max-width: 1200px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px var(--shadow-color);
 }
 
 .countries ol {
@@ -31,7 +31,7 @@
 }
 
 .countries ol li a {
-    color: black;
+    color: var(--black-color);
     text-decoration: none;
     font-size: 1.1em;
     display: block;
@@ -46,19 +46,19 @@
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
-    background-color: var(--background-color);
+    background-color: var(--gray-color);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .country-template h1 {
-    color: #333;
+    color: var(--dark-color);
     margin: 0 0 25px 0;
     text-align: center;
 
 
     padding: 10px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid var(--border-color);
 }
 
 .country-template img {
@@ -67,17 +67,77 @@
     height: auto;
     margin: 30px auto;
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px var(--shadow-color);
     transition: transform 0.3s ease;
 }
 
 .country-template p {
     line-height: 1.5;
-    color: #444;
+    color: var(--dark-color);
     text-align: justify;
     margin: 20px 0;
     font-size: 1.0em;
     padding: 0 15px;
+}
+
+@media (max-width: 1200px) {
+    max-width: 90%;
+}
+
+@media (max-width: 992px)  {
+    max-width: 90%;
+}
+
+
+@media (max-width: 768px) {
+
+    .countries {
+        max-width: 90%;
+    }
+
+    .countries ol li{
+        font-size: 1em;
+    }
+    .countries ol li a {
+        font-size: 1em;
+    }
+
+    .country-template p {
+        font-size: 0.9em;
+        padding: 0 40px;
+    }
+
+    .country-template h1 {
+        font-size: 1.8em;
+    }
+
+    .country-template img {
+        width: 90%;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .countries ol li {
+        font-size: 0.7em;
+    }
+    .countries ol li a {
+        font-size: 1em;
+    }
+
+    .country-template p {
+        font-size: 0.7em;
+
+    }
+
+    .country-template h1 {
+        font-size: 1.2em;
+    }
+
+    .country-template img {
+        width: 80%;
+    }
 }
 
 

@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="page-container">
+
+    <h2 class="forms-h2">LOGIN</h2>
+<div class="page-container-min-height-70vh">
     <div class="form-container">
-        <h2>LOGIN</h2>
+        
         <form method="post" action="{% url 'login' %}" class="register-form">
             {% csrf_token %}
             {{ form.as_p }}
@@ -14,93 +16,5 @@
 
     </div>
 </div>
-
-  <style>
-   .page-container {
-    min-height: 100vh;
-}
-
-.form-container {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: var(--background-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px var(--shadow-color);
-    text-align: center;
-}
-
-h2 {
-    font-size: 1.5rem;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-}
-
-form p {
-    margin-bottom: 15px;
-}
-
-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--text-dark);
-}
-
-form input {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    border: 2px solid var(--border-color);
-    border-radius: 5px;
-    background-color: var(--text-light);
-    color: var(--text-dark);
-    transition: border-color 0.3s ease;
-}
-
-form input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
-
-form button {
-    padding: 12px 20px;
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-form button:hover {
-    opacity: 0.9;
-}
-
-.no-account {
-    margin-top: 1rem;
-    font-size: 1rem;
-}
-
-.no-account a:hover {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-.errorlist {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-    list-style: none;
-    text-align: center;
-}
-  </style>
 {% endblock %}
 

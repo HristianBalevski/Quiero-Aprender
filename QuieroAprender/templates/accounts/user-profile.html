@@ -4,8 +4,8 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}
-    <h1>{{ user.username }}'s Profile</h1>
-<div class="page-container">
+    <h2 class="forms-h2">{{ user.username }}'s Profile</h2>
+<div class="page-container-min-height-80vh">
     <div class="form-container">
 
         <div>
@@ -24,7 +24,8 @@
             <li><strong>Biography:</strong> {{ user.bio }}</li>
             <li><strong>Date Of Birth:</strong> {{ user.birth_date }}</li>
         </ul>
-        <div class="buttons">
+        {% if request.user.username == user.username %}
+        	<div class="buttons">
             <div class="edit">
                 <a href="{% url 'update' user.username %}">Edit</a>
             </div>
@@ -32,95 +33,9 @@
                 <a href="{% url 'delete' user.username %}">Delete</a>
             </div>
         </div>
+        {% endif %} 
     </div>
 </div>
-
-    <style>
-    .page-container {
-        min-height: 80vh;
-    }
-
-    .form-container {
-        max-width: 500px;
-        margin: 40px auto 40px;
-        padding: 30px;
-        background-color: var(--background-color);
-        border-radius: 8px;
-        box-shadow: 0 4px 8px var(--shadow-color);
-        text-align: center;
-    }
-
-    h1 {
-        font-size: 2rem;
-        color: black;
-        margin: 0 auto;
-        padding: 15px;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        box-shadow: 0 4px 6px var(--shadow-color);
-        background-color: var(--background-color);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        width: 500px;
-    }
-
-    .personal-info li {
-        list-style: none;
-        margin: 20px 0;
-        padding: 10px;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        box-shadow: 0 4px 6px var(--shadow-color);
-        background-color: var(--background-color);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.personal-info li:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 10px var(--shadow-color);
-}
-
-    .buttons {
-        margin-top: 50px;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .edit {
-        background-color: var(--secondary-color);
-        width: 200px;
-        border-radius: 1.5em;
-        padding: 10px;
-    }
-
-    .delete {
-        background-color: var(--primary-color);
-        width: 200px;
-        border-radius: 1.5em;
-        padding: 10px;
-    }
-
-    .edit a{
-        text-decoration: none;
-        color: var(--text-light);
-        font-size: 24px;
-        cursor: pointer;
-        transition: opacity 0.3s ease;
-    }
-
-    .delete a {
-        text-decoration: none;
-        color: var(--text-light);
-        font-size: 24px;
-        cursor: pointer;
-        transition: opacity 0.3s ease;
-    }
-    
-    .bio-textarea {
-    width: 100%; 
-    box-sizing: border-box; 
-}
-    
-</style>
 {% endblock %}
 
 

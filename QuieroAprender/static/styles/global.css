@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .container {
     max-width: 1200px;
     margin: auto;
@@ -10,4 +16,244 @@
 
 .container ul li {
     list-style: none;
+}
+
+.page-container {
+        min-height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--white-color);
+        padding: 20px;
+    }
+
+.page-container-min-height-100vh {
+    min-height: 100vh;
+}
+
+.page-container-min-height-80vh {
+        min-height: 80vh;
+    }
+
+.page-container-min-height-70vh {
+    min-height: 70vh;
+}
+
+.page-container-min-height-60vh {
+            min-height: 60vh;
+
+        }
+
+.form-container {
+        max-width: 500px;
+        margin: 40px auto 40px;
+        padding: 30px;
+        background-color: var(--gray-color);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+.forms-h2 {
+    font-size: 1.8rem;
+        color: black;
+        margin: 0 auto;
+        padding: 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        background-color: var(--gray-color);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        width: 500px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form p {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--dark-color);
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--white-color);
+    color: var(--dark-color);
+    transition: border-color 0.3s ease;
+}
+
+form input[type="file"] {
+    cursor: pointer;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus,
+form input[type="file"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+ @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+.buttons {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+.btn-submit {
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+.btn-submit:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.errorlist {
+    background-color: var(--error-background);
+    color: var(--error-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    list-style: none;
+    text-align: center;
+}
+
+
+
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 2.3rem;
+        font-weight: normal;
+    }
+    h2 {
+    font-size: 1.8rem;
+    font-weight: normal;
+   }
+
+}
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2rem;
+        font-weight: normal;
+    }
+    h2 {
+    font-size: 1.4rem;
+    font-weight: normal;
+   }
+    .partner-item {
+    flex: 1 0 20%;
+    text-align: center;
+    margin: 20px;
+  }
+
+}
+
+@media (max-width: 768px) {
+    h2 {
+    font-size: 1.1rem;
+    font-weight: bold;
+   }
+
+    .page-container {
+        min-height: 70vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .forms-h2 {
+        font-size: 1.5rem;
+        width: 90%;
+    }
+
+    .page-container-min-height-100vh,
+    .page-container-min-height-80vh,
+    .page-container-min-height-70vh,
+    .page-container-min-height-60vh
+    {
+        padding: 20px;
+    }
+
+    .page-container-min-height-60vh
+    {
+        min-height: 70vh;
+    }
+
+    .edit,
+    .delete,
+    .confirm-delete,
+    .cancel
+    {
+        width: 150px;
+        font-size: 12px;
+    }
+}
+
+/*Footer*/
+
+@media (max-width: 768px) {
+    .find-us {
+        font-size: 0.9em;
+    }
+
+    .fa {
+        font-size: 0.9em;
+    }
+
+    .rights p {
+        font-size: 0.8em;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .find-us {
+        font-size: 0.7em;
+    }
+
+    .fa {
+        font-size: 0.7em;
+    }
+
+    .rights p {
+        font-size: 0.6em;
+        text-align: center;
+    }
 }

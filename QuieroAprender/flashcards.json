@@ -2,5 +2,9 @@
     {
         "Front": "How can I get a taxi?",
         "Back": "\u00bfC\u00f3mo puedo conseguir un taxi?"
+    },
+    {
+        "Front": "Hello, my name is Hristian and I am from Bulgaria.",
+        "Back": "Hola, mi nombre es Hristian y soy de Bulgaria."
     }
 ]

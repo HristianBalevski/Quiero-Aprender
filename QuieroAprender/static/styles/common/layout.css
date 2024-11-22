@@ -6,6 +6,6 @@ img {
 
 .divider {
   height: 2px;
-  background-color: #ccc;
+  background-color: var(--divider-color);
   margin: 40px 0;
 }

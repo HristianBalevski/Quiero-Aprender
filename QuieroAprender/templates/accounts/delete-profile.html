@@ -3,7 +3,8 @@
 {% block title %}Delete Profile{% endblock %}
 
 {% block content %}
-<div class="page-container">
+    <h2 class="forms-h2">DELETE PROFILE</h2>
+<div class="page-container-min-height-70vh">
     <div class="form-container">
         <ul class="personal-info">
             <li><strong>Username:</strong> {{ user.username }}</li>
@@ -12,7 +13,6 @@
             <li><strong>Email:</strong> {{ user.email }}</li>
             <li><strong>Biography:</strong> {{ user.bio }}</li>
             <li><strong>Date Of Birth:</strong> {{ user.birth_date }}</li>
-            
         </ul>
         <p><strong>Are you sure, you want to delete?</strong></p>
         <div class="buttons">
@@ -26,85 +26,4 @@
         </div>
     </div>
 </div>
-
-    <style>
-    
-    .page-container {
-        min-height: 70vh;
-    }
-
-    .form-container {
-        max-width: 500px;
-        margin: 40px auto 40px;
-        padding: 30px;
-        background-color: var(--background-color);
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
-
-    h1 {
-        font-size: 2rem;
-        color: black;
-        margin: 0 auto;
-        padding: 15px;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        background-color: var(--background-color);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        width: 500px;
-    }
-
-    .personal-info li {
-        list-style: none;
-        margin: 20px 0;
-        padding: 10px;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        background-color: var(--background-color);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .personal-info li:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    .buttons {
-        margin-top: 30px;
-        display: flex;
-        justify-content: space-around;
-    }
-
-    .confirm-delete,
-    .cancel {
-        display: inline-block;
-        width: 200px;
-        font-size: 24px;
-        color: var(--text-light);
-        text-align: center;
-        text-decoration: none;
-        border: none;
-        border-radius: 1em;
-        cursor: pointer;
-    }
-
-    .confirm-delete {
-        background-color: var(--primary-color);
-        padding: 14px 40px;
-    }
-
-    .cancel {
-        background-color: var(--secondary-color);
-        padding: 10px 40px;
-    }
-
-    .cancel a {
-        text-decoration: none;
-        color: var(--text-light);
-    }
-</style>
-
 {% endblock %}

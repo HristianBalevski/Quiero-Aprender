@@ -1,135 +1,53 @@
 {% extends 'base.html' %}
 {% block title %}Regisration{% endblock %}
 {% block content %}
+    
+    <h2 class="forms-h2">REGISTRATION</h2>
+  <div class="page-container-min-height-60vh">
+    <div class="form-container">
 
-  <div class="page-container">
-      <div class="form-container">
-        <h2>REGISTRATION</h2>
         <form method="post" enctype="multipart/form-data" class="register-form">
-          {% csrf_token %}
-        
-          {{ form.username }}
+            {% csrf_token %}
+
+            {{ form.username }}
             {% if form.username.errors %}
                 <div class="error">
                     <p>{{ form.username.errors.0 }}</p>
                 </div>
             {% endif %}
-        
-          {{ form.email }}
+
+            {{ form.email }}
             {% if form.email.errors %}
                 <div class="error">
                     <p>{{ form.email.errors.0 }}</p>
                 </div>
             {% endif %}
-        
-          {{ form.password1 }}
-            {{ form.password2 }}
-        
-          {{ form.profile_photo }}
-            {% if form.profile_photo.errors %}
-                    <div class="error">
-                        <p>{{ form.profile_photo.errors.0 }}</p>
-                    </div>
+
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+                <div class="error">
+                    <p>{{ form.password1.errors.0 }}</p>
+                </div>
             {% endif %}
-        
-          <button type="submit" class="btn-submit">Sign Up</button>
-            
+
+            {% for help_text in form.password1.field.help_texts %}
+                <p class="help-text">{{ help_text }}</p>
+            {% endfor %}
+
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+                <p>{{ form.password2.errors.0 }}</p>
+            {% endif %}
+
+            {{ form.profile_photo }}
+            {% if form.profile_photo.errors %}
+                <p>{{ form.profile_photo.errors.0 }}</p>
+            {% endif %}
+
+            <button type="submit" class="btn-submit">Sign Up</button>
         </form>
-      </div>
-  </div>
-    
-    <style>
-        
-        .page-container {
-            min-height: 60vh;
-            
-        }
-   
-        .form-container {
-            max-width: 500px;
-            margin: 40px auto 40px;
-            padding: 30px;
-            background-color: var(--background-color); 
-            border-radius: 8px;
-            box-shadow: 0 4px 8px var(--shadow-color);
-            text-align: center;
-        }
-        
-        
-        h2 {
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-        }
-        
-      
-        .register-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .register-form input,
-        .register-form select,
-        .register-form textarea {
-            padding: 12px;
-            font-size: 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: 5px;
-            background-color: var(--text-light);
-            color: var(--text-dark);
-            transition: border-color 0.3s ease;
-        }
-
-        .register-form input[type="file"] {
-            padding: 12px;
-            font-size: 1rem;
-            border: 2px solid var(--border-color); 
-            border-radius: 5px; 
-            background-color: var(--text-light); 
-            color: var(--text-dark); 
-            transition: border-color 0.3s ease; 
-            cursor: pointer; 
-        }
-        
-        .register-form input:focus,
-        .register-form select:focus,
-        .register-form textarea:focus,
-        .register-form input[type="file"]:focus {
-            outline: none; 
-            border-color: var(--primary-color); 
-        }
-        
-        
-        .btn-submit {
-            padding: 12px 20px;
-            background-color: var(--primary-color); 
-            color: var(--text-light); 
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: opacity 0.3s ease; 
-        }
-        
-        .btn-submit:hover {
-            opacity: 0.9;
-        }
-        
-        .error {
-        background-color: #ffe4e1; 
-        color: var(--text-dark); 
-        border: 1px solid var(--border-color);
-        border-radius: 5px;
-        padding: 10px;
-        margin-bottom: 15px;
-        font-size: 0.9rem;
-        text-align: center;
-    }
-
-  </style>
-
+    </div>
+</div>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
         
@@ -160,8 +78,6 @@
         });
     });
 </script>
-
-    
 {% endblock %}
 
 

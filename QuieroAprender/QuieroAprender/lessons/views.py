@@ -1,10 +1,10 @@
-
-from django.shortcuts import render
 from .services import translate_with_mymemory
 import json
 
 from django.shortcuts import redirect
-from .services import delete_flashcard
+from .services import delete_flashcard, create_flashcard, save_flashcard
+from django.shortcuts import render
+
 def translate_view(request):
     text = request.GET.get('text', '')
     translation = None
@@ -25,19 +25,15 @@ def translate_view(request):
 
 
 
-from django.shortcuts import render
-from .services import create_flashcard, save_flashcard  # Импортираме функциите
-
 def flashcard_view(request):
-    text = request.GET.get('text', '')  # Вземаме текста от заявката
+    text = request.GET.get('text', '')
     flashcard = None
     error_message = None
 
     if text:
         try:
-            # Създаваме флаш карта
+
             flashcard = create_flashcard(text, from_lang="en", to_lang="es")
-            # Запазваме я в JSON файл
             save_flashcard(flashcard)
         except Exception as e:
             error_message = str(e)
@@ -61,13 +57,10 @@ def view_flashcards(request):
 
 
 def delete_flashcard_view(request, index):
-    """
-    View за изтриване на флаш карта.
-    """
     if delete_flashcard(index):
-        return redirect('view_flashcards')  # Редирект към списъка с флаш карти
+        return redirect('view_flashcards')
     else:
-        return redirect('view_flashcards')  # Редирект при грешка
+        return redirect('view_flashcards')
 
 
 
