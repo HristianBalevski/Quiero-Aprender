@@ -15,15 +15,13 @@
             <li><strong>Date Of Birth:</strong> {{ user.birth_date }}</li>
         </ul>
         <p><strong>Are you sure, you want to delete?</strong></p>
-        <div class="buttons">
-            <form method="post" action="{% url 'delete' user.username %}">
+        <form method="post" action="{% url 'delete' user.username %}">
                 {% csrf_token %}
-                <button type="submit" class="confirm-delete">Delete</button>
-            </form>
-            <div class="cancel">
-                <a href="{% url 'profile' user.username %}">Cancel</a>
-            </div>
-        </div>
+                <div class="action-buttons">
+                    <button type="submit" class="btn-do-action">Delete</button>
+                    <a href="{% url 'profile' user.username %}" class="btn-cancel">Cancel</a>
+                </div>
+        </form>
     </div>
 </div>
 {% endblock %}

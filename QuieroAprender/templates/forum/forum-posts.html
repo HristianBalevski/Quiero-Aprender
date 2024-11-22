@@ -4,148 +4,36 @@
 
 
 {% block content %}
-    <style>
+<div class="forum-container">
+    <h2 class="forum-title">FORUM POSTS</h2>
+    <a href="{% url 'create-post' %}" class="create-post-btn">Create Post</a>
+    <ul class="post-list">
+        {% for post in page_obj %}
+            <li class="post-item">
+                <a href="{% url 'post-detail' post.pk %}" class="post-title">{{ post.title }}</a>
+                <p class="post-info">By <strong>{{ post.user.username }}</strong> on {{ post.created_at|date:"M d, Y H:i" }}</p>
+            </li>
+        {% endfor %}
+    </ul>
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #F9F9F9;
-            color: #333;
-        }
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1" class="pagination-link">&laquo; First</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="pagination-link">Previous</a>
+            {% endif %}
 
-        .content-container {
-            width: 90%;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+            <span class="current-page">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
 
-        .content-container a.new-post-btn {
-            display: flex;
-            justify-content: center;
-            padding: 10px 20px;
-            color: #fff;
-            background-color: #B71C1C;
-            border: none;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            margin: 30px 0;
-        }
-
-        .content-container a.new-post-btn:hover {
-            background-color: #D32F2F;
-        }
-
-        .content-container ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .content-container ul li {
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #F9F9F9;
-            transition: box-shadow 0.3s ease, transform 0.2s ease;
-        }
-
-        .content-container ul li:hover {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transform: scale(1.02);
-        }
-
-        .content-container ul li a {
-            font-size: 18px;
-            font-weight: bold;
-            color: #B71C1C;
-            text-decoration: none;
-        }
-
-        .content-container ul li a:hover {
-            text-decoration: underline;
-        }
-
-        .content-container ul li p {
-            margin: 10px 0 0;
-            font-size: 14px;
-            color: #555;
-        }
-
-        @media (max-width: 768px) {
-            .content-container {
-                padding: 15px;
-            }
-
-            .content-container h2 {
-                font-size: 24px;
-            }
-
-            .content-container a.new-post-btn {
-                display: block;
-                text-align: center;
-                font-size: 14px;
-                padding: 10px;
-            }
-
-            .content-container ul li {
-                padding: 10px;
-            }
-
-            .content-container ul li a {
-                font-size: 16px;
-            }
-
-            .content-container ul li p {
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .content-container {
-                padding: 10px;
-            }
-
-            .content-container h2 {
-                font-size: 20px;
-            }
-
-            .content-container a.new-post-btn {
-                font-size: 12px;
-                padding: 8px;
-            }
-
-            .content-container ul li {
-                padding: 8px;
-            }
-
-            .content-container ul li a {
-                font-size: 14px;
-            }
-
-            .content-container ul li p {
-                font-size: 12px;
-            }
-        }
-    </style>
-
-    <div class="content-container">
-        <h2>FORUM</h2>
-        <a href="{% url 'create-post' %}" class="new-post-btn">Create New Post</a>
-        <ul>
-            {% for post in posts %}
-                <li>
-                    <a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a>
-                    <p>By {{ post.user.username }} on {{ post.created_at }}</p>
-                </li>
-            {% endfor %}
-        </ul>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="pagination-link">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="pagination-link">Last &raquo;</a>
+            {% endif %}
+        </span>
     </div>
+</div>
 {% endblock %}
+
 

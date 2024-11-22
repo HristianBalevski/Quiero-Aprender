@@ -36,4 +36,10 @@
 
 @import url('lessons/view-flashcards.css');
 
+@import url('forum/delete-post.css');
+
+@import url('forum/post-detail.css');
+
+@import url('forum/forum-posts.css');
+
 @import url('global.css');

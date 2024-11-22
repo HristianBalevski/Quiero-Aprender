@@ -2,10 +2,21 @@
 
 {% block title %}Edit Post{% endblock %}
 
-<h1>Edit Post</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Changes</button>
-    <a href="{% url 'forum-posts' %}">Cancel</a>
-</form>
+{% block content %}
+	<h2 class="forms-h2">Edit Post</h2>
+    <div class="page-container">
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="action-buttons">
+                    <button type="submit" class="btn-do-action">Save</button>
+                    <a href="{% url 'post-detail' forumpost.pk%}" class="btn-cancel">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+{% endblock %}

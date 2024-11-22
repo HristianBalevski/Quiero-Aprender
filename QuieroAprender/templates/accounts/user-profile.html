@@ -25,13 +25,9 @@
             <li><strong>Date Of Birth:</strong> {{ user.birth_date }}</li>
         </ul>
         {% if request.user.username == user.username %}
-        	<div class="buttons">
-            <div class="edit">
-                <a href="{% url 'update' user.username %}">Edit</a>
-            </div>
-            <div class="delete">
-                <a href="{% url 'delete' user.username %}">Delete</a>
-            </div>
+        	<div class="action-buttons">
+                <a href="{% url 'update' user.username %}" class="btn-do-action">Edit</a>
+                <a href="{% url 'delete' user.username %}" class="btn-do-action">Delete</a>
         </div>
         {% endif %} 
     </div>

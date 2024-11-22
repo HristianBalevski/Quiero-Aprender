@@ -3,122 +3,46 @@
 {% block title %}Post Detail{% endblock %}
 
 {% block content %}
-    <style>
-        /* Основни стилове за страницата */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #F9F9F9;
-            color: #333;
-        }
-
-        .content-container {
-            height: 50vh;
-            width: 90%;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Заглавие на поста */
-        .content-container h1 {
-            text-align: center;
-            color: #B71C1C;
-            margin-bottom: 20px;
-        }
-
-        /* Информация за автора и датата */
-        .content-container .post-info {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: #555;
-        }
-
-        /* Съдържание на поста */
-        .content-container .post-content {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 30px;
-        }
-
-        /* Линкове за навигация */
-        .content-container .actions {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .content-container .actions a {
-            display: inline-block;
-            padding: 10px 20px;
-            color: #fff;
-            background-color: #B71C1C;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .content-container .actions a:hover {
-            background-color: #D32F2F;
-        }
-
-        /* Responsive стилове */
-        @media (max-width: 768px) {
-            .content-container {
-                padding: 15px;
-            }
-
-            .content-container h1 {
-                font-size: 24px;
-            }
-
-            .content-container .post-content {
-                font-size: 14px;
-            }
-
-            .content-container .actions a {
-                font-size: 12px;
-                padding: 8px 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .content-container {
-                padding: 10px;
-            }
-
-            .content-container h1 {
-                font-size: 20px;
-            }
-
-            .content-container .post-content {
-                font-size: 12px;
-            }
-
-            .content-container .actions a {
-                font-size: 10px;
-                padding: 6px 10px;
-            }
-        }
-    </style>
-
-    <div class="content-container">
-        <h1>{{ post.title }}</h1>
-        <p class="post-info">By {{ post.user.username }} on {{ post.created_at }}</p>
+<div class="content-container">
+    <div class="post-container">
+        <h2 class="post-title">{{ post.title }}</h2>
+        <p class="post-info">By <strong>{{ post.user.username }}</strong> on {{ post.created_at|date:"M d, Y H:i" }}</p>
         <p class="post-content">{{ post.content }}</p>
-
-        <div class="actions">
-            <a href="{% url 'forum-posts' %}">Back to Forum</a>
-            {% if request.user == post.user %}
-                <a href="{% url 'edit-post' post.pk %}">Edit</a>
-            {% endif %}
-        </div>
     </div>
+
+    <div class="actions">
+        <a href="{% url 'forum-posts' %}" class="btn btn-back">Back to Forum</a>
+        {% if request.user == post.user %}
+            <a href="{% url 'edit-post' post.pk %}" class="btn btn-edit">Edit</a>
+            <a href="{% url 'delete-post' post.pk %}" class="btn btn-delete">Delete</a>
+        {% endif %}
+    </div>
+
+    <div class="comments-container">
+        <h2>Comments</h2>
+        <ul class="comment-list">
+            {% for comment in comments %}
+                <li class="comment-item">
+                    <p class="comment-content">{{ comment.content }}</p>
+                    <p class="comment-info">By <strong>{{ comment.user.username }}</strong> on {{ comment.created_at|date:"M d, Y H:i" }}</p>
+                    {% if request.user == comment.user %}
+                    <a href="{% url 'comment-delete' comment.pk %}" class="btn btn-delete">Delete</a>
+            {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="add-comment">
+        <h3>Add a comment</h3>
+        <form method="post" class="comment-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="action-buttons">
+                <button type="submit" class="btn-do-action">Post Comment</button>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}
+

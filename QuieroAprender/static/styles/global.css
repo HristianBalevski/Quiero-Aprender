@@ -143,6 +143,42 @@ form input[type="file"]:focus {
     transform: translateY(-2px);
 }
 
+
+
+    .action-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .action-buttons .btn-do-action, .btn-cancel {
+            padding: 10px 20px;
+            background-color: var(--white-color);
+            text-decoration: none;
+            color: var(--primary-color);
+            width: 100%;
+            border-radius: 4px;
+            border: 2px solid var(--primary-color);
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .action-buttons .btn-do-action:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: 2px solid var(--primary-color);
+        }
+
+
+        .action-buttons .btn-cancel:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+
 .errorlist {
     background-color: var(--error-background);
     color: var(--error-color);
@@ -187,9 +223,11 @@ form input[type="file"]:focus {
 }
 
 @media (max-width: 768px) {
-    h2 {
+    h2,
+    .forms-h2{
     font-size: 1.1rem;
     font-weight: bold;
+        max-width: 90%;
    }
 
     .page-container {
@@ -206,7 +244,8 @@ form input[type="file"]:focus {
     .page-container-min-height-100vh,
     .page-container-min-height-80vh,
     .page-container-min-height-70vh,
-    .page-container-min-height-60vh
+    .page-container-min-height-60vh,
+    .page-container
     {
         padding: 20px;
     }
@@ -216,14 +255,6 @@ form input[type="file"]:focus {
         min-height: 70vh;
     }
 
-    .edit,
-    .delete,
-    .confirm-delete,
-    .cancel
-    {
-        width: 150px;
-        font-size: 12px;
-    }
 }
 
 /*Footer*/
@@ -240,6 +271,7 @@ form input[type="file"]:focus {
     .rights p {
         font-size: 0.8em;
     }
+
 }
 
 
@@ -256,4 +288,5 @@ form input[type="file"]:focus {
         font-size: 0.6em;
         text-align: center;
     }
+
 }
