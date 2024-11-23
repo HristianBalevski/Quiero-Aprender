@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Daily Word
+{% endblock %}
+
+{% block content %}
+	<div class="word-of-day-container">
+    <h1 class="word-of-day-title">Word of the Day</h1>
+    {% if word %}
+        <div class="word-details">
+            <h2 class="word-title">{{ word.spanish_word }}</h2>
+            <h2><span class="word-translation">{{ word.translation }}</span></h2>
+            <br>
+            <p class="word-example"><strong>Example:</strong> {{ word.example_sentence }}</p>
+            <p class="word-date"><em>Date:</em> {{ word.date }}</p>
+        </div>
+    {% else %}
+        <p class="word-no-word">No word for today! Check back later.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

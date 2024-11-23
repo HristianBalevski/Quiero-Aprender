@@ -1,12 +1,17 @@
 from .models import Lesson
 from .services import translate_with_mymemory
-import json
+import json, requests
 
 from django.shortcuts import redirect, get_object_or_404
 from .services import delete_flashcard, create_flashcard, save_flashcard
 from django.shortcuts import render
 
 from ..courses.models import Course
+
+from rest_framework.viewsets import ReadOnlyModelViewSet
+from .models import WordOfTheDay
+from .serializers import WordOfTheDaySerializer
+from django.utils.timezone import now
 
 
 def translate_view(request):
@@ -85,4 +90,21 @@ def lesson_detail(request, lesson_id):
     return render(request, 'lessons/lesson-detail.html', context)
 
 
+class WordOfTheDayViewSet(ReadOnlyModelViewSet):
+    queryset = WordOfTheDay.objects.all()
+    serializer_class = WordOfTheDaySerializer
 
+    def get_queryset(self):
+        today = now().date()
+        return self.queryset.filter(date=today)
+
+
+def word_of_the_day_view(request):
+    api_url = 'http://127.0.0.1:8000/lessons/api/word-of-the-day/'
+    response = requests.get(api_url)
+    word_of_the_day = response.json() if response.status_code == 200 else []
+
+    context = {
+        'word': word_of_the_day[0] if word_of_the_day else None
+    }
+    return render(request, 'lessons/word-of-the-day.html', context)

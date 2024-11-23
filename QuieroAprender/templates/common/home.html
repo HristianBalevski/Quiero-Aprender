@@ -4,17 +4,16 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-	<img src="{% static 'images/gallery/Cover Photo.jpg' %}" alt="">
-    <br><br>
-     {% if user.is_authenticated %}
+    {% if user.is_authenticated %}
          <div class="unit-links">
             <nav class="units-nav">
                 <ul class="units-list">
-                    <li><a href="{% url 'translate' %}">Translate</a></li>
-                    <li><a href="{% url 'flashcards' %}">Create Flashcard</a></li>
+                    <li><a href="{% url 'daily-word' %}">Word of The Day</a></li>
+                    <li><a href="{% url 'flashcards' %}">Create Flashcards</a></li>
                     <li><a href="{% url 'view_flashcards' %}">View Flashcards</a></li>
+                    <li><a href="{% url 'translate' %}">Translate</a></li>
                     <li><a href="{% url 'forum-posts' %}">Forum</a></li>
-{#                    <li><a href="#5">Unit 5</a></li>#}
+                    
 {#                    <li><a href="#6">Unit 6</a></li>#}
 {#                    <li><a href="#7">Unit 7</a></li>#}
 {#                    <li><a href="#8">Unit 8</a></li>#}
@@ -25,6 +24,9 @@
         </div>
      {% endif %}
         
+	<img src="{% static 'images/gallery/Cover Photo.jpg' %}" alt="">
+    <br><br>
+     
     <section class="photo-gallery">
     
     <div class="photo-section">

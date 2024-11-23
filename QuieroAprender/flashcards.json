@@ -1,10 +1,14 @@
 [
     {
-        "Front": "How can I get a taxi?",
-        "Back": "\u00bfC\u00f3mo puedo conseguir un taxi?"
+        "Front": "I have to get rich as soon as possible!",
+        "Back": "\u00a1Tengo que hacerme rico lo antes posible!"
     },
     {
-        "Front": "Hello, my name is Hristian and I am from Bulgaria.",
-        "Back": "Hola, mi nombre es Hristian y soy de Bulgaria."
+        "Front": "Next year I will travel to the United States.",
+        "Back": "El a\u00f1o que viene viajar\u00e9 a Estados Unidos."
+    },
+    {
+        "Front": "Where is the nearest food store?",
+        "Back": "\u00bfD\u00f3nde est\u00e1 la tienda m\u00e1s cercana?"
     }
 ]

@@ -7,7 +7,7 @@
 {% block content %}
     
 	<div class="courses-container">
-    <h1 class="courses-title">Available Courses</h1>
+    <h1 class="courses-title">AVAILABLE COURSES</h1>
     <ul class="courses-list">
         {% for course in courses %}
             <li class="course-item">
@@ -18,7 +18,9 @@
                         <strong>Level:</strong> {{ course.get_level_display }}
                     </p>
                 </div>
-                <a class="course-link" href="{% url 'lessons-by-course' course.id %}">View Lessons</a>
+                {% if user.is_authenticated %}
+                    <a class="course-link" href="{% url 'lessons-by-course' course.id %}">View Lessons</a>
+                {% endif %}
             </li>
         {% endfor %}
     </ul>

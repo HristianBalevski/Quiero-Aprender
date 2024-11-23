@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'QuieroAprender.courses',
     'ckeditor',
     'ckeditor_uploader',
+    'rest_framework',
 ]
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
