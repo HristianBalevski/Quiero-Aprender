@@ -1,12 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}
+	{{ country.name }}
+{% endblock %}
+
 {% block content %}
 	<article class="country-template">
-        <h1>{{ country.name }}</h1>
+        <h2>{{ country.name }}</h2>
         <img src="{% static country.image %}" alt="{{ country.name }}">
         <p>{{ country.description }}</p>
+        <p class="divider"></p>
+        <div class="go-back"><a href="/#all-countries" class="all-countries">Go Back</a></div>
     </article>
+    
+    
     
       <script>
         document.querySelectorAll('p').forEach(paragraph => {

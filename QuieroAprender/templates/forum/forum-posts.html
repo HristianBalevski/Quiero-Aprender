@@ -10,8 +10,9 @@
     <ul class="post-list">
         {% for post in page_obj %}
             <li class="post-item">
-                <a href="{% url 'post-detail' post.pk %}" class="post-title">{{ post.title }}</a>
+                <a href="{% url 'post-detail' post.pk %}" class="post-title">{{ post.title }}</a><br>
                 <p class="post-info">By <strong>{{ post.user.username }}</strong> on {{ post.created_at|date:"M d, Y H:i" }}</p>
+                <p class="post-info">Last Update: {{ post.updated_at|date:"M d, Y H:i" }}</p>
             </li>
         {% endfor %}
     </ul>

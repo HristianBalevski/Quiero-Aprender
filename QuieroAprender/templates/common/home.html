@@ -13,8 +13,7 @@
                     <li><a href="{% url 'view_flashcards' %}">View Flashcards</a></li>
                     <li><a href="{% url 'translate' %}">Translate</a></li>
                     <li><a href="{% url 'forum-posts' %}">Forum</a></li>
-                    
-{#                    <li><a href="#6">Unit 6</a></li>#}
+                    <li><a href="{% url 'blog_list' %}">Blog</a></li>
 {#                    <li><a href="#7">Unit 7</a></li>#}
 {#                    <li><a href="#8">Unit 8</a></li>#}
 {#                    <li><a href="#9">Unit 9</a></li>#}
@@ -23,10 +22,10 @@
             </nav>
         </div>
      {% endif %}
-        
+
 	<img src="{% static 'images/gallery/Cover Photo.jpg' %}" alt="">
     <br><br>
-     
+
     <section class="photo-gallery">
     
     <div class="photo-section">
@@ -36,7 +35,7 @@
     </div>
     <div class="photo-section">
         <img src="{% static 'images/gallery/University.png' %}" alt="University" class="photo">
-        <h3>Quiero Aprender University</h3>
+        <h3 id="all-countries">Quiero Aprender University</h3>
         <p>Our university was created to provide accessible, high-quality education for those eager to learn and grow. We are dedicated to empowering students with knowledge, skills, and real-world experience to help them succeed in a rapidly changing world.</p>
     </div>
     <div class="photo-section">

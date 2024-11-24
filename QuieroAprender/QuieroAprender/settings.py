@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'QuieroAprender.lessons',
     'QuieroAprender.forum',
     'QuieroAprender.courses',
+    'QuieroAprender.blog',
     'ckeditor',
     'ckeditor_uploader',
     'rest_framework',
