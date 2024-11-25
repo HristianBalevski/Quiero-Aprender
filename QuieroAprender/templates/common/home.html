@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block title %}Welcome{% endblock %}
-
 {% block content %}
     {% if user.is_authenticated %}
          <div class="unit-links">
@@ -14,9 +13,10 @@
                     <li><a href="{% url 'translate' %}">Translate</a></li>
                     <li><a href="{% url 'forum-posts' %}">Forum</a></li>
                     <li><a href="{% url 'blog_list' %}">Blog</a></li>
-{#                    <li><a href="#7">Unit 7</a></li>#}
-{#                    <li><a href="#8">Unit 8</a></li>#}
-{#                    <li><a href="#9">Unit 9</a></li>#}
+                    <li><a href="{% url 'calendar_view' %}">Calendar</a></li>
+                    <li><a href="{% url 'all_events' %}">Events</a></li>
+                    <li><a href="{% url 'my_events' %}">My Events</a></li>
+                    
 {#                    <li><a href="#10">Unit 10</a></li>#}
                 </ul>
             </nav>
@@ -44,7 +44,7 @@
         <p>Our learning environment is supportive and engaging, crafted to inspire curiosity and growth. It encourages active participation, fosters collaboration, and provides the resources needed for each student to succeed on their educational journey.</p>
     </div>
 </section>
-    <h2>SPANISH IS THE OFFICIAL LANGUAGE IN 21 COUNTRIES AROUND THE WORLD</h2>
+    <h2 class="home-page-h2">SPANISH IS THE OFFICIAL LANGUAGE IN 21 COUNTRIES AROUND THE WORLD</h2>
     <br>
    <article class="countries">
     
@@ -73,26 +73,31 @@
         <li><a href={% url 'country_details' country_name='venezuela' %}>Venezuela</a></li>
     </ol>
 </article>
+
     <section class="partners-section">
-  <h2>OUR PARTNERS</h2>
+  <h2 class="home-page-h2">OUR PARTNERS</h2>
         
   <div class="partners-gallery">
-    <div class="partner-item">
-      <img src="{% static 'images/partners/Spain.jpg' %}" alt="España" class="partner-image">
-      <h3 class="partner-name">España</h3>
+      <div class="partner-item">
+      <img src="{% static 'images/partners/Hispania University.jpg' %}" alt="Hispania University" class="partner-image">
+      <h3 class="partner-name">Hispania University</h3>
     </div>
-    <div class="partner-item">
-      <img src="{% static 'images/partners/Argentina.jpg' %}" alt="Argentina" class="partner-image">
-      <h3 class="partner-name">Argentina</h3>
+      
+      <div class="partner-item">
+      <img src="{% static 'images/partners/Lingua Instituto.jpg' %}" alt="Lingua Instituto" class="partner-image">
+      <h3 class="partner-name">Lingua Instituto</h3>
     </div>
+      
     <div class="partner-item">
-      <img src="{% static 'images/partners/Mexico.jpg' %}" alt="Mexico" class="partner-image">
-      <h3 class="partner-name">Mexico</h3>
+      <img src="{% static 'images/partners/Cervantes College.jpg' %}" alt="Cervantes College" class="partner-image">
+      <h3 class="partner-name">Cervantes College</h3>
     </div>
   </div>
 </section>
+    
+    
 
-<h2>WHAT OUR STUDENTS SAY</h2>
+<h2 class="home-page-h2">WHAT OUR STUDENTS SAY</h2>
 <section class="testimonials">
 
     <div class="testimonial">

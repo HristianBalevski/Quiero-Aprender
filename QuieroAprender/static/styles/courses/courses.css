@@ -1,0 +1,109 @@
+.course-detail-container {
+    text-align: justify;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Nunito', sans-serif;
+
+}
+
+.course-detail-level {
+    font-size: 1rem;
+    color: var(--ligh-dark-color);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.course-detail-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: var(--white-color);
+    background-color: #2980b9;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.course-title {
+    font-size: 1.5rem;
+    color: var(--gold-color);
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.courses-container {
+
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Nunito', sans-serif;
+}
+
+
+.courses-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.course-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.course-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.course-content {
+    margin-bottom: 10px;
+}
+
+
+.course-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+
+.course-level {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-weight: bold;
+}
+
+.course-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.course-link:hover {
+    background-color: var(--gold-color);
+}

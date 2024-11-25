@@ -30,6 +30,8 @@
 
 @import url('forms/delete-profile-form.css');
 
+@import url('forms/forms.css');
+
 @import url('forms/login-profile-form.css');
 
 @import url('lessons/api-translator.css');
@@ -38,10 +40,18 @@
 
 @import url('lessons/word-of-the-day.css');
 
+@import url('lessons/lessons.css');
+
+@import url('courses/courses.css');
+
 @import url('forum/delete-post.css');
 
 @import url('forum/post-detail.css');
 
 @import url('forum/forum-posts.css');
+
+@import url('events/events.css');
+
+@import url('events/calendar.css');
 
 @import url('global.css');

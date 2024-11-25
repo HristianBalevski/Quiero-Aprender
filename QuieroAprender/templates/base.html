@@ -1,39 +1,40 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <meta name="description" content="Quiero Aprender - Your platform for quality education.">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="icon" href="{% static 'images/logo-favicon/favicon.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+    {% load static %}
     
-    <title>{% block title %}{% endblock %} | Quiero Aprender</title>
-</head>
-<body>
-    <header>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <meta name="description" content="Quiero Aprender - Your platform for quality education.">
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+        <link rel="icon" href="{% static 'images/logo-favicon/favicon.ico' %}" type="image/x-icon">
+        <link href="https://cdn.jsdelivr.net/npm/fullcalendar/main.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+        
+        <title>{% block title %}{% endblock %} | Quiero Aprender</title>
+    </head>
+    <body>
+        <header>
         <div class="navigation-container">
             <nav class="main-nav">
                 <button class="mobile-menu-btn" aria-label="Toggle menu">
                     <i class="fa fa-bars"></i>
                 </button>
                 <ul class="nav-list">
-
+    
                     <li><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
                     <li><a href="{% url 'about' %}"><i class="fa fa-info-circle"></i> About Us</a></li>
                     <li><a href="{% url 'all-courses' %}"><i class="fa fa-graduation-cap"></i> Education</a></li>
                     <li><a href="{% url 'university' %}"><i class="fa fa-university"></i> University</a></li>
                     <li><a href="{% url 'contact' %}"><i class="fa fa-envelope"></i> Contact</a></li>
-
+    
                     {% if user.is_authenticated %}
-
+    
                         <li><a href="{% url 'profile' user.username %}"><i class="fa fa-user"></i> Profile</a></li>
                         <li>
                             <form method="post" action="{% url 'logout' %}">
@@ -52,20 +53,20 @@
                 
                 </ul>
             </nav>
-        
+            
             <a class="logo" href="{% url 'home' %}">
                 <img src="{% static 'images/logo-favicon/Logo.png' %}" alt="Logo">
             </a>
         </div>
-    
     </header>
-
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-
-    <footer class="site-footer">
+    
+    
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    
+       <footer class="site-footer">
         <div class="social-container">
             <h3 class="find-us">FOLLOW US:</h3>
             <div class="social-icons">
@@ -76,16 +77,29 @@
                 <a href="https://www.youtube.com/" aria-label="YouTube" title="YouTube"><i class="fa fa-youtube"></i></a>
             </div>
         </div>
+        <div class="contact-container">
+            <h3>Contact Us:</h3>
+            <p>Email: <a href="mailto:info@quieroaprender.com">info@quieroaprender.com</a></p>
+            <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+        </div>
+        <div class="footer-links">
+            <h3>Quick Links:</h3>
+            <ul>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+    
         <div class="divider"></div>
         <div class="rights">
-            <p>© 2024. All Rights Reserved. <a href="{% url 'home' %}" class="home-link">QUIERO APRENDER</a></p>
+            <p>© <script>document.write(new Date().getFullYear());</script>. All Rights Reserved. <a href="{% url 'home' %}" class="home-link">QUIERO APRENDER</a></p>
         </div>
     </footer>
 
-    <script>
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-list').classList.toggle('show');
-        });
-    </script>
-</body>
-</html>
+    {% block scripts %}
+    {% endblock %}
+
+    </body>
+    </html>

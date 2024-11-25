@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'QuieroAprender.forum',
     'QuieroAprender.courses',
     'QuieroAprender.blog',
+    'QuieroAprender.events',
     'ckeditor',
     'ckeditor_uploader',
     'rest_framework',
+
 ]
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'

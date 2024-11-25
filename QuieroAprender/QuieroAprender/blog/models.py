@@ -21,4 +21,4 @@ class BlogPost(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"ID: {self.pk}, Title: {self.title}"
+        return f"Title: {self.title}"

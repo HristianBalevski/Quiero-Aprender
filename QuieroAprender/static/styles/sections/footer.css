@@ -1,36 +1,74 @@
 .site-footer {
     background-color: var(--gray-color);
+    padding: 30px 20px;
+    font-family: Roboto, sans-serif;
     color: var(--dark-color);
-    padding: var(--spacing-lg);
-    margin-top: auto;
+    font-weight: bold;
+    border-top: 2px solid var(--border-color);
+}
+
+.site-footer .home-link {
+    color: var(--gold-color);
+}
+
+.site-footer h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: var(--black-color);
+}
+
+.site-footer a {
+    text-decoration: none;
+    color: var(--ligh-dark-color);
+    transition: color 0.3s;
+}
+
+.site-footer a:hover {
+    color: var(--dark-color);
 }
 
 .social-container {
+    margin-bottom: 20px;
     text-align: center;
-}
-
-.find-us {
-    margin-bottom: var(--spacing-md);
 }
 
 .social-icons a {
-    color: var(--dark-color);
-    font-size: 1.5rem;
-    margin: 0 var(--spacing-sm);
-    transition: opacity 0.3s ease;
+    margin: 0 10px;
+    color: var(--ligh-dark-color);
+    font-size: 1.5em;
+    transition: color 0.3s;
 }
 
 .social-icons a:hover {
-    opacity: 0.8;
+    color: var(--primary-color);
 }
-
-.rights p {
+.contact-container p {
+    color: var(--ligh-dark-color);
+}
+.contact-container,
+.footer-links
+ {
+    margin-bottom: 20px;
     text-align: center;
-    margin-top: 10px;
 }
 
-.home-link {
-    color: rgb(210, 171, 116);
-    text-decoration: none;
-
+.footer-links li{
+    list-style: none;
 }
+.contact-container a,
+.footer-links a {
+    display: inline-block;
+    margin: 5px 10px;
+}
+
+.rights {
+    text-align: center;
+    font-size: 0.9em;
+    color: #888;
+}
+
+.divider {
+    border-top: 1px solid var(--divider-color);
+    margin: 20px 0;
+}
+

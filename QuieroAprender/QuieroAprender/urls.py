@@ -11,6 +11,7 @@ urlpatterns = [
     path('lessons/', include('QuieroAprender.lessons.urls')),
     path('forum/', include('QuieroAprender.forum.urls')),
     path('blog/', include('QuieroAprender.blog.urls')),
+    path('events/', include('QuieroAprender.events.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 

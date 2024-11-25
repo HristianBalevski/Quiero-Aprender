@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Calendar
+{% endblock %}
+
+{% block content %}
+    <div id="calendar"></div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar/main.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendarEl = document.getElementById('calendar');
+            if (calendarEl) {
+                const calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    events: '/events/api/',
+                    eventClick: function(info) {
+                        if (confirm(
+                            `Event: ${info.event.title}\n` +
+                            `Start: ${info.event.start.toLocaleString()}\n` +
+                            `End: ${info.event.end.toLocaleString()}\n` +
+                            `Description: ${info.event.extendedProps.description}\n\n` +
+                            `Do you want to register for this event?`
+                        )) {
+                            window.location.href = `/events/register/${info.event.id}/`;
+                        }
+                    }
+                });
+                calendar.render();
+            }
+        });
+    </script>
+{% endblock %}
+

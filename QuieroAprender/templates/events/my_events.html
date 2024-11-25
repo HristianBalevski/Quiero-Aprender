@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}My Events{% endblock %}
+
+{% block content %}
+    <h2 class="primary-h2">My Events</h2>
+    <div class="events-container">
+        <div class="event-block">
+            {% for event in events %}
+                <h2 class="event-title">{{ event.title }}</h2>
+                <p class="event-date">Start: {{ event.start_time }}
+                <p class="event-date">End: {{ event.end_time }}</p>
+                <p class="event-description">{{ event.description }}</p>
+            {% empty %}
+                <p class="not-register-for-event">You are not registered for any events yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+    
+        
+{% endblock %}
