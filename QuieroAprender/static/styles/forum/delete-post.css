@@ -2,13 +2,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 50vh;
             padding: 20px;
         }
 
         .delete-form-container {
             background-color: var(--gray-color);
             padding: 30px;
+            margin-bottom: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px var(--shadow-color);
             max-width: 500px;
@@ -19,51 +19,25 @@
         .delete-form-container h2 {
             color: var(--primary-color);
             margin-bottom: 20px;
-            font-size: 24px;
         }
 
         .delete-form-container p {
             margin: 10px 0;
-            font-size: 16px;
-            color: #555;
+            color: var(--ligh-dark-color);
         }
 
         .delete-form-container p strong {
-            font-size: 18px;
             color:var(--dark-color);
         }
 
         @media (max-width: 768px) {
-            .delete-page-container {
-                min-height: 70vh;
-            }
-            .delete-form-container {
-                padding: 20px;
-            }
+    .delete-form-container {
+        max-width: 400px;
+    }
+    }
 
-            .delete-form-container h2 {
-                font-size: 20px;
-            }
-
-            .action-buttons .btn-delete, .action-buttons .btn-cancel {
-                font-size: 14px;
-                padding: 8px 15px;
-            }
-
+    @media (max-width: 480px) {
+        .delete-form-container {
+            max-width: 300px;
         }
-
-        @media (max-width: 480px) {
-            .delete-form-container {
-                padding: 15px;
-            }
-
-            .delete-form-container h2 {
-                font-size: 18px;
-            }
-
-            .action-buttons .btn-delete, .action-buttons .btn-cancel {
-                font-size: 12px;
-                padding: 6px 10px;
-            }
-
-        }
+    }

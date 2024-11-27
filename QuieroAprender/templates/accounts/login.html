@@ -6,7 +6,7 @@
 <div class="page-container-min-height-70vh">
     <div class="form-container">
         
-        <form method="post" action="{% url 'login' %}" class="register-form">
+        <form method="post" action="{% url 'login' %}{% if next %}?next={{ next }}{% endif %}" class="register-form">
             {% csrf_token %}
             {{ form.as_p }}
 

@@ -23,7 +23,7 @@
 }
 
 .lesson-container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 40px auto;
     padding: 20px;
     background-color: var(--white-color);/
@@ -39,7 +39,6 @@
 }
 
 .lesson-title {
-    font-size: 1.3rem;
     text-transform: uppercase;
     color: var(--dark-color);
     text-align: center;
@@ -49,25 +48,10 @@
 
 
 .lesson-container div {
-    font-size: 1rem;
-    line-height: 1.6;
+
     color: #34495e;
     text-align: center;
 }
-
-
-.lesson-container div a {
-    color: #2980b9;
-    text-decoration: none;
-    border-bottom: 1px dotted #2980b9;
-    transition: color 0.3s, border-bottom 0.3s;
-}
-
-.lesson-container div a:hover {
-    color: #e74c3c;
-    border-bottom: 1px solid #e74c3c;
-}
-
 
 .lesson-container img {
     max-width: 60%;
@@ -104,4 +88,22 @@ table th {
 
 .lesson-container table tr:hover {
     background-color: #e8f8f5;
+}
+
+@media (max-width: 1024px) {
+    .lesson-container {
+        max-width: 900px;
+    }
+
+@media (max-width: 768px) {
+    .lesson-container {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lesson-container {
+        max-width: 400px;
+    }
+}
 }

@@ -61,7 +61,7 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1110px) {
     .mobile-menu-btn {
         display: block;
     }
@@ -84,41 +84,10 @@
     .contact-info {
         order: -1;
     }
-}
 
-@media screen and (max-width: 480px) {
-    .nav-list a {
-        font-size: 0.9rem;
-    }
-
-    .social-icons {
-        display: flex;
-        justify-content: center;
-        gap: var(--spacing-lg);
+    .logo img {
+        width: 120px;
+        height: 120px;
     }
 }
 
-@media print {
-    .navigation-container,
-    .unit-links,
-    .site-footer {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-.logo img {
-    width: 80px;
-    height: 80px;
-
-   }
-}
-
-
-@media (max-width: 480px) {
-.logo img {
-    width: 50px;
-    height: 50px;
-
-   }
-}

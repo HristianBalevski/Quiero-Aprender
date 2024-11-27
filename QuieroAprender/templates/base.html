@@ -66,9 +66,10 @@
             {% endblock %}
         </main>
     
-       <footer class="site-footer">
+       <footer>
+           <div class="site-footer">
         <div class="social-container">
-            <h3 class="find-us">FOLLOW US:</h3>
+            <h4 class="find-us">FOLLOW US:</h4>
             <div class="social-icons">
                 <a href="https://www.facebook.com/" aria-label="Facebook" title="Facebook"><i class="fa fa-facebook"></i></a>
                 <a href="https://www.instagram.com/" aria-label="Instagram" title="Instagram"><i class="fa fa-instagram"></i></a>
@@ -78,28 +79,33 @@
             </div>
         </div>
         <div class="contact-container">
-            <h3>Contact Us:</h3>
-            <p>Email: <a href="mailto:info@quieroaprender.com">info@quieroaprender.com</a></p>
-            <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+            <h4>CONTACT US:</h4>
+            <p>Email: <a href="{% url 'contact' %}">info@quieroaprender.com</a></p>
+            <p class="phone">Phone: +1 234 567 890</p>
         </div>
         <div class="footer-links">
-            <h3>Quick Links:</h3>
+            <h4>QUICK LINKS:</h4>
             <ul>
                 <li><a href="{% url 'about' %}">About Us</a></li>
                 <li><a href="#">Privacy Policy</a></li>
                 <li><a href="#">Terms of Service</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
+
         </div>
-    
-        <div class="divider"></div>
+        
+        </div>
         <div class="rights">
             <p>© <script>document.write(new Date().getFullYear());</script>. All Rights Reserved. <a href="{% url 'home' %}" class="home-link">QUIERO APRENDER</a></p>
         </div>
+
     </footer>
 
     {% block scripts %}
+        <script>
+            document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+                document.querySelector('.nav-list').classList.toggle('show');
+            });
+        </script>
     {% endblock %}
-
     </body>
     </html>

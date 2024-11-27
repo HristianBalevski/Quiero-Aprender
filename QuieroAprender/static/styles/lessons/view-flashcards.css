@@ -1,5 +1,4 @@
 .main-container {
-        min-height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -34,7 +33,6 @@
         width: 100%;
         max-width: 100px;
         padding: 10px;
-        font-size: 14px;
         color: var(--white-color);
         text-align: center;
         text-decoration: none;
@@ -47,3 +45,15 @@
     .delete-flashcard:hover {
         transform: translateY(-2px);
     }
+
+
+@media (max-width: 768px) {
+    .card {
+        width: 200px;
+    }
+
+    .delete-flashcard {
+        max-width: 90px;
+        padding: 8px;
+    }
+}

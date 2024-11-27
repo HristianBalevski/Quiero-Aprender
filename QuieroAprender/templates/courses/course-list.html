@@ -12,7 +12,7 @@
         {% for course in courses %}
             <li class="course-item">
                 <div class="course-content">
-                    <h2 class="course-title">{{ course.title }}</h2>
+                    <h3 class="course-title">{{ course.title }}</h3>
                     <p class="course-description">{{ course.description }}</p>
                     <p class="course-level">
                         <strong>Level:</strong> {{ course.get_level_display }}

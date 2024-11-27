@@ -51,7 +51,7 @@
 }
 
 .countries ol li a:hover {
-    color: #ba2021;
+    color: var(--primary-color);
 }
 
 .country-template {
@@ -93,64 +93,9 @@
     padding: 0 15px;
 }
 
-@media (max-width: 1200px) {
-    max-width: 90%;
-}
-
-@media (max-width: 992px)  {
-    max-width: 90%;
-}
-
-
-@media (max-width: 768px) {
-
-    .countries {
-        max-width: 90%;
-    }
-
-    .countries ol li{
-        font-size: 1em;
-    }
-    .countries ol li a {
-        font-size: 1em;
-    }
-
-    .country-template p {
-        font-size: 0.9em;
-        padding: 0 40px;
-    }
-
-    .country-template h1 {
-        font-size: 1.8em;
-    }
-
-    .country-template img {
-        width: 90%;
-    }
-}
-
-
 @media (max-width: 480px) {
-
-    .countries ol li {
-        font-size: 0.7em;
-    }
-    .countries ol li a {
-        font-size: 1em;
-    }
-
-    .country-template p {
-        font-size: 0.7em;
-
-    }
-
-    .country-template h1 {
-        font-size: 1.2em;
-    }
-
-    .country-template img {
-        width: 80%;
+    .countries, .countries-heading {
+        display: none;
     }
 }
-
 
