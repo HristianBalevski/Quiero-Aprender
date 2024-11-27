@@ -31,14 +31,14 @@
 }
 
 .stars {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .testimonial-text {
     font-style: italic;
     color: var(--dark-color);
     margin-bottom: 10px;
-    line-height: 1.6;
     text-align: justify;
 }
 
@@ -63,28 +63,18 @@
         flex: 0 1 220px;
     }
 
-    .testimonial-text {
-        font-size: 15px;
-    }
-
     .testimonial-author {
         font-weight: 700;
-        font-size: 1em;
     }
 
     .testimonial-image {
         width: 80px;
         height: 80px;
     }
-
-    .stars {
-        font-size: 1em;
-    }
 }
 
 @media (max-width: 576px) {
            h2 {
-        font-size: 0.9rem;
         font-weight: bold;
     }
 
@@ -97,10 +87,6 @@
     text-align: center;
     transition: transform 0.2s;
 }
-
-      .stars {
-        font-size: 1.2em;
-    }
 
 }
 

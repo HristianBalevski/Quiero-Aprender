@@ -1,13 +1,25 @@
-img {
-    margin-top: 2em;
-    width: 100%;
-    height: auto;
+header {
+    font-size: 22px;
 }
 
-.divider {
-  height: 2px;
-  background-color: var(--divider-color);
-  margin: 40px 0;
+.primary-h2 {
+    letter-spacing: 1.5px;
+    color: var(--black-color);
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    background-color: var(--gray-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 500px;
+}
+
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 

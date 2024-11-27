@@ -16,17 +16,12 @@
 }
 
 .partner-image {
-  width: 100%;
-  height: 400px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 16px;
 }
 
 .partner-name {
-  font-family: 'Nunito', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 600;
     color: var(--dark-color);
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -46,15 +41,6 @@
   .partner-item {
     flex: 1 0 45%;
   }
-  .partner-image {
-    height: 400px;
-  }
-
-  .partner-name {
-        font-size: 1.2rem;
-        letter-spacing: 1.2px;
-    }
-}
 
 @media (max-width: 480px) {
   .partners-gallery {
@@ -62,16 +48,9 @@
     align-items: center;
   }
 
-    .partner-name {
-        font-size: 0.8em;
-        letter-spacing: 1px;
-        border-bottom: 1px solid #ff6f61;
-    }
   .partner-item {
     flex: 1 0 auto;
     max-width: 300px;
   }
-  .partner-image {
-    height: 200px;
-  }
-}
+
+}}

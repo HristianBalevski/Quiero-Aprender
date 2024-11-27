@@ -1,0 +1,125 @@
+@media (max-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+
+  .action-buttons .btn-do-action, .btn-cancel {
+      font-size: 16px;
+  }
+
+  header {
+        font-size: 22px;
+    }
+
+  .primary-h2 {
+
+      width: 400px;
+  }
+
+
+  h1 {
+        font-size: 2.2rem;
+    }
+
+  h2 {
+        font-size: 1.75rem;
+    }
+
+  h3 {
+        font-size: 1.5rem;
+    }
+
+  h4, h5, h6 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .primary-h2 {
+      width: 350px;
+  }
+
+   .action-buttons .btn-do-action, .btn-cancel {
+      font-size: 14px;
+  }
+
+
+  header {
+        font-size: 18px;
+    }
+
+  h1 {
+    font-size: 2rem;
+    }
+
+  h2 {
+        font-size: 1.5rem;
+    }
+
+  h3 {
+        font-size: 1.25rem;
+    }
+
+  h4, h5, h6 {
+        font-size: 1rem;
+    }
+
+  .btn-submit {
+        padding: 10px 20px;
+    }
+
+  .logo img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+        line-height: 1.3;
+
+    header {
+        font-size: 16px;
+    }
+
+    .primary-h2 {
+      width: 300px;
+  }
+
+    .action-buttons .btn-do-action, .btn-cancel {
+      font-size: 12px;
+  }
+
+
+    h1 {
+    font-size: 1.8rem;
+}
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    h4, h5, h6 {
+        font-size: 0.9rem;
+    }
+
+    .btn-submit {
+        padding: 8px 20px;
+    }
+
+    .logo img {
+        width: 100px;
+        height: 100px;
+    }
+}
+}

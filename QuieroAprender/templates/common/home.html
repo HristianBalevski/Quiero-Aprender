@@ -5,19 +5,21 @@
 {% block content %}
     {% if user.is_authenticated %}
          <div class="unit-links">
+         
+             <input type="checkbox" id="menu-toggle" />
+             <label for="menu-toggle" class="menu-label">Menu</label>
+             
             <nav class="units-nav">
                 <ul class="units-list">
                     <li><a href="{% url 'daily-word' %}">Word of The Day</a></li>
                     <li><a href="{% url 'flashcards' %}">Create Flashcards</a></li>
                     <li><a href="{% url 'view_flashcards' %}">View Flashcards</a></li>
-                        <li><a href="{% url 'translate' %}">Translate</a></li>
-                        <li><a href="{% url 'forum-posts' %}">Forum</a></li>
-                        <li><a href="{% url 'blog_list' %}">Blog</a></li>
-                        <li><a href="{% url 'calendar_view' %}">Calendar</a></li>
-                        <li><a href="{% url 'all_events' %}">Events</a></li>
-                        <li><a href="{% url 'my_events' %}">My Events</a></li>
-                    
-{#                    <li><a href="#10">Unit 10</a></li>#}
+                    <li><a href="{% url 'translate' %}">Translate</a></li>
+                    <li><a href="{% url 'forum-posts' %}">Forum</a></li>
+                    <li><a href="{% url 'blog_list' %}">Blog</a></li>
+                    <li><a href="{% url 'calendar_view' %}">Calendar</a></li>
+                    <li><a href="{% url 'all_events' %}">Events</a></li>
+                    <li><a href="{% url 'my_events' %}">My Events</a></li>
                 </ul>
             </nav>
         </div>
@@ -95,8 +97,6 @@
   </div>
 </section>
     
-    
-
 <h2 class="home-page-h2">WHAT OUR STUDENTS SAY</h2>
 <section class="testimonials">
 
