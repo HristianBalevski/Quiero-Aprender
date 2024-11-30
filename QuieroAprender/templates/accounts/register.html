@@ -3,80 +3,101 @@
 {% block content %}
     
     <h2 class="primary-h2">REGISTRATION</h2>
-  <div class="page-container-min-height-60vh">
+  <div>
     <div class="form-container">
 
         <form method="post" enctype="multipart/form-data" class="register-form">
-            {% csrf_token %}
+    {% csrf_token %}
 
-            {{ form.username }}
-            {% if form.username.errors %}
-                <div class="error">
-                    <p>{{ form.username.errors.0 }}</p>
-                </div>
-            {% endif %}
-
-            {{ form.email }}
-            {% if form.email.errors %}
-                <div class="error">
-                    <p>{{ form.email.errors.0 }}</p>
-                </div>
-            {% endif %}
-
-            {{ form.password1 }}
-            {% if form.password1.errors %}
-                <div class="error">
-                    <p>{{ form.password1.errors.0 }}</p>
-                </div>
-            {% endif %}
-
-            {% for help_text in form.password1.field.help_texts %}
-                <p class="help-text">{{ help_text }}</p>
-            {% endfor %}
-
-            {{ form.password2 }}
-            {% if form.password2.errors %}
+    <div>
+        {{ form.username }}
+        {% if form.username.errors %}
+            <div class="error">
+                <p>{{ form.username.errors.0 }}</p>
+            </div>
+        {% endif %}
+    </div>
+        
+    <div>
+        {{ form.email }}
+        {% if form.email.errors %}
+            <div class="error">
+                <p>{{ form.email.errors.0 }}</p>
+            </div>
+        {% endif %}
+    </div>
+        
+    <div>
+        {{ form.password1 }}
+        {% if form.password1.errors %}
+            <div class="error">
+                <p>{{ form.password1.errors.0 }}</p>
+            </div>
+        {% endif %}
+    </div>
+        
+    <div>
+        {{ form.password2 }}
+        {% if form.password2.errors %}
+            <div class="error">
                 <p>{{ form.password2.errors.0 }}</p>
-            {% endif %}
-
-            {{ form.profile_photo }}
-            {% if form.profile_photo.errors %}
+            </div>
+        {% endif %}
+    </div>
+        
+    <div>
+        {{ form.profile_photo }}
+        {% if form.profile_photo.errors %}
+            <div class="error">
                 <p>{{ form.profile_photo.errors.0 }}</p>
-            {% endif %}
+            </div>
+        {% endif %}
+    </div>
+        
+    {% if form.non_field_errors %}
+        <div class="error">
+            <ul>
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
 
-            <button type="submit" class="btn-submit">Sign Up</button>
-        </form>
+    <button type="submit" class="btn-submit">Sign Up</button>
+</form>
+
     </div>
 </div>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
+    const password1 = document.querySelector('input[name="password1"]');
+    const password2 = document.querySelector('input[name="password2"]');
         
-        const password1 = document.querySelector('input[name="password1"]');
-        const password2 = document.querySelector('input[name="password2"]');
-
-        if (password1) password1.setAttribute('placeholder', 'Password');
-        if (password2) password2.setAttribute('placeholder', 'Confirm password');
+    if (password1) password1.setAttribute('placeholder', 'Password');
+    if (password2) password2.setAttribute('placeholder', 'Confirm password');
         
-        const fields = document.querySelectorAll('input[name="username"], input[name="email"], input[name="profile_photo"], input[name="password1"], input[name="password2"]');
+    const fields = document.querySelectorAll('input[name="username"], input[name="email"], input[name="profile_photo"], input[name="password1"], input[name="password2"]');
 
-        fields.forEach(field => {
-            field.addEventListener('input', function () {
+    fields.forEach(field => {
+        field.addEventListener('input', function () {
+            const errorDiv = this.closest('div').querySelector('.error');
+            if (errorDiv) {
+                errorDiv.style.display = 'none';
+            }
+        });
+        
+        if (field.type === 'file') {
+            field.addEventListener('change', function () {
                 const errorDiv = this.closest('div').querySelector('.error');
                 if (errorDiv) {
                     errorDiv.style.display = 'none';
                 }
             });
-            
-            if (field.type === 'file') {
-                field.addEventListener('change', function () {
-                    const errorDiv = this.closest('div').querySelector('.error');
-                    if (errorDiv) {
-                        errorDiv.style.display = 'none';
-                    }
-                });
-            }
-        });
+        }
     });
+});
+
 </script>
 {% endblock %}
 

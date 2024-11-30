@@ -13,33 +13,3 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 10px var(--shadow-color);
 }
-
-    .edit {
-        background-color: var(--secondary-color);
-        width: 200px;
-        border-radius: 1.5em;
-        padding: 10px;
-    }
-
-    .delete {
-        background-color: var(--primary-color);
-        width: 200px;
-        border-radius: 1.5em;
-        padding: 10px;
-    }
-
-    .edit a{
-        text-decoration: none;
-        color: var(--white-color);
-        font-size: 24px;
-        cursor: pointer;
-        transition: opacity 0.3s ease;
-    }
-
-    .delete a {
-        text-decoration: none;
-        color: var(--white-color);
-        font-size: 24px;
-        cursor: pointer;
-        transition: opacity 0.3s ease;
-    }

@@ -3,8 +3,8 @@
 {% block title %}Edit Profile{% endblock %}
 
 {% block content %}
-    <h2 class="forms-h2">Update Profile</h2>
-    <div class="page-container-min-height-100vh">
+    <h2 class="primary-h2">UPDATE PROFILE</h2>
+    <div>
         <div class="form-container">
             <form method="post" enctype="multipart/form-data" class="update-form">
                 {% csrf_token %}
@@ -15,7 +15,7 @@
                 <label for="{{ form.last_name.id_for_label }}">Last Name</label>
                 {{ form.last_name }}
 
-                <label for="{{ form.email.id_for_label }}">Email</label>
+                <label for="{{ form.email.id_for_label }}">Email Address</label>
                 {{ form.email }}
 
                 {% if form.email.errors %}
@@ -24,7 +24,7 @@
                     </div>
                 {% endif %}
 
-                <label for="{{ form.bio.id_for_label }}">Biography</label>
+                <label for="{{ form.bio.id_for_label }}">Description</label>
                 {{ form.bio }}
 
                 <label for="{{ form.birth_date.id_for_label }}">Birth Date</label>

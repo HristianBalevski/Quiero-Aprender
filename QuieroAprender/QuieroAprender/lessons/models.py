@@ -1,8 +1,10 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from QuieroAprender.utils import generate_unique_slug
 
 class Lesson(models.Model):
     title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(null=True, blank=True, max_length=200, unique=True)
     content = RichTextUploadingField()
     course = models.ForeignKey(
         'courses.Course',
@@ -13,8 +15,14 @@ class Lesson(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = generate_unique_slug(Lesson, self.title)
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.title
+
 
 
 class WordOfTheDay(models.Model):

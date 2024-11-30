@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser
 from .validators import validate_image_size
+from django.contrib.auth.forms import AuthenticationForm
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -13,12 +14,12 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ('username', 'email', 'password1', 'password2', 'profile_photo', 'bio', 'birth_date')
         widgets = {
-            'username': forms.TextInput(attrs={'placeholder': 'Username'}),
-            'email': forms.EmailInput(attrs={'placeholder': 'Email address'}),
+            'username': forms.TextInput(attrs={'placeholder': 'Enter your username'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Enter your email address'}),
             'first_name': forms.TextInput(attrs={'placeholder': 'First name'}),
             'last_name': forms.TextInput(attrs={'placeholder': 'Last name'}),
-            'password1': forms.PasswordInput(attrs={'placeholder': 'Password'}),
-            'password2': forms.PasswordInput(attrs={'placeholder': 'Confirm password'}),
+            'password1': forms.PasswordInput(attrs={'placeholder': 'Create a password'}),
+            'password2': forms.PasswordInput(attrs={'placeholder': 'Confirm your password'}),
         }
 
 
@@ -38,14 +39,14 @@ class CustomUserUpdateForm(forms.ModelForm):
             }),
             'bio': forms.Textarea(attrs={
                 'rows': 5,
-                'placeholder': 'Update Biography',
+                'placeholder': 'Tell us a little about yourself',
                 'class': 'bio-textarea',
             }),
             'birth_date': forms.DateInput(attrs={
                 'type': 'date',
                 'placeholder': 'Update Birth Date',
             }),
-            'profile_photo': forms.ClearableFileInput(attrs={}),
+            'profile_photo': forms.ClearableFileInput(),
         }
 
     def clean_profile_photo(self):
@@ -62,6 +63,7 @@ class UserProfileForm(forms.ModelForm):
         fields = ('profile_photo', 'username', 'first_name', 'last_name', 'bio')
 
 
-class LoginForm(forms.Form):
-    username = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': 'Username'}), required=True)
-    password = forms.CharField(widget=forms.PasswordInput, required=True)
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': 'Enter your username'}), required=True)
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Enter your password'}), required=True)
+

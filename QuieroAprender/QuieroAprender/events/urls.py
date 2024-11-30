@@ -6,6 +6,6 @@ urlpatterns = [
     path('calendar/', calendar_view, name='calendar_view'),
     path('register/<int:event_id>/', register_event, name='register_event'),
     path('all/', all_events, name='all_events'),
-    path('', my_events, name='my_events'),
+    path('my-events/', my_events, name='my_events'),
 
 ]

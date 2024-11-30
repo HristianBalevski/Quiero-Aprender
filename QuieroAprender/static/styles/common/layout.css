@@ -1,5 +1,5 @@
 header {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .primary-h2 {
@@ -20,6 +20,37 @@ header {
     display: flex;
     justify-content: center;
     gap: 10px;
+}
+
+
+.terms-container {
+    max-width: 800px;
+    margin: 2rem auto 5rem;
+    padding: 2em;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.terms-container h1 {
+    text-align: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 2rem;
+}
+.terms-container h2 {
+    text-align: start;
+    padding: 2rem;
+
+}
+
+.terms-container section p,
+.terms-container ul li {
+    padding-left: 2rem;
+    list-style: none;
+}
+
+.terms-container p > a {
+    text-decoration: none;
+    color: var(--gold-color);
 }
 
 

@@ -40,7 +40,7 @@
   background: var(--primary-color);
   color: var(--white-color);
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 20px;
   text-align: center;
   cursor: pointer;
 }

@@ -1,14 +1,12 @@
 
-    .container {
+.container {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     padding: 40px 20px;
 }
-
 .container h1 {
-    font-size: 2em;
+    margin-bottom: 2rem;
 }
-
 .container ul li {
     list-style: none;
 }
@@ -37,16 +35,14 @@
     }
 
     .history-text p {
-      line-height: 1.6;
       margin-bottom: 1.5em;
-      font-size: 1.2em;
         text-align: justify;
     }
 
 
     @media (max-width: 768px) {
     .container {
-        padding: 20px 10px;
+        max-width: 700px;
     }
 
     .history-section {
@@ -58,14 +54,8 @@
         padding: 1em;
     }
 
-    .container h1 {
-        font-size: 1.5em;
-    }
-
     .history-text p {
-        font-size: 0.9em;
         margin-bottom: 1.5em;
-        line-height: 1.5;
         text-align: justify;
     }
 
@@ -73,20 +63,15 @@
 
 @media (max-width: 480px) {
     .container {
-        padding: 15px 5px;
-        min-height: 75vh;
+        max-width: 450px;
     }
 
     .history-section {
         padding: 15px;
     }
 
-    .container h1 {
-        font-size: 1.3em;
-    }
 
     .history-text p {
-        font-size: 0.8rem;
         text-align: justify;
     }
 
@@ -95,7 +80,7 @@
     }
 
     .history-image img {
-        border-radius: 5px;
+        border-radius: var(--border-radius-8);
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
     }
 }

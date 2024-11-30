@@ -12,7 +12,7 @@
     flex: 0 1 300px;
     background: white;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: var(--border-radius-8);
     box-shadow: 0 2px 4px var(--shadow-color);
     text-align: center;
     transition: transform 0.2s;
@@ -52,7 +52,7 @@
     flex: 0 1 250px;
     background: white;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: var(--border-radius-8);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.2s;

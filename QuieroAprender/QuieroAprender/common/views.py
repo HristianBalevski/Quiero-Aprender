@@ -14,6 +14,12 @@ def about(request):
 def university(request):
     return render(request, 'common/university.html')
 
+def terms(request):
+    return render(request, 'common/terms-of-service.html')
+
+def privacy(request):
+    return render(request, 'common/privacy.html')
+
 
 def contact_view(request):
     if request.method == 'POST':

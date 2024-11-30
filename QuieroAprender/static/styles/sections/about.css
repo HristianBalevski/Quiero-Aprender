@@ -1,7 +1,10 @@
 .about-us {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 3rem;
     padding: 0 40px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius-8);
 
 }
 
@@ -20,45 +23,3 @@
 }
 
 
-@media (max-width: 768px) {
-    .about-us {
-        min-height: 70vh;
-    }
-  .about-us h1 {
-    font-size: 1.2em;
-  }
-
-  .about-us h2 {
-    font-size: 0.9em;
-  }
-
-  .about-us ul  {
-      list-style: none;
-  }
-  .about-us p,
-  .about-us ul li {
-    font-size: 0.7em;
-      padding: 0 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-us {
-    padding: 1rem;
-      min-height: 80vh;
-  }
-
-  .about-us h1 {
-    font-size: 1.5rem;
-  }
-
-  .about-us h2 {
-    font-size: 0.9rem;
-  }
-
-  .about-us p,
-  .about-us ul li {
-    font-size: 1rem;
-      padding-bottom: 1rem;
-  }
-}

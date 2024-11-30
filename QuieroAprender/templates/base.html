@@ -87,8 +87,8 @@
             <h4>QUICK LINKS:</h4>
             <ul>
                 <li><a href="{% url 'about' %}">About Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
+                <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+                <li><a href="{% url 'terms' %}">Terms of Service</a></li>
             </ul>
 
         </div>
@@ -105,7 +105,8 @@
             document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
                 document.querySelector('.nav-list').classList.toggle('show');
             });
+            
         </script>
     {% endblock %}
-    </body>
+   </body>
     </html>

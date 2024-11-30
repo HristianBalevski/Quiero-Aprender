@@ -8,9 +8,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def register_event(request, event_id):
     event = get_object_or_404(Event, id=event_id)
-    event.attendees.add(request.user)
     return redirect('calendar_view')
-
 
 def events_api(request):
     events = Event.objects.all()
@@ -25,13 +23,6 @@ def events_api(request):
 
 def calendar_view(request):
     return render(request, 'events/calendar.html')
-
-
-@login_required
-def register_event(request, event_id):
-    event = get_object_or_404(Event, id=event_id)
-    event.attendees.add(request.user)
-    return redirect('calendar_view')
 
 @login_required
 def my_events(request):

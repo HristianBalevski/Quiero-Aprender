@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-	Lessons for Beginners
+	Spanish Courses
 {% endblock %}
 
 {% block content %}
@@ -12,7 +12,7 @@
         {% for lesson in lessons %}
             <ul class="display-lessons">
                  <li>
-                    <a href="{% url 'lesson-detail' lesson.id %}">{{ lesson.title }}</a>
+                    <a href="{% url 'lesson-detail' lesson.id lesson.slug %}">{{ lesson.title }}</a>
                 </li>
             </ul>
         {% endfor %}

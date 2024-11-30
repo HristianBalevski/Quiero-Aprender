@@ -8,6 +8,7 @@
 <div class="lesson-container">
     <h3 class="course-title">{{ lesson.course.title }}</h3>
     <h3><strong>Lesson #{{ lesson.id }}</strong></h3>
+    <br>
     <h4 class="lesson-title">{{ lesson.title }}</h4>
     <div class="lesson-content">
         {{ lesson.content|safe }}
@@ -16,18 +17,32 @@
 
 <div class="pagination">
     <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1" class="pagination-link">&laquo; First</a>
-            <a href="?page={{ page_obj.previous_page_number }}" class="pagination-link">Previous</a>
+        {% if page_obj.number != 1 %}
+            <a href="{% url 'lesson-detail' first_lesson.id first_lesson.slug %}" class="pagination-link">
+                &laquo; First
+            </a>
+        {% endif %}
+
+        {% if previous_lesson %}
+            <a href="{% url 'lesson-detail' previous_lesson.id previous_lesson.slug %}" class="pagination-link">
+                &laquo; Previous
+            </a>
         {% endif %}
 
         <span class="current-page">
             Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
         </span>
 
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}" class="pagination-link">Next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}" class="pagination-link">Last &raquo;</a>
+        {% if next_lesson %}
+            <a href="{% url 'lesson-detail' next_lesson.id next_lesson.slug %}" class="pagination-link">
+                Next &raquo;
+            </a>
+        {% endif %}
+    
+        {% if page_obj.number != page_obj.paginator.num_pages %}
+            <a href="{% url 'lesson-detail' last_lesson.id last_lesson.slug %}" class="pagination-link">
+                Last &raquo;
+            </a>
         {% endif %}
     </span>
 </div>

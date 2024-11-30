@@ -30,12 +30,13 @@
 }
 
 .countries ol li {
-    flex: 0 0 calc(25% - 20px);
+    background-color: var(--gray-color);
+    flex: 0 0 calc(23% - 20px);
     margin: 10px;
     padding: 10px;
-    font-size: 1.1em;
     box-sizing: border-box;
     transition: transform 0.2s;
+    list-style: decimal;
 }
 
 .countries ol li:hover {
@@ -45,9 +46,9 @@
 .countries ol li a {
     color: var(--black-color);
     text-decoration: none;
-    font-size: 1.1em;
     display: block;
     padding: 5px;
+
 }
 
 .countries ol li a:hover {
@@ -62,8 +63,6 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-
 
 .country-template h2 {
     color: var(--dark-color);
@@ -85,17 +84,26 @@
 }
 
 .country-template p {
-    line-height: 1.5;
+
     color: var(--dark-color);
     text-align: justify;
     margin: 20px 0;
-    font-size: 1.0em;
     padding: 0 15px;
+}
+
+@media (max-width: 768px) {
+    .country-template {
+        max-width: 700px;
+    }
 }
 
 @media (max-width: 480px) {
     .countries, .countries-heading {
         display: none;
+    }
+
+    .country-template {
+        max-width: 450px;
     }
 }
 

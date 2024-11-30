@@ -18,11 +18,7 @@
 
 /* Forms */
 @import url('forms/forms.css');
-@import url('forms/register-profile-form.css');
 @import url('forms/user-profile-form.css');
-@import url('forms/update-profile-form.css');
-@import url('forms/delete-profile-form.css');
-@import url('forms/login-profile-form.css');
 
 /* Lessons */
 @import url('lessons/lessons.css');

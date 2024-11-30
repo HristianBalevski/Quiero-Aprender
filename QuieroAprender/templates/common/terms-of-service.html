@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	    Terms of Service
+{% endblock %}
+
+
+{% block content %}
+	<div class="terms-container">
+        <h1>Terms of Use</h1>
+        <section>
+            <h2>Acceptance of Terms</h2>
+            <p>By accessing our platform, you agree to these Terms of Service and our Privacy Policy. If you do not agree, please do not use our services.</p>
+        </section>
+
+        <section>
+            <h2>Eligibility</h2>
+            <p>To use our platform, you must be at least 10 years old. By using the platform, you confirm that you meet this requirement.</p>
+        </section>
+
+        <section>
+            <h2>Account Responsibilities</h2>
+            <ul>
+                <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
+                <li>You must notify us immediately of any unauthorized use of your account.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Prohibited Activities</h2>
+            <p>You agree not to:</p>
+            <ul>
+                <li>Use the platform for illegal or unauthorized purposes.</li>
+                <li>Share content that is offensive, defamatory, or violates intellectual property rights.</li>
+                <li>Attempt to hack, disrupt, or undermine the platform’s security.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Intellectual Property</h2>
+            <p>All content on Quiero Aprender, including text, images, and software, is our intellectual property or licensed to us. You may not use, reproduce, or distribute this content without our permission.</p>
+        </section>
+
+        <section>
+            <h2>User-Generated Content</h2>
+            <ul>
+                <li>You retain ownership of any content you submit to the platform.</li>
+                <li>By submitting content, you grant us a non-exclusive, royalty-free license to use, display, and distribute it in connection with our services.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Limitation of Liability</h2>
+            <p>We strive to provide accurate and reliable services, but we do not guarantee their completeness or accuracy. Quiero Aprender is not liable for any direct, indirect, or incidental damages resulting from the use of our platform.</p>
+        </section>
+
+        <section>
+            <h2>Termination of Use</h2>
+            <p>We reserve the right to suspend or terminate your account if you violate these terms or engage in prohibited activities.</p>
+        </section>
+
+        <section>
+            <h2>Changes to the Terms</h2>
+            <p>We may update these Terms of Service from time to time. We will notify you of significant changes by email or through the platform. Continued use of our services after changes are made constitutes acceptance of the updated terms.</p>
+        </section>
+
+        <section>
+            <h2>Governing Law</h2>
+            <p>These Terms of Service are governed by and construed in accordance with the laws of Barcelona Catalanes. Any disputes will be resolved exclusively in the courts of Barcelona Catalanes.</p>
+        </section>
+
+        <section>
+            <h2>Contact Us</h2>
+            <p>If you have any questions about these Terms of Service, please contact us at:</p><br>
+            <p><strong>Email:</strong> <a href="{% url 'contact' %}">info@quieroaprender.com</a></p>
+            <p><strong>Address:</strong> Universidad Quiero Aprender <br> Calle de la Libertad,<br> 585 08007,<br> Barcelona<br> España</p>
+        </section>
+    </div>
+{% endblock %}

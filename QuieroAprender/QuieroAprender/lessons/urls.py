@@ -12,8 +12,8 @@ urlpatterns = [
     path('flashcards/', flashcard_view, name='flashcards'),
     path('flashcards/view/', view_flashcards, name='view_flashcards'),
     path('flashcards/delete/<int:index>/', delete_flashcard_view, name='delete_flashcard'),
-    path('<int:lesson_id>/', lesson_detail, name='lesson-detail'),
+    path('<int:lesson_id>/<slug:slug>/', lesson_detail, name='lesson-detail'),
     path('api/', include(router.urls)),
-    path('word/', word_of_the_day_view, name='daily-word'),
+    path('word-of-the-day/', word_of_the_day_view, name='daily-word'),
 
 ]

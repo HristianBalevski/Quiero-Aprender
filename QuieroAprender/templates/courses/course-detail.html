@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block content %}
-	<div class="course-detail-container">
+	<div class="course-container">
         <h1 class="course-title">{{ course.title }}</h1>
         <p class="course-description">{{ course.description }}</p>
-        <p class="course-detail-level">
+        <p class="course-level">
             <strong>Level:</strong> {{ course.get_level_display }}
         </p>
-        <a class="course-detail-link" href="{% url 'lessons-by-course' course.id %}">View Lessons</a>
+        <a class="course-link" href="{% url 'lessons-by-course' course.id %}">View Lessons</a>
     </div>
 {% endblock %}

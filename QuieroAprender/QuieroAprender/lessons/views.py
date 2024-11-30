@@ -1,7 +1,6 @@
 from .models import Lesson
 from .services import translate_with_mymemory
 import json, requests
-
 from django.shortcuts import redirect, get_object_or_404, render
 from .services import delete_flashcard, create_flashcard, save_flashcard
 
@@ -13,6 +12,7 @@ from .models import WordOfTheDay
 from .serializers import WordOfTheDaySerializer
 from django.utils.timezone import now
 from django.core.paginator import Paginator
+
 
 def translate_view(request):
     text = request.GET.get('text', '')
@@ -33,17 +33,16 @@ def translate_view(request):
     return render(request, 'lessons/api-translator.html', context)
 
 
-
 def flashcard_view(request):
+
     text = request.GET.get('text', '')
     flashcard = None
     error_message = None
 
     if text:
         try:
-
             flashcard = create_flashcard(text, from_lang="en", to_lang="es")
-            save_flashcard(flashcard)
+            save_flashcard(flashcard, user_id=request.user.id)
         except Exception as e:
             error_message = str(e)
 
@@ -56,8 +55,12 @@ def flashcard_view(request):
 
 
 def view_flashcards(request):
+
+    user_id = request.user.id
+    file_path = f"flashcards_{user_id}.json"
+
     try:
-        with open("flashcards.json", "r") as file:
+        with open(file_path, "r") as file:
             flashcards = json.load(file)
     except FileNotFoundError:
         flashcards = []
@@ -66,10 +69,13 @@ def view_flashcards(request):
 
 
 def delete_flashcard_view(request, index):
-    if delete_flashcard(index):
+
+    user_id = request.user.id
+    if delete_flashcard(index, user_id):
         return redirect('view_flashcards')
     else:
         return redirect('view_flashcards')
+
 
 
 def lessons_by_course(request, course_id):
@@ -82,28 +88,49 @@ def lessons_by_course(request, course_id):
 
     return render(request, 'lessons/lessons-by-course.html', context)
 
-def lesson_detail(request, lesson_id):
+from django.core.paginator import Paginator
+from django.shortcuts import render, get_object_or_404
+from .models import Lesson
+
+def lesson_detail(request, lesson_id, slug):
     lessons = Lesson.objects.all().order_by('id')
+
     lessons_per_page = 1
     paginator = Paginator(lessons, lessons_per_page)
 
     page_number = request.GET.get('page')
 
     if not page_number:
-        current_lesson = get_object_or_404(Lesson, id=lesson_id)
+        current_lesson = get_object_or_404(Lesson, id=lesson_id, slug=slug)
         lesson_index = list(lessons).index(current_lesson)
         page_number = (lesson_index // lessons_per_page) + 1
 
     page_obj = paginator.get_page(page_number)
-
     lesson = page_obj.object_list[0]
+
+    previous_lesson = None
+    next_lesson = None
+
+    if page_obj.has_previous():
+        previous_lesson = lessons[page_obj.previous_page_number() - 1]
+
+    if page_obj.has_next():
+        next_lesson = lessons[page_obj.next_page_number() - 1]
+
+    first_lesson = lessons.first()
+    last_lesson = lessons.last()
 
     context = {
         'lesson': lesson,
         'page_obj': page_obj,
+        'previous_lesson': previous_lesson,
+        'next_lesson': next_lesson,
+        'first_lesson': first_lesson,
+        'last_lesson': last_lesson,
     }
 
     return render(request, 'lessons/lesson-detail.html', context)
+
 
 
 

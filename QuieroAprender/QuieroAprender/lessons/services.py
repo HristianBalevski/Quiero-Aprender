@@ -24,33 +24,38 @@ def create_flashcard(front, from_lang="en", to_lang="es"):
         "Back": translated_text
     }
 
+def save_flashcard(flashcard, user_id, file_path_template="flashcards_{user_id}.json"):
 
+    file_path = file_path_template.format(user_id=user_id)
 
-
-def save_flashcard(flashcard, file_path="flashcards.json"):
     try:
+
         with open(file_path, "r") as file:
             flashcards = json.load(file)
     except FileNotFoundError:
+
         flashcards = []
 
 
     flashcards.append(flashcard)
 
+
     with open(file_path, "w") as file:
         json.dump(flashcards, file, indent=4)
 
 
-def delete_flashcard(index, file_path="flashcards.json"):
+def delete_flashcard(index, user_id, file_path_template="flashcards_{user_id}.json"):
+
+    file_path = file_path_template.format(user_id=user_id)
 
     try:
 
         with open(file_path, "r") as file:
             flashcards = json.load(file)
 
-
         if 0 <= index < len(flashcards):
             del flashcards[index]
+
             with open(file_path, "w") as file:
                 json.dump(flashcards, file, indent=4)
             return True
@@ -58,6 +63,13 @@ def delete_flashcard(index, file_path="flashcards.json"):
             return False
     except FileNotFoundError:
         return False
+
+
+
+
+
+
+
 
 
 
