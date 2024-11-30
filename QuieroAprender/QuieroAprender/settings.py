@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-
+from django.urls import reverse_lazy
 from decouple import config
 from dotenv import load_dotenv
 
@@ -84,6 +84,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'QuieroAprender.events.context_processors.base_context'
             ],
         },
     },
@@ -152,7 +153,8 @@ CKEDITOR_UPLOAD_PATH = "images/lessons"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
-# settings.py
+
+LOGIN_URL = reverse_lazy('login')
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 

@@ -44,7 +44,7 @@
       width: 350px;
   }
 
-   .action-buttons .btn-do-action, .btn-cancel {
+   .action-buttons {
       font-size: 14px;
   }
 
@@ -88,7 +88,7 @@
       width: 300px;
   }
 
-    .action-buttons .btn-do-action, .btn-cancel {
+    .action-buttons {
       font-size: 12px;
   }
 

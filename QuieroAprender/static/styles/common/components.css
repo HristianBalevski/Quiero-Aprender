@@ -23,7 +23,7 @@
     text-decoration: none;
     color: var(--primary-color);
     width: 100%;
-    border-radius: 4px;
+    border-radius: var(--border-radius-8);
     border: 2px solid var(--primary-color);
     font-weight: bold;
     cursor: pointer;
@@ -85,11 +85,11 @@
   font-weight: bold;
   margin-bottom: 10px;
   display: inline-block;
-    background-color: #F6F4EE;
-    color: var(--black-color);
-    border: 1px solid var(--black-color);
-    border-radius: 20px;
-    padding: 0.5rem 1rem;
+  background-color: #F6F4EE;
+  color: var(--black-color);
+  border: 1px solid var(--black-color);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
 }
 
 .answers-list {
@@ -103,14 +103,18 @@
 }
 
 @media (max-width: 768px) {
-    .btn-submit {
+    .btn-submit,
+    .btn-do-action,
+    .btn-cancel {
         font-size: 16px;
         padding: 10px 20px;
     }
 }
 
 @media (max-width: 480px) {
-    .btn-submit {
+    .btn-submit,
+    .btn-do-action,
+    .btn-cancel {
         font-size: 12px;
         padding: 8px 20px;
     }

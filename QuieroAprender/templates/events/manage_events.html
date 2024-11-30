@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Manage Events
+{% endblock %}
+
+{% block content %}
+
+    <h2 class="primary-h2">Manage Events</h2>
+    <div class="api-manage-events-container">
+        <div class="event-actions">
+        <h5 class="primary-h2">Create New Event</h5>
+            <br>
+            <a href="{% url 'add_event' %}" class="btn-do-action">Add</a>
+            <br>
+        {% if events %}
+            
+            <br><br>
+        	{% for event in events %}
+            <br>
+            <li class="events-list">
+                <h5 class="primary-h2">{{ event.title }}</h5>
+                <br>
+                <a href="{% url 'edit_event' event.id %}" class="btn-do-action">Edit</a>
+                <br>
+                {% if has_permission %}
+                	<a href="{% url 'delete_event' event.id %}" class="btn-do-action">Delete</a>
+                {% endif %} 
+            </li>
+            {% endfor %}
+        {% else %}
+            <h2 class="primary-h2">No Events Available</h2>
+        {% endif %}
+        </div>
+    </div>
+
+      <div class="pagination">
+        <span class="step-links">
+            {% if events.has_previous %}
+                <a href="?page=1" class="pagination-link">First</a>
+                <a href="?page={{ events.previous_page_number }}" class="pagination-link">Previous</a>
+            {% endif %}
+
+            <span class="current-page">
+                Page {{ events.number }} of {{ events.paginator.num_pages }}
+            </span>
+
+            {% if events.has_next %}
+                <a href="?page={{ events.next_page_number }}" class="pagination-link">Next</a>
+                <a href="?page={{ events.paginator.num_pages }}" class="pagination-link">Last</a>
+            {% endif %}
+        </span>
+          <br>
+    </div>
+{% endblock %}

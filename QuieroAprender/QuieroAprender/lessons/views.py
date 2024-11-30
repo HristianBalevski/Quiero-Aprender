@@ -13,7 +13,6 @@ from .serializers import WordOfTheDaySerializer
 from django.utils.timezone import now
 from django.core.paginator import Paginator
 
-
 def translate_view(request):
     text = request.GET.get('text', '')
     translation = None
@@ -87,10 +86,6 @@ def lessons_by_course(request, course_id):
     }
 
     return render(request, 'lessons/lessons-by-course.html', context)
-
-from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404
-from .models import Lesson
 
 def lesson_detail(request, lesson_id, slug):
     lessons = Lesson.objects.all().order_by('id')

@@ -3,27 +3,31 @@
 
 {% block title %}Welcome{% endblock %}
 {% block content %}
+    
     {% if user.is_authenticated %}
-         <div class="unit-links">
+    <div class="unit-links">
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-label">Menu</label>
 
-             <input type="checkbox" id="menu-toggle" />
-             <label for="menu-toggle" class="menu-label">Menu</label>
+        <nav class="units-nav">
+            <ul class="units-list">
+                <li><a href="{% url 'daily-word' %}">Word of The Day</a></li>
+                <li><a href="{% url 'flashcards' %}">Create Flashcards</a></li>
+                <li><a href="{% url 'view_flashcards' %}">View Flashcards</a></li>
+                <li><a href="{% url 'translate' %}">Translate</a></li>
+                <li><a href="{% url 'forum-posts' %}">Forum</a></li>
+                <li><a href="{% url 'blog_list' %}">Blog</a></li>
+                <li><a href="{% url 'calendar_view' %}">Calendar</a></li>
+                <li><a href="{% url 'all_events' %}">Events</a></li>
+                <li><a href="{% url 'my_events' %}">My Events</a></li>
+                {% if is_admin %}
+                    <li><a href="{% url 'manage_events_page' %}">Manage Events</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}
 
-            <nav class="units-nav">
-                <ul class="units-list">
-                    <li><a href="{% url 'daily-word' %}">Word of The Day</a></li>
-                    <li><a href="{% url 'flashcards' %}">Create Flashcards</a></li>
-                    <li><a href="{% url 'view_flashcards' %}">View Flashcards</a></li>
-                    <li><a href="{% url 'translate' %}">Translate</a></li>
-                    <li><a href="{% url 'forum-posts' %}">Forum</a></li>
-                    <li><a href="{% url 'blog_list' %}">Blog</a></li>
-                    <li><a href="{% url 'calendar_view' %}">Calendar</a></li>
-                    <li><a href="{% url 'all_events' %}">Events</a></li>
-                    <li><a href="{% url 'my_events' %}">My Events</a></li>
-                </ul>
-            </nav>
-        </div>
-     {% endif %}
 
 	<img src="{% static 'images/gallery/Cover Photo.jpg' %}" alt="">
     <br><br>

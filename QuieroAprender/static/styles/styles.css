@@ -37,6 +37,7 @@
 /* Events*/
 @import url('events/events.css');
 @import url('events/calendar.css');
+@import url('events/manage_events.css');
 
 /* Media Query */
 @import url('common/media.css');
