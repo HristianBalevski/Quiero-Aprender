@@ -49,7 +49,6 @@ def contact_view(request):
 
     return render(request, 'common/contact.html', {'form': form})
 
-
 def country_details(request, country_name):
     countries = {
         "argentina": {

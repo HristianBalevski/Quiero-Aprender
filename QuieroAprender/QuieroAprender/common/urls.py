@@ -1,5 +1,5 @@
 from django.urls import path
-
+from django.shortcuts import render
 from QuieroAprender.common.views import home, country_details, about, university, contact_view, terms, privacy
 
 urlpatterns = [
@@ -11,3 +11,8 @@ urlpatterns = [
     path('terms/', terms, name='terms'),
     path('privacy/', privacy, name='privacy'),
 ]
+
+def custom_permission_denied_view(request, exception):
+    return render(request, '403.html', {'exception': exception}, status=403)
+
+handler403 = 'QuieroAprender.common.urls.custom_permission_denied_view'

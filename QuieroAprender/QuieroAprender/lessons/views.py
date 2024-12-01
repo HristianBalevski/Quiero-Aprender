@@ -139,7 +139,7 @@ class WordOfTheDayViewSet(ReadOnlyModelViewSet):
 
 
 def word_of_the_day_view(request):
-    api_url = 'http://127.0.0.1:8000/lessons/api/word-of-the-day/'
+    api_url = 'http://127.0.0.1:8000/lesson/api/word-of-the-day/'
     response = requests.get(api_url)
     word_of_the_day = response.json() if response.status_code == 200 else []
 
