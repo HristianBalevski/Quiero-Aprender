@@ -10,9 +10,9 @@
 
         <div>
            {% if user.profile_photo %}
-                <img src="{{ user.profile_photo.url }}" alt="Profile Photo" style="width: 150px; height: 150px; border-radius: 50%;">
+                <img src="{{ user.profile_photo.url }}" alt="Profile Photo">
             {% else %}
-                <img src="{% static 'images/gallery/Annonymous.png' %}" alt="Default Profile Photo" style="width: 150px; height: 150px; border-radius: 50%;">
+                <img src="{% static 'images/gallery/Annonymous.png' %}" alt="Default Profile Photo">
             {% endif %}
         </div>
 
@@ -24,6 +24,7 @@
             <li><strong>Biography:</strong> {{ user.bio }}</li>
             <li><strong>Date Of Birth:</strong> {{ user.birth_date }}</li>
         </ul>
+
         {% if request.user.username == user.username %}
         	<div class="action-buttons">
                 <a href="{% url 'update' user.username %}" class="btn-do-action">Edit</a>

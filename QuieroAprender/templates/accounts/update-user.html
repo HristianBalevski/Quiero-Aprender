@@ -29,9 +29,18 @@
 
                 <label for="{{ form.birth_date.id_for_label }}">Birth Date</label>
                 {{ form.birth_date }}
+            
+            
+                <div class="form-group">
+                    <label for="{{ form.profile_photo.id_for_label }}">Profile Photo</label>
+                    {% if form.profile_photo.value %}
+                        <div class="current-photo">
+                            <img src="{{ form.profile_photo.value.url }}" alt="Current profile photo">
+                        </div>
+                    {% endif %}
+                    {{ form.profile_photo }}
+                </div>
 
-                <label for="{{ form.profile_photo.id_for_label }}">Profile Photo</label>
-                {{ form.profile_photo }}
 
                 {% if form.profile_photo.errors %}
                     <div class="error">

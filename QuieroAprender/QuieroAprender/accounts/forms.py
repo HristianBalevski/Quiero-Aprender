@@ -1,3 +1,5 @@
+from fileinput import FileInput
+
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import CustomUser
@@ -40,14 +42,20 @@ class CustomUserUpdateForm(forms.ModelForm):
             'bio': forms.Textarea(attrs={
                 'rows': 5,
                 'placeholder': 'Tell us a little about yourself',
-                'class': 'bio-textarea',
             }),
             'birth_date': forms.DateInput(attrs={
                 'type': 'date',
                 'placeholder': 'Update Birth Date',
             }),
-            'profile_photo': forms.ClearableFileInput(),
+            'profile_photo': forms.FileInput(attrs={})
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance and self.instance.profile_photo:
+            self.fields['profile_photo'].widget.attrs.update({
+                'data-current-photo-url': self.instance.profile_photo.url
+            })
 
     def clean_profile_photo(self):
         profile_photo = self.cleaned_data.get('profile_photo')

@@ -35,6 +35,14 @@ form label {
     color: var(--dark-color);
 }
 
+.current-photo img,
+.form-container img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
 .form-message {
     background-color: var(--primary-color);
     color: var(--white-color);
@@ -90,6 +98,14 @@ form input[type="file"]:focus {
         font-size: 16px;
         padding: 10px;
     }
+
+    .current-photo img,
+    .form-container img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+    margin-bottom: 0.8rem;
+}
 }
 
 @media (max-width: 480px) {
@@ -108,4 +124,12 @@ form input[type="file"]:focus {
         font-size: 14px;
         padding: 8px;
     }
+
+    .current-photo img,
+    .form-container img {
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
 }
