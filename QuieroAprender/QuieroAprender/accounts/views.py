@@ -1,14 +1,15 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import UpdateView
 from django.views.generic.edit import CreateView, DeleteView
 from django.contrib.auth import login
-from .forms import CustomUserCreationForm, CustomUserUpdateForm, LoginForm
-from django.contrib.auth.views import LogoutView
+from django.http import HttpResponseForbidden
+from django.core.exceptions import PermissionDenied
 
+from .forms import CustomUserCreationForm, CustomUserUpdateForm, LoginForm
 from .models import CustomUser
 
 
@@ -43,7 +44,13 @@ class UpdateProfileView(UpdateView):
         return reverse('profile', kwargs={'username': self.request.user.username})
 
     def get_object(self, queryset=None):
-        return self.request.user
+        username = self.kwargs.get('username')
+        user = get_object_or_404(CustomUser, username=username)
+
+        if user != self.request.user:
+            raise PermissionDenied("You do not have permission to edit this profile.")
+
+        return user
 
 class UserDeleteView(LoginRequiredMixin, DeleteView):
     model = CustomUser
@@ -51,12 +58,18 @@ class UserDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('home')
 
     def get_object(self, queryset=None):
-        return self.request.user
+        username = self.kwargs.get('username')
+        user = get_object_or_404(CustomUser, username=username)
+
+        if user != self.request.user:
+            raise PermissionDenied("You can only delete your own profile.")
+
+        return user
 
 @login_required
 def profile_view(request, username):
-    user = get_object_or_404(CustomUser, username=username)
-    return render(request, 'accounts/user-profile.html', {'user': user})
+    profile_user = get_object_or_404(CustomUser, username=username)
+    return render(request, 'accounts/user-profile.html', {'profile_user': profile_user})
 
 
 

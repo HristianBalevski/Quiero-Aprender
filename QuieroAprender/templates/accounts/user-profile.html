@@ -4,31 +4,31 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}
-    <h2 class="primary-h2">{{ user.username }}'s Profile</h2>
-<div class="page-container-min-height-80vh">
+    <h2 class="primary-h2">{{ profile_user.username }}'s Profile</h2>
+<div>
     <div class="form-container">
-
+    
         <div>
-           {% if user.profile_photo %}
-                <img src="{{ user.profile_photo.url }}" alt="Profile Photo">
+           {% if profile_user.profile_photo %}
+                <img src="{{ profile_user.profile_photo.url }}" alt="Profile Photo">
             {% else %}
                 <img src="{% static 'images/gallery/Annonymous.png' %}" alt="Default Profile Photo">
             {% endif %}
         </div>
 
         <ul class="personal-info">
-            <li><strong>Username:</strong> {{ user.username }}</li>
-            <li><strong>First Name:</strong> {{ user.first_name }}</li>
-            <li><strong>Last Name:</strong> {{ user.last_name }}</li>
-            <li><strong>Email:</strong> {{ user.email }}</li>
-            <li><strong>Biography:</strong> {{ user.bio }}</li>
-            <li><strong>Date Of Birth:</strong> {{ user.birth_date }}</li>
+            <li><strong>Username:</strong> {{ profile_user.username }}</li>
+            <li><strong>First Name:</strong> {{ profile_user.first_name }}</li>
+            <li><strong>Last Name:</strong> {{ profile_user.last_name }}</li>
+            <li><strong>Email:</strong> {{ profile_user.email }}</li>
+            <li><strong>Biography:</strong> {{ profile_user.bio }}</li>
+            <li><strong>Date Of Birth:</strong> {{ profile_user.birth_date }}</li>
         </ul>
 
-        {% if request.user.username == user.username %}
+        {% if request.user.username == profile_user.username %}
         	<div class="action-buttons">
-                <a href="{% url 'update' user.username %}" class="btn-do-action">Edit</a>
-                <a href="{% url 'delete' user.username %}" class="btn-do-action">Delete</a>
+                <a href="{% url 'update' profile_user.username %}" class="btn-do-action">Edit</a>
+                <a href="{% url 'delete' profile_user.username %}" class="btn-do-action">Delete</a>
         </div>
         {% endif %} 
     </div>
