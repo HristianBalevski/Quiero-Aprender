@@ -1,6 +1,7 @@
-from django.db.models.signals import pre_save, post_delete
-from django.dispatch import receiver
 import os
+
+from django.db.models.signals import post_delete, pre_save
+from django.dispatch import receiver
 
 from .models import CustomUser
 
@@ -8,12 +9,17 @@ from .models import CustomUser
 @receiver(pre_save, sender=CustomUser)
 def delete_old_profile_photo(sender, instance, **kwargs):
     if instance.pk:
-        old_photo = sender.objects.filter(pk=instance.pk).values_list('profile_photo', flat=True).first()
+        old_photo = (
+            sender.objects.filter(pk=instance.pk)
+            .values_list("profile_photo", flat=True)
+            .first()
+        )
         if old_photo and old_photo != instance.profile_photo.name:
-            old_photo_path = os.path.join(instance.profile_photo.storage.location, old_photo)
+            old_photo_path = os.path.join(
+                instance.profile_photo.storage.location, old_photo
+            )
             if os.path.isfile(old_photo_path):
                 os.remove(old_photo_path)
-
 
 
 @receiver(post_delete, sender=CustomUser)

@@ -1,20 +1,22 @@
-from .models import Lesson
-from .services import translate_with_mymemory
-import json, requests
-from django.shortcuts import redirect, get_object_or_404, render
-from .services import delete_flashcard, create_flashcard, save_flashcard
+import json
 
+import requests
+from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+from django.shortcuts import get_object_or_404, redirect, render
+from django.utils.timezone import now
+from rest_framework.viewsets import ReadOnlyModelViewSet
 
 from ..courses.models import Course
-
-from rest_framework.viewsets import ReadOnlyModelViewSet
-from .models import WordOfTheDay
+from .models import Lesson, WordOfTheDay
 from .serializers import WordOfTheDaySerializer
-from django.utils.timezone import now
-from django.core.paginator import Paginator
+from .services import (create_flashcard, delete_flashcard, save_flashcard,
+                       translate_with_mymemory)
 
+
+@login_required
 def translate_view(request):
-    text = request.GET.get('text', '')
+    text = request.GET.get("text", "")
     translation = None
     error_message = None
 
@@ -24,17 +26,14 @@ def translate_view(request):
         except Exception as e:
             error_message = str(e)
 
-    context = {
-        'text': text,
-        'translation': translation,
-        'error_message': error_message
-    }
-    return render(request, 'lessons/api-translator.html', context)
+    context = {"text": text, "translation": translation, "error_message": error_message}
+    return render(request, "lessons/api-translator.html", context)
 
 
+@login_required
 def flashcard_view(request):
 
-    text = request.GET.get('text', '')
+    text = request.GET.get("text", "")
     flashcard = None
     error_message = None
 
@@ -45,14 +44,11 @@ def flashcard_view(request):
         except Exception as e:
             error_message = str(e)
 
-    context = {
-        'text': text,
-        'flashcard': flashcard,
-        'error_message': error_message
-    }
-    return render(request, 'lessons/flashcard.html', context)
+    context = {"text": text, "flashcard": flashcard, "error_message": error_message}
+    return render(request, "lessons/flashcard.html", context)
 
 
+@login_required
 def view_flashcards(request):
 
     user_id = request.user.id
@@ -64,36 +60,40 @@ def view_flashcards(request):
     except FileNotFoundError:
         flashcards = []
 
-    return render(request, 'lessons/view_flashcards.html', {'flashcards': flashcards})
+    return render(request, "lessons/view_flashcards.html", {"flashcards": flashcards})
 
 
+@login_required
 def delete_flashcard_view(request, index):
 
     user_id = request.user.id
     if delete_flashcard(index, user_id):
-        return redirect('view_flashcards')
+        return redirect("view_flashcards")
     else:
-        return redirect('view_flashcards')
+        return redirect("view_flashcards")
 
 
-
+@login_required
 def lessons_by_course(request, course_id):
     course = get_object_or_404(Course, id=course_id)
-    lessons = Lesson.objects.filter(course=course).select_related('course').order_by('created_at')
-    context = {
-        'course': course,
-        'lessons': lessons
-    }
+    lessons = (
+        Lesson.objects.filter(course=course)
+        .select_related("course")
+        .order_by("created_at")
+    )
+    context = {"course": course, "lessons": lessons}
 
-    return render(request, 'lessons/lessons-by-course.html', context)
+    return render(request, "lessons/lessons-by-course.html", context)
 
+
+@login_required
 def lesson_detail(request, lesson_id, slug):
-    lessons = Lesson.objects.all().order_by('id')
+    lessons = Lesson.objects.all().order_by("id")
 
     lessons_per_page = 1
     paginator = Paginator(lessons, lessons_per_page)
 
-    page_number = request.GET.get('page')
+    page_number = request.GET.get("page")
 
     if not page_number:
         current_lesson = get_object_or_404(Lesson, id=lesson_id, slug=slug)
@@ -116,17 +116,15 @@ def lesson_detail(request, lesson_id, slug):
     last_lesson = lessons.last()
 
     context = {
-        'lesson': lesson,
-        'page_obj': page_obj,
-        'previous_lesson': previous_lesson,
-        'next_lesson': next_lesson,
-        'first_lesson': first_lesson,
-        'last_lesson': last_lesson,
+        "lesson": lesson,
+        "page_obj": page_obj,
+        "previous_lesson": previous_lesson,
+        "next_lesson": next_lesson,
+        "first_lesson": first_lesson,
+        "last_lesson": last_lesson,
     }
 
-    return render(request, 'lessons/lesson-detail.html', context)
-
-
+    return render(request, "lessons/lesson-detail.html", context)
 
 
 class WordOfTheDayViewSet(ReadOnlyModelViewSet):
@@ -138,12 +136,11 @@ class WordOfTheDayViewSet(ReadOnlyModelViewSet):
         return self.queryset.filter(date=today)
 
 
+@login_required
 def word_of_the_day_view(request):
-    api_url = 'http://127.0.0.1:8000/lesson/api/word-of-the-day/'
+    api_url = "http://127.0.0.1:8000/lesson/api/word-of-the-day/"
     response = requests.get(api_url)
     word_of_the_day = response.json() if response.status_code == 200 else []
 
-    context = {
-        'word': word_of_the_day[0] if word_of_the_day else None
-    }
-    return render(request, 'lessons/word-of-the-day.html', context)
+    context = {"word": word_of_the_day[0] if word_of_the_day else None}
+    return render(request, "lessons/word-of-the-day.html", context)

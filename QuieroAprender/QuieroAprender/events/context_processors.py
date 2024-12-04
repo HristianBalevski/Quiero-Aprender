@@ -1,4 +1,5 @@
-from .views import is_super_admin, is_staff_admin
+from .views import is_staff_admin, is_super_admin
+
 
 def base_context(request):
 
@@ -6,4 +7,4 @@ def base_context(request):
         is_admin = is_super_admin(request.user) or is_staff_admin(request.user)
     else:
         is_admin = False
-    return {'is_admin': is_admin}
+    return {"is_admin": is_admin}

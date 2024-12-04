@@ -10,7 +10,8 @@
         <meta http-equiv="Expires" content="0">
         <meta name="description" content="Quiero Aprender - Your platform for quality education.">
     
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
         <link rel="icon" href="{% static 'images/logo-favicon/favicon.ico' %}" type="image/x-icon">
         <link href="https://cdn.jsdelivr.net/npm/fullcalendar/main.min.css" rel="stylesheet">
@@ -31,8 +32,8 @@
                     <li><a href="{% url 'about' %}"><i class="fa fa-info-circle"></i> About Us</a></li>
                     <li><a href="{% url 'all-courses' %}"><i class="fa fa-graduation-cap"></i> Education</a></li>
                     <li><a href="{% url 'university' %}"><i class="fa fa-university"></i> University</a></li>
+                    <li><a href="{% url 'blog_list' %}"><i class="fa fa-blog"></i>Blog</a></li>
                     <li><a href="{% url 'contact' %}"><i class="fa fa-envelope"></i> Contact</a></li>
-    
                     {% if user.is_authenticated %}
     
                         <li><a href="{% url 'profile' user.username %}"><i class="fa fa-user"></i> Profile</a></li>
@@ -71,11 +72,12 @@
         <div class="social-container">
             <h4 class="find-us">FOLLOW US:</h4>
             <div class="social-icons">
-                <a href="https://www.facebook.com/" aria-label="Facebook" title="Facebook"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.instagram.com/" aria-label="Instagram" title="Instagram"><i class="fa fa-instagram"></i></a>
-                <a href="https://x.com/" aria-label="Twitter" title="Twitter"><i class="fa fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/" aria-label="LinkedIn" title="Linkedin"><i class="fa fa-linkedin"></i></a>
-                <a href="https://www.youtube.com/" aria-label="YouTube" title="YouTube"><i class="fa fa-youtube"></i></a>
+                <a href="https://www.facebook.com/" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/" aria-label="LinkedIn" title="Linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/" aria-label="YouTube" title="YouTube"><i class="fab fa-youtube"></i></a>
+
             </div>
         </div>
         <div class="contact-container">

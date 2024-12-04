@@ -1,28 +1,26 @@
-import requests
 import json
+
+import requests
 
 
 def translate_with_mymemory(text, from_lang="en", to_lang="es"):
     url = "https://api.mymemory.translated.net/get"
-    params = {
-        "q": text,
-        "langpair": f"{from_lang}|{to_lang}"
-    }
+    params = {"q": text, "langpair": f"{from_lang}|{to_lang}"}
     response = requests.get(url, params=params)
 
     if response.status_code == 200:
         data = response.json()
-        return data.get("responseData", {}).get("translatedText", "No translation available")
+        return data.get("responseData", {}).get(
+            "translatedText", "No translation available"
+        )
     else:
         return f"Error: {response.status_code} - {response.text}"
 
 
 def create_flashcard(front, from_lang="en", to_lang="es"):
     translated_text = translate_with_mymemory(front, from_lang, to_lang)
-    return {
-        "Front": front,
-        "Back": translated_text
-    }
+    return {"Front": front, "Back": translated_text}
+
 
 def save_flashcard(flashcard, user_id, file_path_template="flashcards_{user_id}.json"):
 
@@ -36,9 +34,7 @@ def save_flashcard(flashcard, user_id, file_path_template="flashcards_{user_id}.
 
         flashcards = []
 
-
     flashcards.append(flashcard)
-
 
     with open(file_path, "w") as file:
         json.dump(flashcards, file, indent=4)
@@ -63,14 +59,3 @@ def delete_flashcard(index, user_id, file_path_template="flashcards_{user_id}.js
             return False
     except FileNotFoundError:
         return False
-
-
-
-
-
-
-
-
-
-
-

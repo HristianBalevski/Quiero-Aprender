@@ -1,6 +1,8 @@
-from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.db import models
+
 from QuieroAprender.utils import generate_unique_slug
+
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=200)

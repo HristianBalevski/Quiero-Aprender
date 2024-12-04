@@ -1,7 +1,7 @@
 from django.utils.text import slugify
 
 
-def generate_unique_slug(model_class, title, slug_field_name='slug'):
+def generate_unique_slug(model_class, title, slug_field_name="slug"):
 
     base_slug = slugify(title)
     slug = base_slug

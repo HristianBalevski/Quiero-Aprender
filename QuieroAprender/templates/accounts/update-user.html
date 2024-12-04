@@ -29,8 +29,8 @@
 
                 <label for="{{ form.birth_date.id_for_label }}">Birth Date</label>
                 {{ form.birth_date }}
-            
-            
+
+
                 <div class="form-group">
                     <label for="{{ form.profile_photo.id_for_label }}">Profile Photo</label>
                     {% if form.profile_photo.value %}
@@ -47,7 +47,7 @@
                         <p>{{ form.profile_photo.errors.0 }}</p>
                     </div>
                 {% endif %}
-            
+
                 <button type="submit" class="btn-submit">Save Changes</button>
             </form>
 

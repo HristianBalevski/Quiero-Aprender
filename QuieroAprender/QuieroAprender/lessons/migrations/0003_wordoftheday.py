@@ -6,18 +6,26 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('lessons', '0002_alter_lesson_content'),
+        ("lessons", "0002_alter_lesson_content"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='WordOfTheDay',
+            name="WordOfTheDay",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('spanish_word', models.CharField(max_length=100)),
-                ('translation', models.CharField(max_length=100)),
-                ('example_sentence', models.TextField()),
-                ('date', models.DateField(unique=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("spanish_word", models.CharField(max_length=100)),
+                ("translation", models.CharField(max_length=100)),
+                ("example_sentence", models.TextField()),
+                ("date", models.DateField(unique=True)),
             ],
         ),
     ]

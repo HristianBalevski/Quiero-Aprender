@@ -16,7 +16,7 @@
                 <p class="event-date">Start: {{ event.start_time }}</p>
                 <p class="event-date">End: {{ event.end_time }}</p><br>
                 <p class="event-attendees">Attendees: {{ event.attendees.count }}</p>
-                
+            <br>
                 <div class="register-event">
                     {% if user.is_authenticated %}
                         {% if not event.is_registered %}

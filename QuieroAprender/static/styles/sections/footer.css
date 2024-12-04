@@ -30,8 +30,9 @@
     text-align: center;
 }
 
-.fa {
-    font-size: 30px;
+.fab {
+    font-size: 25px;
+    margin-top: 0.5rem;
 }
 
 .social-icons a {
@@ -87,14 +88,14 @@
 }
 
 @media (max-width: 1024px) {
-    .fa {
-    font-size: 25px;
+    .fab {
+    font-size: 18px;
     }
 }
 
 @media (max-width: 768px) {
-    .fa {
-    font-size: 20px;
+    .fab {
+    font-size: 15px;
     }
 }
 @media (max-width: 600px) {
@@ -106,8 +107,8 @@
         margin-bottom: 10px;
     }
 
-    .fa {
-    font-size: 15px;
+    .fab {
+    font-size: 12px;
     }
 
     .rights{

@@ -1,17 +1,17 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+
 from QuieroAprender.utils import generate_unique_slug
+
 
 class Lesson(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(null=True, blank=True, max_length=200, unique=True)
     content = RichTextUploadingField()
     course = models.ForeignKey(
-        'courses.Course',
-        on_delete=models.CASCADE,
-        related_name='lessons'
+        "courses.Course", on_delete=models.CASCADE, related_name="lessons"
     )
-    image = models.ImageField(upload_to='lesson_images/', blank=True, null=True)
+    image = models.ImageField(upload_to="lesson_images/", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -24,7 +24,6 @@ class Lesson(models.Model):
         return self.title
 
 
-
 class WordOfTheDay(models.Model):
     spanish_word = models.CharField(max_length=100)
     translation = models.CharField(max_length=100)
@@ -33,4 +32,3 @@ class WordOfTheDay(models.Model):
 
     def __str__(self):
         return self.spanish_word
-
