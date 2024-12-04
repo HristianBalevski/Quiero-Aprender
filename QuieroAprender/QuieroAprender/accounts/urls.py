@@ -1,8 +1,13 @@
 from django.urls import path
 
-from QuieroAprender.accounts.views import (LoginUserView, LogoutUserView,
-                                           RegisterView, UpdateProfileView,
-                                           UserDeleteView, profile_view)
+from QuieroAprender.accounts.views import (
+    LoginUserView,
+    LogoutUserView,
+    RegisterView,
+    UpdateProfileView,
+    UserDeleteView,
+    profile_view,
+)
 
 urlpatterns = [
     path("register/", RegisterView.as_view(), name="register"),

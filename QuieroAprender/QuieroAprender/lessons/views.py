@@ -10,8 +10,12 @@ from rest_framework.viewsets import ReadOnlyModelViewSet
 from ..courses.models import Course
 from .models import Lesson, WordOfTheDay
 from .serializers import WordOfTheDaySerializer
-from .services import (create_flashcard, delete_flashcard, save_flashcard,
-                       translate_with_mymemory)
+from .services import (
+    create_flashcard,
+    delete_flashcard,
+    save_flashcard,
+    translate_with_mymemory,
+)
 
 
 @login_required

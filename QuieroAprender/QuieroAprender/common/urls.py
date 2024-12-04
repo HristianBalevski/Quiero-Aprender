@@ -1,8 +1,15 @@
 from django.shortcuts import render
 from django.urls import path
 
-from QuieroAprender.common.views import (about, contact_view, country_details,
-                                         home, privacy, terms, university)
+from QuieroAprender.common.views import (
+    about,
+    contact_view,
+    country_details,
+    home,
+    privacy,
+    terms,
+    university,
+)
 
 urlpatterns = [
     path("", home, name="home"),

@@ -1,8 +1,16 @@
 from django.urls import path
 
-from .views import (add_event, all_events, calendar_view, delete_event,
-                    edit_event, events_api, manage_events, my_events,
-                    register_event)
+from .views import (
+    add_event,
+    all_events,
+    calendar_view,
+    delete_event,
+    edit_event,
+    events_api,
+    manage_events,
+    my_events,
+    register_event,
+)
 
 urlpatterns = [
     path("manage-events/", manage_events, name="manage_events_page"),

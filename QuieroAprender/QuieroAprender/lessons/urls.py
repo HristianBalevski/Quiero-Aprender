@@ -1,11 +1,15 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-from QuieroAprender.lessons.views import (WordOfTheDayViewSet,
-                                          delete_flashcard_view,
-                                          flashcard_view, lesson_detail,
-                                          translate_view, view_flashcards,
-                                          word_of_the_day_view)
+from QuieroAprender.lessons.views import (
+    WordOfTheDayViewSet,
+    delete_flashcard_view,
+    flashcard_view,
+    lesson_detail,
+    translate_view,
+    view_flashcards,
+    word_of_the_day_view,
+)
 
 router = DefaultRouter()
 router.register(r"word-of-the-day", WordOfTheDayViewSet, basename="word-of-the-day")

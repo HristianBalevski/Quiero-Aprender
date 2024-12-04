@@ -13,9 +13,15 @@
             padding: 40px;
             background-color: var(--gray-color);
             color: var(--dark-color);
-
         }
         
+        .blog-container ul li {
+            list-style: none;
+        }
+        
+        .pagination-link {
+            margin-right: 1rem;
+        }
         article {
             background: white;
             padding: 40px;
@@ -23,7 +29,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        h2 {
+        .blog-container h4 {
             color: var(--primary-color);
             margin-top: 1.5em;
             margin-bottom: 0.8em;
@@ -68,12 +74,13 @@
                 &laquo; Previous
             </a>
         {% endif %}
-
+        
         {% if next_post %}
             <a href="{% url 'blog_detail' next_post.slug %}" class="pagination-link">
                 Next &raquo;
             </a>
         {% endif %}
+    
     </div>
 </div>
     <br><br>

@@ -75,7 +75,7 @@ class ForumPostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         post = self.get_object()
-        return self.request.user == post.user or self.request.user.is_staff
+        return self.request.user == post.user or self.request.user.is_superuser
 
 
 class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -87,4 +87,8 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         comment = self.get_object()
-        return self.request.user == comment.user
+        return (
+            self.request.user == comment.user
+            or self.request.user.is_staff
+            or self.request.user.is_superuser
+        )

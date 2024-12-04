@@ -18,6 +18,7 @@ class RegisterView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
+        print("User created successfully:", user)
         login(self.request, user)
         return redirect("profile", username=user.username)
 

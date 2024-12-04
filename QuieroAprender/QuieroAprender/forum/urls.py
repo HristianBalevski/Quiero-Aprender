@@ -1,8 +1,13 @@
 from django.urls import path
 
-from .views import (CommentDeleteView, ForumPostDeleteView,
-                    ForumPostUpdateView, forum_post_create, forum_post_detail,
-                    forum_posts)
+from .views import (
+    CommentDeleteView,
+    ForumPostDeleteView,
+    ForumPostUpdateView,
+    forum_post_create,
+    forum_post_detail,
+    forum_posts,
+)
 
 urlpatterns = [
     path("", forum_posts, name="forum-posts"),
