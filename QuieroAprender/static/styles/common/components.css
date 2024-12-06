@@ -68,7 +68,16 @@
     color: var(--primary-color);
     text-decoration: none;
 }
-
+.log-out-message {
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: var(--border-radius-8);
+    padding: 10px 20px;
+}
 .divider {
   height: 2px;
   background-color: var(--divider-color);

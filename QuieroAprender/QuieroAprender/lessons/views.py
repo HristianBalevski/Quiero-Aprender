@@ -5,7 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.timezone import now
-from rest_framework.viewsets import ReadOnlyModelViewSet
+
+from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
 
 from ..courses.models import Course
 from .models import Lesson, WordOfTheDay
@@ -17,6 +18,8 @@ from .services import (
     translate_with_mymemory,
 )
 
+def is_teacher(user):
+    return user.groups.filter(name="Teachers").exists()
 
 @login_required
 def translate_view(request):
@@ -148,3 +151,4 @@ def word_of_the_day_view(request):
 
     context = {"word": word_of_the_day[0] if word_of_the_day else None}
     return render(request, "lessons/word-of-the-day.html", context)
+

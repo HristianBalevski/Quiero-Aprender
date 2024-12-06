@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 SESSION_ENGINE = "django.contrib.sessions.backends.db"
 
+
 CKEDITOR_CONFIGS = {
     "default": {
         "toolbar": "full",  # Включва всички инструменти
@@ -55,7 +56,6 @@ CKEDITOR_CONFIGS = {
     },
 }
 
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -65,6 +65,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
 
 ROOT_URLCONF = "QuieroAprender.urls"
 
@@ -80,6 +81,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "QuieroAprender.events.context_processors.base_context",
+                "QuieroAprender.lessons.context_processors.teacher_context"
             ],
         },
     },

@@ -2,9 +2,10 @@
     background-color: var(--gray-color);
     padding-left: 50px;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1400px;
     border-radius: 8px;
     box-shadow: 0 2px 4px var(--shadow-color);
+
 }
 
 .go-back {
@@ -24,8 +25,6 @@
     flex-wrap: wrap;
     justify-content: space-between;
     list-style-position: outside;
-    padding: 0;
-    margin: 0;
 
 }
 
@@ -34,7 +33,6 @@
     flex: 0 0 calc(23% - 20px);
     margin: 10px;
     padding: 10px;
-    box-sizing: border-box;
     transition: transform 0.2s;
     list-style: decimal;
 }

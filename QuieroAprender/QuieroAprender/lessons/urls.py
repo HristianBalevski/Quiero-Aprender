@@ -24,3 +24,4 @@ urlpatterns = [
     path("api/", include(router.urls)),
     path("word-of-the-day/", word_of_the_day_view, name="daily-word"),
 ]
+

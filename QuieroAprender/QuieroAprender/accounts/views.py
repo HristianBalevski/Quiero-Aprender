@@ -7,6 +7,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import UpdateView
 from django.views.generic.edit import CreateView, DeleteView
+from django.contrib import messages
+from django.contrib.sessions.models import Session
 
 from .forms import CustomUserCreationForm, CustomUserUpdateForm, LoginForm
 from .models import CustomUser
@@ -18,7 +20,6 @@ class RegisterView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        print("User created successfully:", user)
         login(self.request, user)
         return redirect("profile", username=user.username)
 
@@ -27,12 +28,10 @@ class LoginUserView(LoginView):
     template_name = "accounts/login.html"
     form_class = LoginForm
 
-    def form_valid(self, form):
-        return super().form_valid(form)
-
-
 class LogoutUserView(LogoutView):
-    pass
+    def dispatch(self, request, *args, **kwargs):
+        messages.success(request, "You have been logged out successfully!")
+        return super().dispatch(request, *args, **kwargs)
 
 
 class UpdateProfileView(LoginRequiredMixin, UpdateView):

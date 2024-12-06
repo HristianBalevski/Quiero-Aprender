@@ -3,6 +3,14 @@
 
 {% block title %}Welcome{% endblock %}
 {% block content %}
+
+    {% if messages %}
+        <ul style="text-align: center">
+            {% for message in messages %}
+                <li class="log-out-message"><i class="fa fa-check-circle"></i> {{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     
     {% if user.is_authenticated %}
     <div class="unit-links">
@@ -22,6 +30,9 @@
                 {% if is_admin %}
                     <li><a href="{% url 'manage_events_page' %}">Manage Events</a></li>
                 {% endif %}
+                {% if can_see_api %}
+                    <li><a href="http://127.0.0.1:8000/lesson/api/">API</a></li>
+                {% endif %} 
             </ul>
         </nav>
     </div>
@@ -48,7 +59,9 @@
         <h3>Our Classroom</h3>
         <p>Our learning environment is supportive and engaging, crafted to inspire curiosity and growth. It encourages active participation, fosters collaboration, and provides the resources needed for each student to succeed on their educational journey.</p>
     </div>
+
 </section>
+    <br><br>
     <h2 class="countries-heading">SPANISH IS THE OFFICIAL LANGUAGE IN 21 COUNTRIES AROUND THE WORLD</h2>
     <br>
    <article class="countries">
