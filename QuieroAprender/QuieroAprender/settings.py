@@ -1,4 +1,4 @@
-import os
+import os, requests
 from pathlib import Path
 
 from decouple import config
@@ -20,6 +20,9 @@ SECRET_KEY = os.getenv("SECRET_KEY", "fall-back-secret-key")
 DEBUG = os.getenv("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = ['quiero-aprender-3bcc.onrender.com', 'localhost', '127.0.0.1']
+
+API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
+
 
 # Application definition
 
@@ -93,10 +96,12 @@ TEMPLATES = [
 WSGI_APPLICATION = "QuieroAprender.wsgi.application"
 
 
+
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if os.getenv("DATABASE_URL"):
+if os.getenv("RENDER") == 'true':
     DATABASES = {
         "default": dj_database_url.config(
             default=os.getenv("DATABASE_URL")
@@ -114,7 +119,9 @@ else:
         }
     }
 
-
+print("DATABASES:", DATABASES)
+print("DEBUG:", DEBUG)
+print("Environment:", os.getenv("RENDER"))
 
 
 

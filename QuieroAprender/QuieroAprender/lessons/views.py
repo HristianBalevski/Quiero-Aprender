@@ -23,6 +23,10 @@ from .services import (
     translate_with_mymemory,
 )
 
+import requests
+from django.conf import settings
+
+API_BASE_URL = getattr(settings, "API_BASE_URL", "http://127.0.0.1:8000")
 
 def is_teacher(user):
     return user.groups.filter(name="Teachers").exists()
@@ -199,11 +203,21 @@ class ListWordsView(APIView):
 
 
 @login_required
-def word_of_the_day_view(request):
-    api_url = "http://127.0.0.1:8000/lesson/api/word-of-the-day/"
-    response = requests.get(api_url)
-    word_of_the_day = response.json() if response.status_code == 200 else []
 
-    context = {"word": word_of_the_day[0] if word_of_the_day else None}
+def word_of_the_day_view(request):
+    api_url = f"{settings.API_BASE_URL}/lesson/api/word-of-the-day/"
+
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+
+        word_of_the_day = response.json()
+        context = {"word": word_of_the_day[0] if word_of_the_day else None}
+    except requests.exceptions.RequestException as e:
+
+        context = {"word": None, "error": f"Could not fetch data: {str(e)}"}
+
     return render(request, "lessons/word-of-the-day.html", context)
+
+
 
