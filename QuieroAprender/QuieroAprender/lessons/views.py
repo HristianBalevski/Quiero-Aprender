@@ -5,9 +5,14 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.timezone import now
+from rest_framework import status
+from rest_framework.views import APIView
 
 from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 
+from .permissions import CanSeeApiPermission
 from ..courses.models import Course
 from .models import Lesson, WordOfTheDay
 from .serializers import WordOfTheDaySerializer
@@ -17,6 +22,7 @@ from .services import (
     save_flashcard,
     translate_with_mymemory,
 )
+
 
 def is_teacher(user):
     return user.groups.filter(name="Teachers").exists()
@@ -141,6 +147,55 @@ class WordOfTheDayViewSet(ReadOnlyModelViewSet):
     def get_queryset(self):
         today = now().date()
         return self.queryset.filter(date=today)
+
+class ListWordsView(APIView):
+    permission_classes = [IsAuthenticated, CanSeeApiPermission ]
+    def get(self, request, pk=None):
+        if pk:
+            try:
+                word = WordOfTheDay.objects.get(pk=pk)
+                serializer = WordOfTheDaySerializer(word)
+                return Response(serializer.data)
+            except WordOfTheDay.DoesNotExist:
+                return Response({"error": "Word not found."}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            words = WordOfTheDay.objects.all()
+            serializer = WordOfTheDaySerializer(words, many=True)
+            return Response(serializer.data)
+
+    def post(self, request):
+        serializer = WordOfTheDaySerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def put(self, request, pk=None):
+        if not pk:
+            return Response({"error": "Method PUT not allowed without an ID."}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            word = WordOfTheDay.objects.get(pk=pk)
+        except WordOfTheDay.DoesNotExist:
+            return Response({"error": "Word not found."}, status=status.HTTP_404_NOT_FOUND)
+
+        serializer = WordOfTheDaySerializer(word, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk=None):
+        if not pk:
+            return Response({"error": "Method DELETE not allowed without an ID."}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            word = WordOfTheDay.objects.get(pk=pk)
+            word.delete()
+            return Response({"message": "Word deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
+        except WordOfTheDay.DoesNotExist:
+            return Response({"error": "Word not found."}, status=status.HTTP_404_NOT_FOUND)
+
 
 
 @login_required

@@ -31,7 +31,7 @@
                     <li><a href="{% url 'manage_events_page' %}">Manage Events</a></li>
                 {% endif %}
                 {% if can_see_api %}
-                    <li><a href="http://127.0.0.1:8000/lesson/api/">API</a></li>
+                    <li><a href="{% url 'word-of-the-day-list' %}">API</a></li>
                 {% endif %} 
             </ul>
         </nav>
