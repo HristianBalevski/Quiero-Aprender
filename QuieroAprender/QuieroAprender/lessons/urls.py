@@ -23,9 +23,8 @@ urlpatterns = [
         "flashcards/delete/<int:index>/", delete_flashcard_view, name="delete_flashcard"
     ),
     path("<int:lesson_id>/<slug:slug>/", lesson_detail, name="lesson-detail"),
+    path("word-of-the-day/", word_of_the_day_view, name="daily-word"),
     path("words/", ListWordsView.as_view(), name="word-of-the-day-list"),
     path('words/<int:pk>/', ListWordsView.as_view(), name='detail_update_delete_word'),
-    path("word-of-the-day/", word_of_the_day_view, name="daily-word"),
-
 ]
 
