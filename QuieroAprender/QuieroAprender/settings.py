@@ -19,7 +19,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "fall-back-secret-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = ['https://quiero-aprender-3bcc.onrender.com']
+ALLOWED_HOSTS = ['quiero-aprender-3bcc.onrender.com']
 
 # Application definition
 
