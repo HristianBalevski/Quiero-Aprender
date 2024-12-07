@@ -1,1 +1,1 @@
-web: gunicorn QuieroAprender.wsgi
+gunicorn QuieroAprender.wsgi
