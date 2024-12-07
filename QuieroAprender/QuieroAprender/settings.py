@@ -97,19 +97,23 @@ WSGI_APPLICATION = "QuieroAprender.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 if os.getenv("DATABASE_URL"):
-    DATABASES = dj_database_url.config(
-        default=os.getenv("DATABASE_URL"))
+    DATABASES = {
+        "default": dj_database_url.config(
+            default=os.getenv("DATABASE_URL")
+        )
+    }
 else:
     DATABASES = {
-            "default": {
-                "ENGINE": "django.db.backends.postgresql",
-                "NAME": config("DB_NAME"),
-                "USER": config("DB_USER"),
-                "PASSWORD": config("DB_PASSWORD"),
-                "HOST": config("DB_HOST"),
-                "PORT": config("DB_PORT"),
-            }
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": config("DB_NAME"),
+            "USER": config("DB_USER"),
+            "PASSWORD": config("DB_PASSWORD"),
+            "HOST": config("DB_HOST"),
+            "PORT": config("DB_PORT"),
         }
+    }
+
 
 
 
