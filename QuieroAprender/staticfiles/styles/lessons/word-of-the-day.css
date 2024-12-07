@@ -1,0 +1,33 @@
+.word-of-day-container {
+    max-width: 600px;
+    background-color: var(--gray-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.word-of-day-title {
+    text-transform: uppercase;
+    color: var(--gold-color);
+}
+
+.word-details {
+    padding: 20px 40px;
+}
+
+
+.word-title::before {
+    content: '🇪🇸';
+    margin-right: 5px;
+}
+
+.word-translation::before {
+    content: '🇬🇧';
+    margin-right: 5px;
+}
+
+
+

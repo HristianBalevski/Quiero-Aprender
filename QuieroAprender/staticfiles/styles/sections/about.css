@@ -1,0 +1,25 @@
+.about-us {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 0 40px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius-8);
+
+}
+
+.about-us h1,
+.about-us h2 {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.about-us li {
+    list-style-type: none;
+}
+
+.last-p {
+    margin-bottom: 3em;
+}
+
+

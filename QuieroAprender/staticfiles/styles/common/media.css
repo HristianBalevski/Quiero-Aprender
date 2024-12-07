@@ -1,0 +1,117 @@
+@media (max-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+
+  .action-buttons .btn-do-action, .btn-cancel {
+      font-size: 16px;
+  }
+
+  header {
+        font-size: 18px;
+    }
+
+  .primary-h2 {
+
+      width: 400px;
+  }
+
+
+  h1 {
+        font-size: 2rem;
+    }
+
+  h2 {
+        font-size: 1.70rem;
+    }
+
+  h3 {
+        font-size: 1.5rem;
+    }
+
+  h4, h5, h6 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .primary-h2 {
+      width: 350px;
+  }
+
+   .action-buttons {
+      font-size: 14px;
+  }
+
+
+  header {
+        font-size: 16px;
+    }
+
+  h1 {
+    font-size: 1.8rem;
+    }
+
+  h2 {
+        font-size: 1.5rem;
+    }
+
+  h3 {
+        font-size: 1.20rem;
+    }
+
+  h4, h5, h6 {
+        font-size: 1rem;
+    }
+
+  .logo img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+        line-height: 1.4;
+
+    header {
+        font-size: 14px;
+    }
+
+    .primary-h2 {
+      width: 300px;
+  }
+
+    .action-buttons {
+      font-size: 12px;
+  }
+
+
+    h1 {
+    font-size: 1.5rem;
+}
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    h4, h5, h6 {
+        font-size: 0.8rem;
+    }
+
+    .logo img {
+        width: 100px;
+        height: 100px;
+    }
+}
+}

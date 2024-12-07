@@ -1,0 +1,59 @@
+.main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--white-color);
+        padding: 20px;
+    }
+
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 50px;
+        gap: 20px;
+        max-width: 1200px;
+    }
+
+.card {
+        list-style-type: none;
+        background-color: var(--gray-color);
+        margin: 10px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px var(--shadow-color);
+        width: 300px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+.delete-flashcard {
+        background-color: var(--primary-color);
+        width: 100%;
+        max-width: 100px;
+        padding: 10px;
+        color: var(--white-color);
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .delete-flashcard:hover {
+        transform: translateY(-2px);
+    }
+
+
+@media (max-width: 768px) {
+    .card {
+        width: 200px;
+    }
+
+    .delete-flashcard {
+        max-width: 90px;
+        padding: 8px;
+    }
+}

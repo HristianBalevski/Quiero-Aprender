@@ -1,0 +1,122 @@
+.events-container {
+    max-width: 1200px;
+    margin: 40px auto 40px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.event-title {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding-bottom: 10px;
+}
+
+.event-block {
+    background-color: var(--gray-color);
+    padding: 20px 40px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 0 auto 2rem;
+}
+
+.event-description {
+    text-align: justify;
+}
+
+.event-date {
+    padding-bottom: 10px;
+}
+
+.register-event {
+    display: flex;
+    justify-content: center;
+}
+
+.register-event a {
+    width: 200px;
+    padding: 10px 20px;
+    background-color: var(--white-color);
+    text-align: center;
+    text-decoration: none;
+    color: var(--primary-color);
+    border-radius: 4px;
+    border: 2px solid var(--primary-color);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.register-event a:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.not-register-for-event {
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    padding: 30px 0;
+}
+
+
+@media (max-width: 1024px) {
+    .register-event a {
+        max-width: 180px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .register-event a {
+        max-width: 150px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-event a {
+        max-width: 120px;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .events-container {
+        max-width: 800px;
+    }
+
+    .not-register-for-event {
+        letter-spacing: 1.5px;
+
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .events-container {
+        max-width: 600px;
+    }
+
+    .not-register-for-event {
+        letter-spacing: 1.2px;
+        padding: 15px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .events-container {
+        max-width: 465px;
+    }
+
+    .not-register-for-event {
+        letter-spacing: 1px;
+        padding: 10px 0;
+    }
+}
