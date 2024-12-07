@@ -21,7 +21,13 @@ DEBUG = os.getenv("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = ['quiero-aprender-3bcc.onrender.com', 'localhost', '127.0.0.1']
 
-API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
+# API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
+
+if os.getenv("RENDER") == "true":
+    API_BASE_URL = os.getenv("API_BASE_URL", "https://quiero-aprender-3bcc.onrender.com")
+else:
+    API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
+
 
 
 # Application definition
@@ -118,10 +124,6 @@ else:
             "PORT": config("DB_PORT"),
         }
     }
-
-print("DATABASES:", DATABASES)
-print("DEBUG:", DEBUG)
-print("Environment:", os.getenv("RENDER"))
 
 
 

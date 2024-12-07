@@ -209,9 +209,11 @@ def word_of_the_day_view(request):
 
     try:
         response = requests.get(api_url)
+
         response.raise_for_status()
 
         word_of_the_day = response.json()
+
         context = {"word": word_of_the_day[0] if word_of_the_day else None}
     except requests.exceptions.RequestException as e:
 
