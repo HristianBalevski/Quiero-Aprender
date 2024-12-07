@@ -19,7 +19,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "fall-back-secret-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = ['quiero-aprender-3bcc.onrender.com']
+ALLOWED_HOSTS = ['quiero-aprender-3bcc.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -96,12 +96,22 @@ WSGI_APPLICATION = "QuieroAprender.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+if os.getenv("DATABASE_URL"):
+    DATABASES = dj_database_url.config(
+        default=os.getenv("DATABASE_URL"))
+else:
+    DATABASES = {
+            "default": {
+                "ENGINE": "django.db.backends.postgresql",
+                "NAME": config("DB_NAME"),
+                "USER": config("DB_USER"),
+                "PASSWORD": config("DB_PASSWORD"),
+                "HOST": config("DB_HOST"),
+                "PORT": config("DB_PORT"),
+            }
+        }
 
-DATABASES = {
-    "default": dj_database_url.config(
-        default=f"postgres://{config('DB_USER')}:{config('DB_PASSWORD')}@{config('DB_HOST')}:{config('DB_PORT')}/{config('DB_NAME')}"
-    )
-}
+
 
 
 # Password validation
