@@ -1,6 +1,5 @@
 import json
 
-import requests
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
@@ -8,7 +7,7 @@ from django.utils.timezone import now
 from rest_framework import status
 from rest_framework.views import APIView
 
-from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
+from rest_framework.viewsets import ReadOnlyModelViewSet
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
@@ -28,8 +27,10 @@ from django.conf import settings
 
 API_BASE_URL = getattr(settings, "API_BASE_URL", "http://127.0.0.1:8000")
 
+
 def is_teacher(user):
     return user.groups.filter(name="Teachers").exists()
+
 
 @login_required
 def translate_view(request):
@@ -49,7 +50,6 @@ def translate_view(request):
 
 @login_required
 def flashcard_view(request):
-
     text = request.GET.get("text", "")
     flashcard = None
     error_message = None
@@ -67,7 +67,6 @@ def flashcard_view(request):
 
 @login_required
 def view_flashcards(request):
-
     user_id = request.user.id
     file_path = f"flashcards_{user_id}.json"
 
@@ -82,7 +81,6 @@ def view_flashcards(request):
 
 @login_required
 def delete_flashcard_view(request, index):
-
     user_id = request.user.id
     if delete_flashcard(index, user_id):
         return redirect("view_flashcards")
@@ -152,8 +150,10 @@ class WordOfTheDayViewSet(ReadOnlyModelViewSet):
         today = now().date()
         return self.queryset.filter(date=today)
 
+
 class ListWordsView(APIView):
-    permission_classes = [IsAuthenticated, CanSeeApiPermission ]
+    permission_classes = [IsAuthenticated, CanSeeApiPermission]
+
     def get(self, request, pk=None):
         if pk:
             try:
@@ -161,7 +161,9 @@ class ListWordsView(APIView):
                 serializer = WordOfTheDaySerializer(word)
                 return Response(serializer.data)
             except WordOfTheDay.DoesNotExist:
-                return Response({"error": "Word not found."}, status=status.HTTP_404_NOT_FOUND)
+                return Response(
+                    {"error": "Word not found."}, status=status.HTTP_404_NOT_FOUND
+                )
         else:
             words = WordOfTheDay.objects.all()
             serializer = WordOfTheDaySerializer(words, many=True)
@@ -176,12 +178,17 @@ class ListWordsView(APIView):
 
     def put(self, request, pk=None):
         if not pk:
-            return Response({"error": "Method PUT not allowed without an ID."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {"error": "Method PUT not allowed without an ID."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         try:
             word = WordOfTheDay.objects.get(pk=pk)
         except WordOfTheDay.DoesNotExist:
-            return Response({"error": "Word not found."}, status=status.HTTP_404_NOT_FOUND)
+            return Response(
+                {"error": "Word not found."}, status=status.HTTP_404_NOT_FOUND
+            )
 
         serializer = WordOfTheDaySerializer(word, data=request.data)
         if serializer.is_valid():
@@ -191,19 +198,25 @@ class ListWordsView(APIView):
 
     def delete(self, request, pk=None):
         if not pk:
-            return Response({"error": "Method DELETE not allowed without an ID."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {"error": "Method DELETE not allowed without an ID."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         try:
             word = WordOfTheDay.objects.get(pk=pk)
             word.delete()
-            return Response({"message": "Word deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
+            return Response(
+                {"message": "Word deleted successfully."},
+                status=status.HTTP_204_NO_CONTENT,
+            )
         except WordOfTheDay.DoesNotExist:
-            return Response({"error": "Word not found."}, status=status.HTTP_404_NOT_FOUND)
-
+            return Response(
+                {"error": "Word not found."}, status=status.HTTP_404_NOT_FOUND
+            )
 
 
 @login_required
-
 def word_of_the_day_view(request):
     api_url = f"{settings.API_BASE_URL}/lesson/api/word-of-the-day/"
 
@@ -220,6 +233,3 @@ def word_of_the_day_view(request):
         context = {"word": None, "error": f"Could not fetch data: {str(e)}"}
 
     return render(request, "lessons/word-of-the-day.html", context)
-
-
-

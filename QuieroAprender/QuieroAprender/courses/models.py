@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Course(models.Model):
-    title = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=70, unique=True)
     description = models.TextField()
     level = models.CharField(
         max_length=50,

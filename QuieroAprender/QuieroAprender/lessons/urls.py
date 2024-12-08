@@ -8,7 +8,8 @@ from QuieroAprender.lessons.views import (
     lesson_detail,
     translate_view,
     view_flashcards,
-    word_of_the_day_view, ListWordsView,
+    word_of_the_day_view,
+    ListWordsView,
 )
 
 
@@ -25,6 +26,5 @@ urlpatterns = [
     path("<int:lesson_id>/<slug:slug>/", lesson_detail, name="lesson-detail"),
     path("word-of-the-day/", word_of_the_day_view, name="daily-word"),
     path("words/", ListWordsView.as_view(), name="word-of-the-day-list"),
-    path('words/<int:pk>/', ListWordsView.as_view(), name='detail_update_delete_word'),
+    path("words/<int:pk>/", ListWordsView.as_view(), name="detail_update_delete_word"),
 ]
-

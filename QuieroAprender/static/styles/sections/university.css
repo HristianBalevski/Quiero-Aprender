@@ -12,10 +12,11 @@
 }
 
 .history-section {
-        max-width: 1200px;
-        margin: 0 auto;
+      max-width: 1200px;
+      margin: 0 auto;
       background-color: var(--white-color);
       padding: 40px;
+      border: 1px solid var(--border-color);
       border-radius: 10px;
       box-shadow: 0 4px 8px var(--shadow-color);
     }

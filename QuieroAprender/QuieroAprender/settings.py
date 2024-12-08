@@ -17,17 +17,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY", "fall-back-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "True") == "True"
+DEBUG = True
 
-ALLOWED_HOSTS = ['quiero-aprender-3bcc.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = []
 
-# API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
-
-if os.getenv("RENDER") == "true":
-    API_BASE_URL = os.getenv("API_BASE_URL", "https://quiero-aprender-3bcc.onrender.com")
-else:
-    API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
-
+API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000")
 
 
 # Application definition
@@ -80,7 +74,6 @@ MIDDLEWARE = [
 ROOT_URLCONF = "QuieroAprender.urls"
 
 
-
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -93,7 +86,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "QuieroAprender.events.context_processors.base_context",
-                "QuieroAprender.lessons.context_processors.teacher_context"
+                "QuieroAprender.lessons.context_processors.teacher_context",
             ],
         },
     },
@@ -101,30 +94,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "QuieroAprender.wsgi.application"
 
-
-
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if os.getenv("RENDER") == 'true':
-    DATABASES = {
-        "default": dj_database_url.config(
-            default=os.getenv("DATABASE_URL")
-        )
-    }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": config("DB_NAME"),
-            "USER": config("DB_USER"),
-            "PASSWORD": config("DB_PASSWORD"),
-            "HOST": config("DB_HOST"),
-            "PORT": config("DB_PORT"),
-        }
-    }
 
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": config("DB_NAME"),
+        "USER": config("DB_USER"),
+        "PASSWORD": config("DB_PASSWORD"),
+        "HOST": config("DB_HOST"),
+        "PORT": config("DB_PORT"),
+    }
+}
 
 
 # Password validation
@@ -161,11 +144,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "https://static-quiero-aprender.onrender.com/"
-
-
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")

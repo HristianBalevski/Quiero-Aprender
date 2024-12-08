@@ -7,4 +7,3 @@ class WordOfTheDaySerializer(serializers.ModelSerializer):
     class Meta:
         model = WordOfTheDay
         fields = "__all__"
-

@@ -3,6 +3,7 @@
     margin: 40px auto;
     padding: 20px;
     background-color: var(--white-color);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius-8);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-family: 'Nunito', sans-serif;
@@ -13,7 +14,7 @@
     margin: 20px 0;
     padding: 10px;
     border: 1px solid var(--border-color);
-    var(--border-radius-8);
+    border-radius: var(--border-radius-8);
     box-shadow: 0 4px 6px var(--shadow-color);
     background-color: var(--gray-color);
 }
@@ -30,7 +31,6 @@
     text-decoration: none;
     text-transform: uppercase;
 }
-
 
 .lesson-container ul {
     background-color: var(--gray-color);

@@ -8,7 +8,6 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import UpdateView
 from django.views.generic.edit import CreateView, DeleteView
 from django.contrib import messages
-from django.contrib.sessions.models import Session
 
 from .forms import CustomUserCreationForm, CustomUserUpdateForm, LoginForm
 from .models import CustomUser
@@ -27,6 +26,7 @@ class RegisterView(CreateView):
 class LoginUserView(LoginView):
     template_name = "accounts/login.html"
     form_class = LoginForm
+
 
 class LogoutUserView(LogoutView):
     def dispatch(self, request, *args, **kwargs):

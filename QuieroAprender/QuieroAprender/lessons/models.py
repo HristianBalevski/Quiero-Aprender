@@ -5,8 +5,8 @@ from QuieroAprender.utils import generate_unique_slug
 
 
 class Lesson(models.Model):
-    title = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(null=True, blank=True, max_length=200, unique=True)
+    title = models.CharField(max_length=70, unique=True)
+    slug = models.SlugField(null=True, blank=True, max_length=80, unique=True)
     content = RichTextUploadingField()
     course = models.ForeignKey(
         "courses.Course", on_delete=models.CASCADE, related_name="lessons"
@@ -17,7 +17,7 @@ class Lesson(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = generate_unique_slug(Lesson, self.title)
+            self.slug = generate_unique_slug(Lesson, self.title, max_length=80)
         super().save(*args, **kwargs)
 
     def __str__(self):
