@@ -20,6 +20,7 @@
         background-color: var(--gray-color);
         margin: 10px;
         padding: 20px;
+        border: 1px solid var(--border-color);
         border-radius: 8px;
         box-shadow: 0 4px 8px var(--shadow-color);
         width: 300px;
