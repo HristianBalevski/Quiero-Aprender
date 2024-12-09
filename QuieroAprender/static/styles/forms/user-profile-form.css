@@ -7,6 +7,9 @@
         box-shadow: 0 4px 6px var(--shadow-color);
         background-color: var(--gray-color);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 }
 
 .personal-info li:hover {

@@ -36,6 +36,12 @@ class CustomUserCreationForm(UserCreationForm):
             ),
         }
 
+    def clean_username(self):
+        username = self.cleaned_data.get("username")
+        if len(username) > 30:
+            raise forms.ValidationError("Username cannot exceed 30 characters.")
+        return username
+
 
 class CustomUserUpdateForm(forms.ModelForm):
     class Meta:
