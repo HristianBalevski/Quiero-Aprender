@@ -3,15 +3,12 @@ import os
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models import ImageField
-
+from django.contrib.auth.models import BaseUserManager
 
 def profile_photo_upload_to(instance, filename):
     name, ext = os.path.splitext(filename)
     truncated_name = name[:10]
     return f"profile_photos/{truncated_name}{ext}"
-
-
-from django.contrib.auth.models import BaseUserManager
 
 
 class CustomUserManager(BaseUserManager):
