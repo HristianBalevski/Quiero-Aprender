@@ -31,3 +31,45 @@
 - **Profile or Sign Up**: If the user is logged in, ``Profile`` redirects to their profile page. If not, ``Sign Up`` is displayed instead of ``Profile``.
 
 - **Logout or Log In**: If the user is logged in, the ``Logout`` button redirects them to the ``Home`` page and a message ``You have been logged out successfully!`` is displayed. If the user is not logged in ``Log In`` is displayed insted of ``Logout``.
+
+## Profile Page
+
+- The user can edit or delete their own profile.
+- If a user visits another user's profile, they can only view the user's information. They are not allowed to edit or delete this profile.
+
+
+## Home Page for both logged and unlogged users
+
+- Spanish is the official language in 21 countries around the world. This section lists these countries, and clicking on any of them redirects the user to a page with detailed information about that country.
+
+## Home Page only for logged users
+
+- When users are logged in, they can see the 'units-nav' section. Some users have access to more links than others. Users without any special permissions can only see the following: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, Manage Events].
+
+- **Superusers** have access to the following features: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, Manage Events], along with additional permissions to manage events and access the API.
+
+- **Staff Admins** have access to the following features: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, Manage Events], including additional permissions to manage events.
+
+- **Teachers** have access to the following features: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, Manage Events], along with additional access to the API.
+
+## Units Nav
+
+- ``Word Of The Day``: This link allows every user to see a Spanish word along with its meaning in English and an example sentence.
+
+- ``Create Flashcards``: This link allows users to create their own flashcards, which will be visible only to them.
+
+- ``View Flashcards``: Here, users can see their flashcards.
+
+- ``Translate``: Here, users can translate English words or sentences into Spanish.
+
+- ``Forum``: Here, users can communicate with each other. Each user can create a post, and other users can comment on the post. Every user can edit or delete their own comments. The admin also can delete comments. The admin can delete posts but only from the Admin Panel.
+
+- ``Calendar``: Here, users can see all events, and by clicking on an event, they will be registered for it if they are not already.
+
+- ``Events``: Here, users can see all events, along with their descriptions, start and end dates, and the number of attendees for each event.
+
+- ``My Events``: Here, users can see all the events they are registered for.
+
+- ``Manage Events``: Here, users with the required permissions can add, edit, or delete events. They can also perform these actions from the Admin Panel.
+
+- ``API``: This is an API created with Django Rest Framework. It displays all words of the day and allows users with the appropriate permissions to perform GET, POST, PUT, and DELETE requests.
