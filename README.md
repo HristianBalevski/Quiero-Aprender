@@ -16,9 +16,9 @@
 
 ### Nav Bar
 
-- **Home**: Redirects to ``Home page``.
+- **Home**: Redirects to ``Home`` page.
 
-- **About Us**: Redirects to ``About Us page``.
+- **About Us**: Redirects to ``About Us`` page.
 
 - **Education**: Redirects to all available courses.  If the user is not logged in, they can see only information about the course. However, if the user is logged into their account, they will see a ``View Lessons`` button that redirects them to all lessons for this course.
 
