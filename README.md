@@ -1,8 +1,8 @@
 
 # 📖 Quiero-Aprender
 
-Quiero-Aprender is an online platform where all English speakers can learn Spanish.
-I developed this project on a MacBook Air with a screen resolution of 1680 x 1050.
+- Quiero-Aprender is an online platform where all English speakers can learn Spanish.
+- I developed this project on a MacBook Air with a screen resolution of 1680 x 1050.
 
 ## Registration and Login
 
