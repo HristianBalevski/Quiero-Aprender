@@ -44,7 +44,7 @@
 
 ## Home Page only for logged users
 
-- When users are logged in, they can see the 'units-nav' section. Some users have access to more links than others. Users without any special permissions can only see the following: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, Manage Events].
+- When users are logged in, they can see the 'units-nav' section. Some users have access to more links than others. Users without any special permissions can only see the following: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, My Events].
 
 - **Superusers** have access to the following features: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, My Events], along with additional permissions to manage events and access the API.
 
