@@ -64,6 +64,11 @@ form textarea {
     transition: border-color 0.3s ease;
 }
 
+form textarea {
+    max-width: 100%;
+    resize: none;
+}
+
 form input[type="file"] {
     cursor: pointer;
 }

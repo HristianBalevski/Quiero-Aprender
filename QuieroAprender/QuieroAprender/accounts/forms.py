@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.utils.timezone import now
 
 from .models import CustomUser
 from .validators import validate_image_size
@@ -80,6 +81,7 @@ class CustomUserUpdateForm(forms.ModelForm):
                 attrs={
                     "type": "date",
                     "placeholder": "Update Birth Date",
+                    "max": now().date().isoformat(),
                 }
             ),
             "profile_photo": forms.FileInput(attrs={}),
