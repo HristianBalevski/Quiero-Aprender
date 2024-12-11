@@ -46,11 +46,11 @@
 
 - When users are logged in, they can see the 'units-nav' section. Some users have access to more links than others. Users without any special permissions can only see the following: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, Manage Events].
 
-- **Superusers** have access to the following features: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, Manage Events], along with additional permissions to manage events and access the API.
+- **Superusers** have access to the following features: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, My Events], along with additional permissions to manage events and access the API.
 
-- **Staff Admins** have access to the following features: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, Manage Events], including additional permissions to manage events.
+- **Staff Admins** have access to the following features: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, My Events], including additional permissions to manage events.
 
-- **Teachers** have access to the following features: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, Manage Events], along with additional access to the API.
+- **Teachers** have access to the following features: [Word of the Day, Create Flashcards, View Flashcards, Translate, Forum, Calendar, Events, My Events], along with additional access to the API.
 
 ## Units Nav
 
